@@ -27,13 +27,13 @@ extension Double {
     
     public var toInt : Int { return Int(self) }
     
-    public var toString : String { get { return String(format: "%f", self) } }
+    public var toString : String { get { return "\(self)" } }
     
     public func toString(rounding: Int = 2) -> String
     {
         if(rounding == -1)
         {
-            return String(format: "%f", self)
+            return self.toString
         }
         return String(format: "%.\(rounding)f", floor(self*pow(10.0, Double(rounding)))/pow(10.0, Double(rounding)))
     }

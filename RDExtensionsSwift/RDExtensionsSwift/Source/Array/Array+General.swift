@@ -25,13 +25,14 @@
 
 public extension Array {
     
-    mutating func remove <U: Equatable> (object: U)
+    mutating func remove <U: Equatable> (object: U) -> [U]?
     {
         if(self.count == 0)
         {
-            return
+            return nil
         }
         
+        var removedObjects : [U] = []
         var i = 0
         while(i < self.count)
         {
@@ -40,19 +41,25 @@ public extension Array {
                 if(element == object)
                 {
                     self.removeAtIndex(i)
+                    removedObjects.append(element)
                     i -= 1
                 }
             }
             i += 1
         }
+        return removedObjects
     }
     
-    mutating func insertContentsOf(newElements: [Element], atIndex: Int)
+    func insertContentsOf(newElements: [Element], atIndex: Int) -> [Element]
     {
-        for e in newElements.reverse()
+        var array = Array(self)
+        var index = atIndex
+        for e in newElements
         {
-            self.insert(e, atIndex: 0)
+            array.insert(e, atIndex: index)
+            index += 1
         }
+        return array
     }
     
 }

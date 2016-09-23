@@ -1,7 +1,7 @@
 //
-//  Int+Conversion.swift
+//  CGFloatTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,23 @@
 //  THE SOFTWARE.
 //
 
-extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class CGFloatTests : XCTestCase {
     
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
+    func testToInt()
+    {
+        XCTAssertEqual(CGFloat(1).toInt, Int(1))
+    }
     
-    public var toString : String { get { return "\(self)" } }
+    func testToString()
+    {
+        XCTAssertEqual(CGFloat(0.123456789).toString, "0.123456789")
+        XCTAssertEqual(CGFloat(0.123456789).toString(-1), "0.123456789")
+        XCTAssertEqual(CGFloat(0.123456789).toString(), "0.12")
+        XCTAssertEqual(CGFloat(0.123456789).toString(1), "0.1")
+        XCTAssertEqual(CGFloat(0.123456789).toString(8), "0.12345678")
+    }
     
 }

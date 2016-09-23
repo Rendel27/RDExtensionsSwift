@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>RDExtensionsSwiftUnitTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>7262FC081D940F2A004D68C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>729238DF1D954E2F00414E60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

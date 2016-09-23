@@ -26,7 +26,7 @@
 extension String {
     
     public var toBool : Bool?
-        {
+    {
         get
         {
             switch self

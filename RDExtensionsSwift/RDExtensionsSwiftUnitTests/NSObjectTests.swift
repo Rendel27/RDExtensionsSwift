@@ -1,7 +1,7 @@
 //
-//  Int+Conversion.swift
+//  NSObjectTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,21 @@
 //  THE SOFTWARE.
 //
 
-extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class NSObjectTests : XCTestCase {
     
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
+    func testStringFromClass()
+    {
+        XCTAssertEqual(NSObjectTests.stringFromClass, "RDExtensionsSwiftUnitTests.NSObjectTests")
+        XCTAssertEqual(self.stringFromClass, "RDExtensionsSwiftUnitTests.NSObjectTests")
+    }
     
-    public var toString : String { get { return "\(self)" } }
+    func testClassName()
+    {
+        XCTAssertEqual(NSObjectTests.className, "NSObjectTests")
+        XCTAssertEqual(self.className, "NSObjectTests")
+    }
     
 }

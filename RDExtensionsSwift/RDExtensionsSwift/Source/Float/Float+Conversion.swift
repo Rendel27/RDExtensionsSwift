@@ -23,15 +23,15 @@
 //  THE SOFTWARE.
 //
 
-extension Float {
+public extension Float {
     
-    public func toString(rounding: Int = 2) -> String
+    var toInt : Int { return Int(self) }
+    
+    var toString : String { get { return Double(self).toString } }
+    
+    func toString(rounding: Int = 2) -> String
     {
-        if(rounding == -1)
-        {
-            return String(format: "%f", self)
-        }
-        return String(format: "%.\(rounding)f", floor(self*pow(10.0, Float(rounding)))/pow(10.0, Float(rounding)))
+        return Double(self).toString(rounding)
     }
     
 }

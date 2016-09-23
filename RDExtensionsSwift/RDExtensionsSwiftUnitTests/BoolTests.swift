@@ -1,7 +1,7 @@
 //
-//  Int+Conversion.swift
+//  BoolTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,21 @@
 //  THE SOFTWARE.
 //
 
-extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class BoolTests : XCTestCase {
     
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
+    func testToString()
+    {
+        XCTAssertEqual(true.toString, "true")
+        XCTAssertEqual(false.toString, "false")
+    }
     
-    public var toString : String { get { return "\(self)" } }
+    func testToInt()
+    {
+        XCTAssertEqual(true.toInt, 1)
+        XCTAssertEqual(false.toInt, 0)
+    }
     
 }

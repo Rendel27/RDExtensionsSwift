@@ -1,7 +1,7 @@
 //
-//  Int+Conversion.swift
+//  NSAttributedStringTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,24 @@
 //  THE SOFTWARE.
 //
 
-extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class NSAttributedStringTests : XCTestCase {
     
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
+    func testSubtringTo()
+    {
+        XCTAssertEqual(NSAttributedString(string: "0123456789").substringTo(5), NSAttributedString(string: "01234"))
+    }
     
-    public var toString : String { get { return "\(self)" } }
+    func testSubtringFrom()
+    {
+        XCTAssertEqual(NSAttributedString(string: "0123456789").substringFrom(5), NSAttributedString(string: "56789"))
+    }
+    
+    func testSubstring()
+    {
+        XCTAssertEqual(NSAttributedString(string: "0123456789").substring(2, to: 7), NSAttributedString(string: "23456"))
+    }
     
 }

@@ -1,7 +1,7 @@
 //
-//  Int+Conversion.swift
+//  CollectionTypeTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,14 @@
 //  THE SOFTWARE.
 //
 
-extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class CollectionTypeTests : XCTestCase {
     
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
-    
-    public var toString : String { get { return "\(self)" } }
+    func testToInt()
+    {
+        XCTAssertEqual(["1", "2", "3"].toInt, [1, 2, 3])
+    }
     
 }

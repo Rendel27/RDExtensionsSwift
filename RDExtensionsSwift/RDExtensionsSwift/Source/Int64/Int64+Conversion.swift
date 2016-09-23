@@ -25,6 +25,6 @@
 
 extension Int64 {
     
-    public var toString : String { get { return String(self) } }
+    public var toString : String { get { return "\(self)" } }
     
 }

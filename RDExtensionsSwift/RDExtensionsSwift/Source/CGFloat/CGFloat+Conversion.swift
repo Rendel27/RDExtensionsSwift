@@ -23,13 +23,15 @@
 //  THE SOFTWARE.
 //
 
-extension CGFloat {
+public extension CGFloat {
     
-    public var toInt : Int { return Int(self) }
+    var toInt : Int { return Int(self) }
     
-    public func toString(rounding: Int = 2) -> String
+    var toString : String { get { return Double(self).toString } }
+    
+    func toString(rounding: Int = 2) -> String
     {
-        return Float(self).toString(rounding)
+        return Double(self).toString(rounding)
     }
     
 }

@@ -1,7 +1,7 @@
 //
-//  Int+Conversion.swift
+//  NSDataTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,28 @@
 //  THE SOFTWARE.
 //
 
-extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class NSDataTests : XCTestCase {
     
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
-    
-    public var toString : String { get { return "\(self)" } }
+    func testDownload()
+    {
+        let expectation = self.expectationWithDescription("NSData.testDownload")
+        let url = NSURL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
+        var uuid : String = ""
+        uuid = NSData.download(url, completion: { (data, id) in
+            expectation.fulfill()
+            XCTAssertEqual(uuid, id)
+            XCTAssertNotNil(data)
+        })
+        
+        self.waitForExpectationsWithTimeout(30) { (error) in
+            if(error != nil)
+            {
+                XCTAssert(false, "Request Timeout for URL: " + url.absoluteString)
+            }
+        }
+    }
     
 }

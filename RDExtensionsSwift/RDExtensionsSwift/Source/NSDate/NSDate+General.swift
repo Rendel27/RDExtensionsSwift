@@ -25,7 +25,7 @@
 
 extension NSDate {
     
-    public var localDate : NSDate
+    public static var localDate : NSDate
     {
         let sourceDate = NSDate()
         let sourceTimeZone = NSTimeZone()
@@ -47,7 +47,7 @@ extension NSDate {
     
     public var weekDay : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Weekday, fromDate: self).weekday }
     
-    public var weekDayOriginal : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.WeekdayOrdinal, fromDate: self).weekdayOrdinal }
+    public var weekdayOrdinal : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.WeekdayOrdinal, fromDate: self).weekdayOrdinal }
     
     public var month : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Month, fromDate: self).month }
     

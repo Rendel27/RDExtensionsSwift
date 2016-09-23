@@ -1,7 +1,7 @@
 //
-//  Int+Conversion.swift
+//  FloatTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,14 @@
 //  THE SOFTWARE.
 //
 
-extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class FloatTests : XCTestCase {
     
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
-    
-    public var toString : String { get { return "\(self)" } }
+    func testToInt()
+    {
+        XCTAssertEqual(Float(1).toInt, Int(1))
+    }
     
 }
