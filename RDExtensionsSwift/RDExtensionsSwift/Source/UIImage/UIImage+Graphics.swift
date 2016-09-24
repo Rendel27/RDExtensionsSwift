@@ -29,10 +29,10 @@ extension UIImage {
     {
         var img : UIImage?
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        let r : CGRect = CGRectMake(0.0, 0.0, self.size.width, self.size.height)
+        let r : CGRect = CGRectMake(0, 0, self.size.width, self.size.height)
         if let ctx : CGContextRef = UIGraphicsGetCurrentContext()
         {
-            CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0)
+            CGContextSetRGBFillColor(ctx, 1, 1, 1, 1)
             CGContextFillRect(ctx, r)
             self.drawInRect(r, blendMode: .DestinationOut, alpha: 1)
             img = UIGraphicsGetImageFromCurrentImageContext()
@@ -43,14 +43,13 @@ extension UIImage {
     
     public func color(pixel: CGPoint) -> UIColor
     {
-        let pixelData = CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage))
-        let data = CFDataGetBytePtr(pixelData)
-        let pixelInfo = ((self.size.width  * pixel.y) + pixel.x ) * 4
-        let red = data[Int(pixelInfo)]
-        let green = data[Int(pixelInfo + 1)]
-        let blue = data[Int(pixelInfo + 2)]
-        let alpha = data[Int(pixelInfo + 3)]
-        return UIColor(red: red.toCGFloat/255.0, green: green.toCGFloat/255.0, blue: blue.toCGFloat/255.0, alpha: alpha.toCGFloat/255.0)
+        let data = CFDataGetBytePtr(CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage)))
+        let index = Int((self.size.width*pixel.y + pixel.x)*4)
+        let red = data[index]
+        let green = data[index + 1]
+        let blue = data[index + 2]
+        let alpha = data[index + 3]
+        return UIColor(red: red.toCGFloat/255, green: green.toCGFloat/255, blue: blue.toCGFloat/255, alpha: alpha.toCGFloat/255)
     }
     
     public func rescale(scale: CGFloat) -> UIImage?

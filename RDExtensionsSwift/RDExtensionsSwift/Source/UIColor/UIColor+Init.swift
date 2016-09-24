@@ -25,40 +25,42 @@
 
 extension UIColor {
     
-    public convenience init(red: Int, green: Int, blue: Int)
+    @objc(initWithIntRed:intGreen:intBlue:intAlpha:)
+    public convenience init(red: Int, green: Int, blue: Int, alpha: Int)
     {
         let red = red < 0 ? 0 : red > 255 ? 255 : red
         let green = green < 0 ? 0 : green > 255 ? 255 : green
         let blue = blue < 0 ? 0 : blue > 255 ? 255 : blue
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+        let alpha = alpha < 0 ? 0 : alpha > 255 ? 255 : alpha
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha) / 255.0)
     }
     
-    public convenience init(hexValue: Int)
+    public convenience init(hexValue: Int, alpha: Int = 255)
     {
         let red = hexValue >> 16
         let green = hexValue >> 8
         let blue = hexValue
-        self.init(red: red & 0xff, green: green & 0xff, blue: blue & 0xff)
+        self.init(red: red & 0xff, green: green & 0xff, blue: blue & 0xff, alpha: alpha)
     }
     
-    public convenience init(hexString: String)
+    public convenience init(hexString: String, alpha: Int = 255)
     {
         let hex = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
         var int = UInt32()
         NSScanner(string: hex).scanHexInt(&int)
-        let a, r, g, b: UInt32
+        let r, g, b : UInt32
         switch hex.characters.count
         {
         case 3:
-            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+            (r, g, b) = ((int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
         case 6:
-            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+            (r, g, b) = (int >> 16, int >> 8 & 0xFF, int & 0xFF)
         case 8:
-            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+            (r, g, b) = (int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
         default:
-            (a, r, g, b) = (1, 1, 1, 0)
+            (r, g, b) = (255, 255, 255)
         }
-        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(alpha) / 255)
     }
     
 }

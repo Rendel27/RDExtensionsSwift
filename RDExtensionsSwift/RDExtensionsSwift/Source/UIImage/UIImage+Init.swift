@@ -25,7 +25,18 @@
 
 import ImageIO
 
-extension UIImage {
+public extension UIImage {
+    
+    convenience init(color: UIColor, size: CGSize)
+    {
+        UIGraphicsBeginImageContext(size)
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetFillColorWithColor(context, color.CGColor)
+        CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height))
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(CGImage: img.CGImage!)
+    }
     
     public static func download(url: NSURL, completeInMainThread: Bool = true, completion: ((image: UIImage?, id: String) -> Void)?) -> String
     {
