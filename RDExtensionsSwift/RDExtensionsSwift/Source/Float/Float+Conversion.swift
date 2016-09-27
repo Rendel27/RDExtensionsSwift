@@ -25,10 +25,13 @@
 
 public extension Float {
     
+    /// RDExtensionsSwift: Convert Double to Int
     var toInt : Int { return Int(self) }
     
+    /// RDExtensionsSwift: Convert Double to String
     var toString : String { get { return Double(self).toString } }
     
+    /// RDExtensionsSwift: Return CGFloat as String with rounding
     func toString(rounding: Int = 2) -> String
     {
         return Double(self).toString(rounding)

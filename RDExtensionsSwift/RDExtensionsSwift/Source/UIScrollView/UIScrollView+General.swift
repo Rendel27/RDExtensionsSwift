@@ -25,17 +25,25 @@
 
 public extension UIScrollView {
     
+    /// RDExtensionsSwift: Get or Set content width of the receiver
     var contentWidth : CGFloat { get { return self.contentSize.width } set { self.contentSize = CGSizeMake(newValue, self.contentSize.height) } }
+    
+    /// RDExtensionsSwift: Get or Set content height of the receiver
     var contentHeight : CGFloat { get { return self.contentSize.height } set { self.contentSize = CGSizeMake(self.contentSize.width, newValue) } }
     
+    /// RDExtensionsSwift: Check if scroll view is scrolled to top
     var scrolledTop : Bool { return self.contentOffset.y < 0 }
+    
+    /// RDExtensionsSwift: Check if scroll view is scrolled to bottom
     var scrolledBottom : Bool { return self.contentOffset.y >= (self.contentSize.height - self.frame.size.height) }
     
+    /// RDExtensionsSwift: Scroll scroll view to top
     func scrollToTop(animated: Bool = true)
     {
         self.setContentOffset(CGPointZero, animated: animated)
     }
     
+    /// RDExtensionsSwift: Scroll scroll view to bottom
     func scrollToBottom(animated: Bool = true)
     {
         self.setContentOffset(CGPointMake(0, max(self.contentSize.height - self.bounds.size.height + self.contentInset.bottom, 0)), animated: animated)

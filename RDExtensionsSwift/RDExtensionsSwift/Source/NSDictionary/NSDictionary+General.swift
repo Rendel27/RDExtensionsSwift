@@ -25,16 +25,14 @@
 
 extension NSDictionary {
     
-    public func valueForLowercaseKey(lowercaseKey: String) -> AnyObject?
+    /// RDExtensionsSwift: Return value for incasesensitive key
+    public func valueForIncasesensitiveKey(key: String) -> AnyObject?
     {
-        for key in self.allKeys
+        for k in self.allKeys
         {
-            if let k = key as? String
+            if((k as? String)?.lowercaseString == key.lowercaseString)
             {
-                if(k.lowercaseString == lowercaseKey.lowercaseString)
-                {
-                    return self[k]
-                }
+                return self[k as! String]
             }
         }
         return nil

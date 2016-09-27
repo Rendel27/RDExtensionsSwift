@@ -25,6 +25,7 @@
 
 extension UINib {
     
+    /// RDExtensionsSwift: Return newly initialized nib with given Type, nib name, boundle, owner and options
     public static func instantiateType<T>(_: T.Type, nibName: String, bundle: NSBundle?, owner: AnyObject?, options: [NSObject : AnyObject]?) -> T!
     {
         for anyObject in self.init(nibName: nibName, bundle: bundle).instantiateWithOwner(owner, options: options)

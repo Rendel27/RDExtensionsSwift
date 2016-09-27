@@ -25,12 +25,16 @@
 
 extension NSObject {
     
+    /// RDExtensionsSwift: Return class full name as String
     public static var stringFromClass : String { return NSStringFromClass(self) }
     
+    /// RDExtensionsSwift: Return class full name as String
     public var stringFromClass : String { return NSStringFromClass(self.dynamicType) }
     
+    /// RDExtensionsSwift: Return class name as String
     public static var className : String { return self.stringFromClass.componentsSeparatedByString(".").last! }
     
+    /// RDExtensionsSwift: Return class name as String
     public var className : String { return self.stringFromClass.componentsSeparatedByString(".").last! }
     
 }

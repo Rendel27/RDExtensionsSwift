@@ -25,6 +25,7 @@
 
 extension UIImageView {
     
+    /// RDExtensionsSwift: Return newly initialized image view from given image with given mask
     public static func imageView(image: UIImage, mask: UIImage) -> UIImageView
     {
         let layerMask = CALayer()

@@ -25,8 +25,10 @@
 
 extension Int {
     
+    /// RDExtensionsSwift: Convert Int to Character
     public var toCharacter : Character { return Character(UnicodeScalar(self)) }
     
+    /// RDExtensionsSwift: Convert Int to String
     public var toString : String { get { return "\(self)" } }
     
 }

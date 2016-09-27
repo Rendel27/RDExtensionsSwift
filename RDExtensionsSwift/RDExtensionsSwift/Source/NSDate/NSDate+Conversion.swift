@@ -25,6 +25,7 @@
 
 extension NSDate {
     
+    /// RDExtensionsSwift: Convert NSDate to String with given format
     public func toString(format: String) -> String
     {
         let df = NSDateFormatter()

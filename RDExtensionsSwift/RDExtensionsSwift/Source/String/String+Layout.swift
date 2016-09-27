@@ -25,6 +25,7 @@
 
 extension String {
     
+    /// RDExtensionsSwift: Calculate and return width of the string for given hight with given font
     public func widthForHeight(height: CGFloat, font: UIFont) -> CGFloat
     {
         let label:UILabel = UILabel(frame: CGRectMake(0, 0, CGFloat.max, height))
@@ -36,6 +37,7 @@ extension String {
         return label.frame.size.width
     }
     
+    /// RDExtensionsSwift: Calculate and return height of the string for given width with given font
     public func heightForWidth(width: CGFloat, font: UIFont) -> CGFloat
     {
         let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))

@@ -25,6 +25,7 @@
 
 extension NSData {
     
+    /// RDExtensionsSwift: Return unique identifier and download data from the given url
     public static func download(url: NSURL, completeInMainThread: Bool = true, completion: ((data: NSData?, id: String) -> Void)?) -> String
     {
         let id = String.UUID

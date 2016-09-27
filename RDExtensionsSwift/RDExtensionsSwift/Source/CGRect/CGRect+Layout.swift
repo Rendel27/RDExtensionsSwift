@@ -25,20 +25,28 @@
 
 extension CGRect {
     
+    /// RDExtensionsSwift: Get or Set frame origin x
     public var x : CGFloat { get { return self.origin.x } set { self.origin.x = newValue } }
     
+    /// RDExtensionsSwift: Get or Set frame origin y
     public var y : CGFloat { get { return self.origin.y } set { self.origin.y = newValue } }
     
+    /// RDExtensionsSwift: Get or Set frame center x
     public var centerX : CGFloat { get { return self.x + self.width/2 } set { self.x = newValue - self.width/2 } }
     
+    /// RDExtensionsSwift: Get or Set frame center y
     public var centerY : CGFloat { get { return self.y + self.height/2 } set { self.y = newValue - self.height/2 } }
     
+    /// RDExtensionsSwift: Get or Set frame last x
     public var lastX : CGFloat { get { return self.x + self.width } set { self.x = newValue + self.width/2 } }
     
+    /// RDExtensionsSwift: Get or Set frame last y
     public var lastY : CGFloat { get { return self.y + self.height } set { self.y = newValue + self.height/2 } }
     
+    /// RDExtensionsSwift: Get or Set frame center point
     public var center : CGPoint { get { return CGPointMake(self.centerX, self.centerY) } set { self.centerX = newValue.x; self.centerY = newValue.y } }
     
+    /// RDExtensionsSwift: Get or Set frame middle point
     public var middle : CGPoint { get { return CGPointMake(self.width/2, self.height/2) } }
     
 }

@@ -25,10 +25,13 @@
 
 extension UInt8 {
     
+    /// RDExtensionsSwift: Convert UInt8 to Double
     public var toDouble : Double { return Double(self) }
     
+    /// RDExtensionsSwift: Convert UInt8 to Float
     public var toFloat : Float { return Float(self) }
     
+    /// RDExtensionsSwift: UInt8 to CGFloat
     public var toCGFloat : CGFloat { return CGFloat(self) }
     
 }

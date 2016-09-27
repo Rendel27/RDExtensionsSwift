@@ -25,6 +25,7 @@
 
 extension NSAttributedString {
     
+    /// RDExtensionsSwift: Return substring from the begining to the index
     public func substringTo(index: Int) -> NSAttributedString
     {
         var r = NSMakeRange(0, self.string.length)
@@ -33,6 +34,7 @@ extension NSAttributedString {
         return self.length < index ? attributedStr : self.attributedSubstringFromRange(NSMakeRange(0, index))
     }
     
+    /// RDExtensionsSwift: Return substring from the index to the end
     public func substringFrom(index: Int) -> NSAttributedString
     {
         var r = NSMakeRange(0, self.string.length)
@@ -41,6 +43,7 @@ extension NSAttributedString {
         return self.length < index ? attributedStr : self.attributedSubstringFromRange(NSMakeRange(index, self.string.length - index))
     }
     
+    /// RDExtensionsSwift: Return substring from the index to the index
     public func substring(from: Int, to: Int) -> NSAttributedString
     {
         return self.substringTo(to).substringFrom(from)

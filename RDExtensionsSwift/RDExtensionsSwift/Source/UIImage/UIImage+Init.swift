@@ -27,6 +27,7 @@ import ImageIO
 
 public extension UIImage {
     
+    /// RDExtensionsSwift: Return newly initialized image from given color with given size
     convenience init(color: UIColor, size: CGSize)
     {
         UIGraphicsBeginImageContext(size)
@@ -38,6 +39,7 @@ public extension UIImage {
         self.init(CGImage: img.CGImage!)
     }
     
+    /// RDExtensionsSwift: Return unique identifier and download image from the given url
     public static func download(url: NSURL, completeInMainThread: Bool = true, completion: ((image: UIImage?, id: String) -> Void)?) -> String
     {
         return NSData.download(url, completion: { (data, id) in
@@ -59,6 +61,7 @@ public extension UIImage {
         })
     }
     
+    /// RDExtensionsSwift: Return newly initialized animated image by given name
     @objc(gifWithName:)
     public static func gif(named: String) -> UIImage?
     {
@@ -70,6 +73,7 @@ public extension UIImage {
         return image
     }
     
+    /// RDExtensionsSwift: Return newly initialized animated image by given url
     @objc(gifWithURL:)
     public static func gif(url: NSURL) -> UIImage?
     {
@@ -81,6 +85,7 @@ public extension UIImage {
         return image
     }
     
+    /// RDExtensionsSwift: Return newly animated image by given data
     @objc(gifWithData:)
     public static func gif(data: NSData) -> UIImage?
     {
@@ -92,6 +97,7 @@ public extension UIImage {
         return image
     }
     
+    /// RDExtensionsSwift: Return newly initialized image by given source
     @objc(gifWithSource:)
     public static func gif(source: CGImageSourceRef) -> UIImage?
     {

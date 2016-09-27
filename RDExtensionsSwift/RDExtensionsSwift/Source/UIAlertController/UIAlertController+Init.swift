@@ -25,6 +25,7 @@
 
 public extension UIAlertController {
     
+    /// RDExtensionsSwift: Return a newly initialized view controller for displaying an alert to the user
     convenience init(title: String? = nil, message: String, style : UIAlertControllerStyle = .Alert, inputFieldPlaceholders: [String] = [], actionTitles: [String], actionBlocks: [((UIAlertAction) -> Void)?], completion: (() -> Void)? = nil)
     {
         self.init(title: title, message: message, preferredStyle: style)

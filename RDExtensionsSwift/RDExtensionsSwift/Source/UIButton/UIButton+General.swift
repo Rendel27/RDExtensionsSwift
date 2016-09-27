@@ -25,6 +25,7 @@
 
 extension UIButton {
     
+    /// RDExtensionsSwift: Set UIImage to UIButton for Normal state
     public func setImage(image: UIImage?, state: UIControlState = .Normal, circled: Bool = false)
     {
         self.setImage(circled ? image?.cutCircle(self.frame.width/2) : image, forState: UIControlState.Normal)

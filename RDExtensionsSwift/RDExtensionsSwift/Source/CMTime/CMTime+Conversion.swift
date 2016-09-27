@@ -27,6 +27,7 @@ import CoreMedia
 
 extension CMTime {
     
+    /// RDExtensionsSwift: Convert CMTime to NSTimeInterval in seconds
     public var toSeconds : NSTimeInterval { return CMTimeGetSeconds(self) }
     
 }

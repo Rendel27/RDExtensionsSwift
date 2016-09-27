@@ -25,13 +25,17 @@
 
 public extension UITextField {
     
+    /// RDExtensionsSwift: Return non nilable text
     var string : String { get { return self.text == nil ? "" : self.text! } set { self.text = newValue } }
     
+    /// RDExtensionsSwift: Calculate and return width of the text field for given hight with given font
     var widthForText : CGFloat { return self.string.widthForHeight(self.frame.size.height, font: self.font!) }
     
+    /// RDExtensionsSwift: Calculate and return height of the text field for given width with given font
     var heightForText : CGFloat { return self.string.heightForWidth(self.frame.size.width, font: self.font!) }
     
-    func addAdditionalDeleagtes()
+    /// RDExtensionsSwift: Add did change text handler to the delegate
+    func addDidChangeTextHandler()
     {
         if(self.delegate?.respondsToSelector(Selector("textFieldDidChangeText:")) == true)
         {

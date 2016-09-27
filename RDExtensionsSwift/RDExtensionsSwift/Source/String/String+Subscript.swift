@@ -25,16 +25,19 @@
 
 extension String {
     
+    /// RDExtensionsSwift: Return Character at index
     public subscript(i: Int) -> Character
     {
         return Array(self.characters)[i]
     }
     
+    /// RDExtensionsSwift: Return substring at index
     public subscript(i: Int) -> String
     {
         return String(self[i] as Character)
     }
     
+    /// RDExtensionsSwift: Return substring with range
     public subscript (r: Range<Int>) -> String
     {
         let start = startIndex.advancedBy(r.startIndex)
@@ -42,6 +45,7 @@ extension String {
         return self[Range(start ..< end)]
     }
     
+    /// RDExtensionsSwift: Return substring with range
     public subscript(range: NSRange) -> String
     {
         return (self as NSString).substringWithRange(range)

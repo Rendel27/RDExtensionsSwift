@@ -25,6 +25,7 @@
 
 extension UIView {
     
+    /// RDExtensionsSwift: Stretch the receiver to the given view(subview, if not presented) by given edge insets
     public func stretchLayout(view: UIView? = nil, edgeInsets: UIEdgeInsets = UIEdgeInsetsZero)
     {
         if let sv = self.superview, v = (view ?? self.superview)
@@ -37,6 +38,7 @@ extension UIView {
         }
     }
     
+    /// RDExtensionsSwift: Return an array containing constraints by given identifier
     public func constraints(identifier: String) -> [NSLayoutConstraint]
     {
         var cs : [NSLayoutConstraint] = []

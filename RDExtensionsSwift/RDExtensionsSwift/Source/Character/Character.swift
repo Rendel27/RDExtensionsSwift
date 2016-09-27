@@ -25,6 +25,7 @@
 
 extension Character {
     
+    /// RDExtensionsSwift: Convert Character to UInt32
     public var toInt : UInt32
     {
         for s in String(self).unicodeScalars
@@ -34,12 +35,14 @@ extension Character {
         return 0
     }
     
+    /// RDExtensionsSwift: Convert Character to UInt8
     public var utf8 : UInt8
     {
         let utf8 = String(self).utf8
         return utf8[utf8.startIndex]
     }
     
+    /// RDExtensionsSwift: Encrypt Character with key Character
     public func encrypt(key: Character) -> String?
     {
         let byte = [self.utf8 ^ key.utf8]

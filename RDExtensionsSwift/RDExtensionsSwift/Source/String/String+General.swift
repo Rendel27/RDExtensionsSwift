@@ -25,53 +25,64 @@
 
 extension String {
     
+    /// RDExtensionsSwift: Return length of the string
     public var length : Int { get { return self.utf16.count } }
     
+    /// RDExtensionsSwift: Trim whitespace characters and return new string
     public func condenseWhiteSpace() -> String
     {
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
     
+    /// RDExtensionsSwift: Return substring from the begining to the index
     public func substringTo(index: Int) -> String
     {
         return self.length < index ? "" : self[NSMakeRange(0, index)]
     }
     
+    /// RDExtensionsSwift: Return substring from the index to the end
     public func substringFrom(index: Int) -> String
     {
         return self[NSMakeRange(index, self.utf16.count - index)]
     }
     
+    /// RDExtensionsSwift: Return substring from the index to the index
     public func substring(from: Int, to: Int) -> String
     {
         return self.substringTo(to).substringFrom(from)
     }
     
+    /// RDExtensionsSwift: Return range for the given string
     public func range(string: String) -> NSRange
     {
         return (self as NSString).rangeOfString(string)
     }
     
+    /// RDExtensionsSwift: Append the path component and return the new path
     public func stringByAppendingPathComponent(string: String) -> String
     {
         return (self as NSString).stringByAppendingPathComponent(string)
     }
     
+    /// RDExtensionsSwift: Return a new string in which the characters in a specified range of the receiver are replaced by a given string
     public func stringByReplacingCharactersInRange(range: NSRange, withString replacement: String) -> String
     {
         return (self as NSString).stringByReplacingCharactersInRange(range, withString: replacement)
     }
     
+    /// RDExtensionsSwift: Replace the characters in a specified range by a given string
     public mutating func replaceCharactersInRange(range: NSRange, withString replacement: String)
     {
         self = self.stringByReplacingCharactersInRange(range, withString: replacement)
     }
     
+    /// RDExtensionsSwift: Validate string by given regular expression. Returns true or false
     public func validate(regex: String) -> Bool
     {
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluateWithObject(self)
     }
     
+    /// RDExtensionsSwift: Return an array containing substrings of the receiver which are matched by a given regular expression with regex options and matching options
     public func matches(regex: String, regexOptions: NSRegularExpressionOptions = [], matchingOptions: NSMatchingOptions = []) throws -> [String]
     {
         var matches : [String] = []
@@ -82,6 +93,7 @@ extension String {
         return matches
     }
     
+    /// RDExtensionsSwift: Return an array containing ranges of substrings of the receiver which are matched to a given string with matching options
     public func ranges(string: String, matchingOptions: NSMatchingOptions = []) throws -> [NSRange]
     {
         var ranges : [NSRange] = []
@@ -92,6 +104,7 @@ extension String {
         return ranges
     }
     
+    /// RDExtensionsSwift: Return substring which is visible in the given frame with the given font
     public func visibleStringInRect(rect: CGRect, withFont font: UIFont) -> String
     {
         var visibleString = ""

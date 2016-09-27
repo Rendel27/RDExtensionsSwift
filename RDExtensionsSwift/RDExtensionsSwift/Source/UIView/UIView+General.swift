@@ -25,6 +25,7 @@
 
 extension UIView {
     
+    /// RDExtensionsSwift: Return subviews of the receiver by given tag recursively
     public func subviews(tag: Int? = nil, recursively: Bool = false) -> [UIView]
     {
         var arraySubviews : [UIView] = []
@@ -50,6 +51,7 @@ extension UIView {
         return arraySubviews
     }
     
+    /// RDExtensionsSwift: Remove all subviews of the receiver
     public func removeAllSubviews()
     {
         for sv in self.subviews

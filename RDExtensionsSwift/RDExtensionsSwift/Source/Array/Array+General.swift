@@ -25,6 +25,7 @@
 
 public extension Array {
     
+    /// RDExtensionsSwift: Remove object from array
     mutating func remove <U: Equatable> (object: U) -> [U]?
     {
         if(self.count == 0)
@@ -50,6 +51,7 @@ public extension Array {
         return removedObjects
     }
     
+    /// RDExtensionsSwift: Insert contents of new elements and return new array
     func insertContentsOf(newElements: [Element], atIndex: Int) -> [Element]
     {
         var array = Array(self)
@@ -66,6 +68,7 @@ public extension Array {
 
 public extension Array where Element : _ArrayType {
     
+    /// RDExtensionsSwift: Return element at indexPath
     subscript(indexPath: NSIndexPath) -> Element.Generator.Element?
     {
         if(indexPath.section < self.count && indexPath.row < self[indexPath.section].count)
@@ -75,6 +78,7 @@ public extension Array where Element : _ArrayType {
         return nil
     }
     
+    /// RDExtensionsSwift: Remove and return the element at indexPath
     mutating func removeAtIndexPath(indexPath: NSIndexPath) -> Element.Generator.Element?
     {
         if(indexPath.section < self.count && indexPath.row < self[indexPath.section].count)

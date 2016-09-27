@@ -27,6 +27,7 @@ import MediaPlayer
 
 extension MPMoviePlayerController {
     
+    /// RDExtensionsSwift: Return thumbnail from movie on given time
     public func thumbnail(time: CMTime = kCMTimeZero) -> UIImage?
     {
         let asset = AVURLAsset(URL: self.contentURL, options: nil)

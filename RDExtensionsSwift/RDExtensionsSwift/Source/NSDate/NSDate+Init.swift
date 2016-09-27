@@ -25,6 +25,7 @@
 
 extension NSDate {
     
+    /// RDExtensionsSwift: Create and return date with give day, month and year
     public static func dateWithDay(day: Int, month: Int, year: Int) -> NSDate?
     {
         let components = NSDateComponents()

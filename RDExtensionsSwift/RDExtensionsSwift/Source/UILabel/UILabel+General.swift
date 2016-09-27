@@ -25,12 +25,16 @@
 
 public extension UILabel {
     
+    /// RDExtensionsSwift: Return non nilable text
     var string : String { get { return self.text ?? "" } set { self.text = newValue } }
     
+    /// RDExtensionsSwift: Calculate and return width of the label for given hight with given font
     var widthForText : CGFloat { return self.string.widthForHeight(self.frame.size.height, font: self.font) }
     
+    /// RDExtensionsSwift: Calculate and return height of the label for given width with given font
     var heightForText : CGFloat { return self.string.heightForWidth(self.frame.size.width, font: self.font) }
     
+    /// RDExtensionsSwift: Check if label tail is truncated. Returns true or false
     var tailTruncated : Bool
     {
         if let string = self.text
@@ -44,6 +48,7 @@ public extension UILabel {
         return false
     }
     
+    /// RDExtensionsSwift: Truncate tail of the receiver after the given nth characters
     func truncateTail(characters: Int, attributed: Bool = false)
     {
         if(attributed)
@@ -99,6 +104,7 @@ public extension UILabel {
         }
     }
     
+    /// RDExtensionsSwift: Return the frame for visible text
     var textRect : CGRect
     {
         var tr = self.textRectForBounds(self.bounds, limitedToNumberOfLines: self.numberOfLines)
@@ -114,6 +120,7 @@ public extension UILabel {
         return tr
     }
     
+    /// RDExtensionsSwift: Return character index at given point
     func characterIndex(point: CGPoint) -> Int?
     {
         var point = point

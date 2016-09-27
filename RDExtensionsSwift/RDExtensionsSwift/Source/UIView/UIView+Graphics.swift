@@ -25,6 +25,7 @@
 
 extension UIView {
     
+    /// RDExtensionsSwift: Generate and return the screenshot of the receiver. Returns UIImage
     public func screenshot(rect: CGRect? = nil) -> UIImage?
     {
         var image : UIImage?
@@ -42,6 +43,7 @@ extension UIView {
         return image
     }
     
+    /// RDExtensionsSwift: Convert UIView to UIImage
     public var toImage : UIImage?
     {
         var image : UIImage?

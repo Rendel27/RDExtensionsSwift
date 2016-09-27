@@ -31,7 +31,7 @@ public class NSDictionaryTests : XCTestCase {
     func testValueForLowercaseKey()
     {
         let dictionary = ["key" : "value"]
-        XCTAssertEqual((dictionary as NSDictionary).valueForLowercaseKey("KEY") as? String, "value")
+        XCTAssertEqual((dictionary as NSDictionary).valueForIncasesensitiveKey("KEY") as? String, "value")
     }
     
 }

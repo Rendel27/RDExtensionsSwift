@@ -25,6 +25,7 @@
 
 extension String {
     
+    /// RDExtensionsSwift: Convert String to Bool
     public var toBool : Bool?
     {
         get
@@ -41,24 +42,34 @@ extension String {
         }
     }
     
+    /// RDExtensionsSwift: Convert String to Int
     public var toInt : Int { return (self as NSString).integerValue }
     
+    /// RDExtensionsSwift: Convert String to Int32
     public var toInt32 : Int32 { return Int32((self as NSString).intValue) }
     
+    /// RDExtensionsSwift: Convert String to UInt32
     public var toUInt32 : UInt32 { return UInt32((self as NSString).intValue) }
     
+    /// RDExtensionsSwift: Convert String to Int64
     public var toInt64 : Int64 { return Int64((self as NSString).intValue) }
     
+    /// RDExtensionsSwift: Convert String to Float
     public var toFloat : Float { get { return (self as NSString).floatValue } }
     
+    /// RDExtensionsSwift: Convert String to CGFloat
     public var toCGFloat : CGFloat { get { return CGFloat((self as NSString).floatValue) } }
     
+    /// RDExtensionsSwift: Convert String to Double
     public var toDouble : Double { get { return (self as NSString).doubleValue } }
     
+    /// RDExtensionsSwift: Convert String to NSTimeInterval
     public var toTimeInterval : NSTimeInterval { get { return (self as NSString).doubleValue } }
     
+    /// RDExtensionsSwift: Convert String to NSURL
     public var toHttpURL : NSURL? { return NSURL(string: self) }
     
+    /// RDExtensionsSwift: Convert String to NSURL
     public var toFileURL : NSURL? { return NSURL(fileURLWithPath: self) }
     
 }

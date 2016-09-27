@@ -30,21 +30,25 @@ extension UIViewController {
         return UIStoryboard(name: storyboard, bundle: nil).instantiateViewControllerWithIdentifier(id) as? T
     }
     
+    /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard
     public static func loadWithId(id: String, storyboard: String = "Main") -> Self?
     {
         return self._loadWithId(self.className, storyboard: storyboard)
     }
     
+    /// RDExtensionsSwift: Return newly initialized view controller from given storyboard
     public static func loadFromStoryboard(storyboard: String = "Main") -> Self?
     {
         return self.loadWithId(self.className, storyboard: storyboard)
     }
     
+    /// RDExtensionsSwift: Return newly initialized view controller from given storyboard and load as root view controller
     public static func loadAsRootViewControllerFromStoryboard(storyboard: String = "Main") -> Self?
     {
         return self.loadFromStoryboard(storyboard)?.loadAsRootViewController()
     }
     
+    /// RDExtensionsSwift: Load the receiver as root view controller
     public func loadAsRootViewController() -> Self?
     {
         let window = UIApplication.sharedApplication().delegate?.window

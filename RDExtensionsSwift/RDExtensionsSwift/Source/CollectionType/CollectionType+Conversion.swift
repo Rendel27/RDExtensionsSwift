@@ -25,6 +25,7 @@
 
 public extension CollectionType where Generator.Element == String {
     
+    /// RDExtensionsSwift: Convert String array to Int array
     var toInt : [Int]
     {
         var elements : [Int] = []

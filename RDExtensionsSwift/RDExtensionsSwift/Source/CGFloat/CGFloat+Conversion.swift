@@ -25,10 +25,13 @@
 
 public extension CGFloat {
     
+    /// RDExtensionsSwift: Convert CGFloat to Int
     var toInt : Int { return Int(self) }
     
+    /// RDExtensionsSwift: Convert CGFloat to String
     var toString : String { get { return Double(self).toString } }
     
+    /// RDExtensionsSwift: Return CGFloat as String with rounding
     func toString(rounding: Int = 2) -> String
     {
         return Double(self).toString(rounding)

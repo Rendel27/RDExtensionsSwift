@@ -25,6 +25,7 @@
 
 extension UIView {
     
+    /// RDExtensionsSwift: Mask the receiver outside of the frame with given corner radius
     public func outterMask(frame: CGRect, cornerRadius : CGFloat = 0)
     {
         let layerMask = CALayer()
@@ -45,6 +46,7 @@ extension UIView {
         UIGraphicsEndImageContext()
     }
     
+    /// RDExtensionsSwift: Mask the receiver inside of the frame with given corner radius
     public func innerMask(frame: CGRect, cornerRadius : CGFloat = 0)
     {
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(frame.size.width, frame.size.height), true, 0.0)
@@ -70,11 +72,13 @@ extension UIView {
         self.layer.mask = layerMask
     }
     
+    /// RDExtensionsSwift: Remove mask from the receiver
     public func removeMask()
     {
         self.layer.mask = nil
     }
     
+    /// RDExtensionsSwift: Check if the receiver is masked
     public var masked : Bool { get { return self.layer.mask != nil } }
     
 }

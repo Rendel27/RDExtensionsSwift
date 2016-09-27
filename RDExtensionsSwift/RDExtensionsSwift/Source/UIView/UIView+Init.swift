@@ -25,6 +25,7 @@
 
 extension UIView {
     
+    /// RDExtensionsSwift: Return newly initialized nib by given name and class
     public static func loadNibNamed(nibName: String, nibClass: AnyClass) -> UIView?
     {
         if let views = NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil) as? [UIView!]

@@ -25,11 +25,13 @@
 
 extension NSURL {
     
+    /// RDExtensionsSwift: Exclude or include content of url from icloud backup
     public func excludeFromBackup(exclude: Bool = true) throws
     {
         try self.setResourceValue(exclude, forKey: NSURLIsExcludedFromBackupKey)
     }
     
+    /// RDExtensionsSwift: Check if content of url is excluded or included in icloud backup
     public var excludedFromBackup : Bool
     {
         do

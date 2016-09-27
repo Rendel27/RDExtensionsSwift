@@ -25,6 +25,7 @@
 
 extension Int64 {
     
+    /// RDExtensionsSwift: Convert Int64 to String
     public var toString : String { get { return "\(self)" } }
     
 }

@@ -25,6 +25,7 @@
 
 extension NSDate {
     
+    /// RDExtensionsSwift: Return current date by local timezone
     public static var localDate : NSDate
     {
         let sourceDate = NSDate()
@@ -37,22 +38,31 @@ extension NSDate {
         return localDate
     }
     
+    /// RDExtensionsSwift: Return date second
     public var second : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: self).second }
     
+    /// RDExtensionsSwift: Return date minute
     public var minute : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: self).minute }
     
+    /// RDExtensionsSwift: Return date hour
     public var hour : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: self).hour }
     
+    /// RDExtensionsSwift: Return date day
     public var day : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: self).day }
     
+    /// RDExtensionsSwift: Return date week day
     public var weekDay : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Weekday, fromDate: self).weekday }
     
+    /// RDExtensionsSwift: Return date ordinal week day
     public var weekdayOrdinal : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.WeekdayOrdinal, fromDate: self).weekdayOrdinal }
     
+    /// RDExtensionsSwift: Return date month
     public var month : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Month, fromDate: self).month }
     
+    /// RDExtensionsSwift: Return date year
     public var year : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: self).year }
     
+    /// RDExtensionsSwift: Return date era
     public var era : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Era, fromDate: self).era }
     
 }

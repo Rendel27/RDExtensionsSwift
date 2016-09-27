@@ -25,6 +25,7 @@
 
 extension UIColor {
     
+    /// RDExtensionsSwift: Return newly initialized color from red, green, blue and alpha components value from 0 to 255 range
     @objc(initWithIntRed:intGreen:intBlue:intAlpha:)
     public convenience init(red: Int, green: Int, blue: Int, alpha: Int)
     {
@@ -35,6 +36,7 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha) / 255.0)
     }
     
+    /// RDExtensionsSwift: Return newly initialized color from hex value
     public convenience init(hexValue: Int, alpha: Int = 255)
     {
         let red = hexValue >> 16
@@ -43,6 +45,7 @@ extension UIColor {
         self.init(red: red & 0xff, green: green & 0xff, blue: blue & 0xff, alpha: alpha)
     }
     
+    /// RDExtensionsSwift: Return newly initialized color from hex value
     public convenience init(hexString: String, alpha: Int = 255)
     {
         let hex = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)

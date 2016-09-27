@@ -25,6 +25,7 @@
 
 extension UIImage {
     
+    /// RDExtensionsSwift: Invert Transparency of the receiver and return
     public func invertTransparancy() -> UIImage?
     {
         var img : UIImage?
@@ -41,6 +42,7 @@ extension UIImage {
         return img
     }
     
+    /// RDExtensionsSwift: Return color at given pixel
     public func color(pixel: CGPoint) -> UIColor
     {
         let data = CFDataGetBytePtr(CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage)))
@@ -52,11 +54,13 @@ extension UIImage {
         return UIColor(red: red.toCGFloat/255, green: green.toCGFloat/255, blue: blue.toCGFloat/255, alpha: alpha.toCGFloat/255)
     }
     
+    /// RDExtensionsSwift: Return rescaled image
     public func rescale(scale: CGFloat) -> UIImage?
     {
         return self.resize(CGSizeMake(self.size.width*scale, self.size.height*scale))
     }
     
+    /// RDExtensionsSwift: Return resized image
     public func resize(size: CGSize) -> UIImage?
     {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -66,6 +70,7 @@ extension UIImage {
         return img
     }
     
+    /// RDExtensionsSwift: Cut and return circle from the receiver by given radius
     public func cutCircle(radius: CGFloat) -> UIImage?
     {
         var image : UIImage?
@@ -83,6 +88,7 @@ extension UIImage {
         return image
     }
     
+    /// RDExtensionsSwift: Rotate receiver and return
     public func imageByRotation(degrees: CGFloat) -> UIImage
     {
         let rotatedViewBox = UIView(frame: CGRectMake(0, 0, self.size.width, self.size.height))
@@ -103,6 +109,7 @@ extension UIImage {
         return newImage
     }
     
+    /// RDExtensionsSwift: Change orientation of the receiver and return
     public func changeOrientation(orientation: UIImageOrientation) -> UIImage?
     {
         var image : UIImage?
