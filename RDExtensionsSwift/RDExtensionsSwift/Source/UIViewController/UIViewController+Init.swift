@@ -40,9 +40,9 @@ extension UIViewController {
         return self.loadWithId(self.className, storyboard: storyboard)
     }
     
-    public static func loadAsRootViewControllerFromStoryboard() -> Self?
+    public static func loadAsRootViewControllerFromStoryboard(storyboard: String = "Main") -> Self?
     {
-        return self.loadFromStoryboard()?.loadAsRootViewController()
+        return self.loadFromStoryboard(storyboard)?.loadAsRootViewController()
     }
     
     public func loadAsRootViewController() -> Self?
