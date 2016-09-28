@@ -25,41 +25,49 @@
 
 // MARK: Overload opertors for Int and CGFloat
 
+/// RDExtensionsSwift: Int + CGFloat without conversions
 public func +(left: Int, right: CGFloat) -> CGFloat
 {
     return CGFloat(left) + right
 }
 
+/// RDExtensionsSwift: CGFloat + Int without conversions
 public func +(left: CGFloat, right: Int) -> CGFloat
 {
     return left + CGFloat(right)
 }
 
+/// RDExtensionsSwift: Int - CGFloat without conversions
 public func -(left: Int, right: CGFloat) -> CGFloat
 {
     return CGFloat(left) - right
 }
 
+/// RDExtensionsSwift: CGFloat - Int without conversions
 public func -(left: CGFloat, right: Int) -> CGFloat
 {
     return left - CGFloat(right)
 }
 
+/// RDExtensionsSwift: Int * CGFloat without conversions
 public func *(left: Int, right: CGFloat) -> CGFloat
 {
     return CGFloat(left) * right
 }
 
+/// RDExtensionsSwift: CGFloat * Int without conversions
 public func *(left: CGFloat, right: Int) -> CGFloat
 {
     return left * CGFloat(right)
 }
 
+/// RDExtensionsSwift: Int / CGFloat without conversions
 public func /(left: Int, right: CGFloat) -> CGFloat
 {
     return CGFloat(left) / right
 }
 
+/// RDExtensionsSwift: CGFloat / Int without conversions
 public func /(left: CGFloat, right: Int) -> CGFloat
 {
     return left / CGFloat(right)
@@ -67,41 +75,49 @@ public func /(left: CGFloat, right: Int) -> CGFloat
 
 // MARK: Overload opertors for Int and Float
 
+/// RDExtensionsSwift: Int + Float without conversions
 public func +(left: Int, right: Float) -> Float
 {
     return Float(left) + right
 }
 
+/// RDExtensionsSwift: Float + Int without conversions
 public func +(left: Float, right: Int) -> Float
 {
     return left + Float(right)
 }
 
+/// RDExtensionsSwift: Int - Float without conversions
 public func -(left: Int, right: Float) -> Float
 {
     return Float(left) - right
 }
 
+/// RDExtensionsSwift: Float - Int without conversions
 public func -(left: Float, right: Int) -> Float
 {
     return left - Float(right)
 }
 
+/// RDExtensionsSwift: Int * Float without conversions
 public func *(left: Int, right: Float) -> Float
 {
     return Float(left) * right
 }
 
+/// RDExtensionsSwift: Float * Int without conversions
 public func *(left: Float, right: Int) -> Float
 {
     return left * Float(right)
 }
 
+/// RDExtensionsSwift: Int / Float without conversions
 public func /(left: Int, right: Float) -> Float
 {
     return Float(left) / right
 }
 
+/// RDExtensionsSwift: Float / Int without conversions
 public func /(left: Float, right: Int) -> Float
 {
     return left / Float(right)
@@ -109,41 +125,49 @@ public func /(left: Float, right: Int) -> Float
 
 // MARK: Overload opertors for Int and Double
 
+/// RDExtensionsSwift: Int + Double without conversions
 public func +(left: Int, right: Double) -> Double
 {
     return Double(left) + right
 }
 
+/// RDExtensionsSwift: Double + Int without conversions
 public func +(left: Double, right: Int) -> Double
 {
     return left + Double(right)
 }
 
+/// RDExtensionsSwift: Int - Double without conversions
 public func -(left: Int, right: Double) -> Double
 {
     return Double(left) - right
 }
 
+/// RDExtensionsSwift: Double - Int without conversions
 public func -(left: Double, right: Int) -> Double
 {
     return left - Double(right)
 }
 
+/// RDExtensionsSwift: Int * Double without conversions
 public func *(left: Int, right: Double) -> Double
 {
     return Double(left) * right
 }
 
+/// RDExtensionsSwift: Double * Int without conversions
 public func *(left: Double, right: Int) -> Double
 {
     return left * Double(right)
 }
 
+/// RDExtensionsSwift: Int / Double without conversions
 public func /(left: Int, right: Double) -> Double
 {
     return Double(left) / right
 }
 
+/// RDExtensionsSwift: Double / Int without conversions
 public func /(left: Double, right: Int) -> Double
 {
     return left / Double(right)
@@ -151,6 +175,7 @@ public func /(left: Double, right: Int) -> Double
 
 // MARK: Overload opertors for Arrays
 
+/// RDExtensionsSwift: Append rhs to lhs
 public func +=(inout left: [NSObject], right: [NSObject])
 {
     left = left + right

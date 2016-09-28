@@ -43,6 +43,7 @@ public extension UITextField {
         }
     }
     
+    /// RDExtensionsSwift: Return true if the text field is last in queue. Else return false
     func textFieldReturnedFromQueue(queue: [UITextField]) -> Bool
     {
         self.resignFirstResponder()
@@ -68,6 +69,7 @@ public extension UITextField {
 
 public extension UITextFieldDelegate {
     
+    /// RDExtensionsSwift: Tells the delegate that text did change in the specified text field
     func textFieldDidChangeText(textField: UITextField)
     {
         

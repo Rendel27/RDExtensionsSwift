@@ -25,6 +25,7 @@
 
 extension UIViewController {
     
+    /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard
     private static func _loadWithId<T>(id: String, storyboard: String) -> T?
     {
         return UIStoryboard(name: storyboard, bundle: nil).instantiateViewControllerWithIdentifier(id) as? T
