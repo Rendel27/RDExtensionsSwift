@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class NSAttributedStringTests : XCTestCase {
+open class NSAttributedStringTests : XCTestCase {
     
     func testSubtringTo()
     {

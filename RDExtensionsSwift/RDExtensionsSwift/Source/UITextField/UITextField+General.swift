@@ -37,14 +37,14 @@ public extension UITextField {
     /// RDExtensionsSwift: Add did change text handler to the delegate
     func addDidChangeTextHandler()
     {
-        if(self.delegate?.respondsToSelector(Selector("textFieldDidChangeText:")) == true)
+        if(self.delegate?.responds(to: Selector(("textFieldDidChangeText:"))) == true)
         {
-            self.addTarget(self.delegate, action: Selector("textFieldDidChangeText:"), forControlEvents: UIControlEvents.EditingChanged)
+            self.addTarget(self.delegate, action: Selector(("textFieldDidChangeText:")), for: UIControlEvents.editingChanged)
         }
     }
     
     /// RDExtensionsSwift: Return true if the text field is last in queue. Else return false
-    func textFieldReturnedFromQueue(queue: [UITextField]) -> Bool
+    func textFieldReturnedFromQueue(_ queue: [UITextField]) -> Bool
     {
         self.resignFirstResponder()
         
@@ -70,7 +70,7 @@ public extension UITextField {
 public extension UITextFieldDelegate {
     
     /// RDExtensionsSwift: Tells the delegate that text did change in the specified text field
-    func textFieldDidChangeText(textField: UITextField)
+    func textFieldDidChangeText(_ textField: UITextField)
     {
         
     }

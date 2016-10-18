@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class Int64Tests : XCTestCase {
+open class Int64Tests : XCTestCase {
     
     func testToString()
     {

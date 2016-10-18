@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class UInt8Tests : XCTestCase {
+open class UInt8Tests : XCTestCase {
     
     func testConversions()
     {

@@ -32,7 +32,7 @@ public extension Float {
     var toString : String { get { return Double(self).toString } }
     
     /// RDExtensionsSwift: Return CGFloat as String with rounding
-    func toString(rounding: Int = 2) -> String
+    func toString(_ rounding: Int = 2) -> String
     {
         return Double(self).toString(rounding)
     }

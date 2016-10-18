@@ -26,20 +26,20 @@
 extension UIView {
     
     /// RDExtensionsSwift: Stretch the receiver to the given view(subview, if not presented) by given edge insets
-    public func stretchLayout(view: UIView? = nil, edgeInsets: UIEdgeInsets = UIEdgeInsetsZero)
+    public func stretchLayout(_ view: UIView? = nil, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero)
     {
-        if let sv = self.superview, v = (view ?? self.superview)
+        if let sv = self.superview, let v = (view ?? self.superview)
         {
             self.translatesAutoresizingMaskIntoConstraints = false
-            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: v, attribute: .Leading, multiplier: 1, constant: edgeInsets.left))
-            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: v, attribute: .Trailing, multiplier: 1, constant: edgeInsets.right))
-            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: v, attribute: .Top, multiplier: 1, constant: edgeInsets.top))
-            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: v, attribute: .Bottom, multiplier: 1, constant: edgeInsets.bottom))
+            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: v, attribute: .leading, multiplier: 1, constant: edgeInsets.left))
+            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: v, attribute: .trailing, multiplier: 1, constant: edgeInsets.right))
+            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: v, attribute: .top, multiplier: 1, constant: edgeInsets.top))
+            sv.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: v, attribute: .bottom, multiplier: 1, constant: edgeInsets.bottom))
         }
     }
     
     /// RDExtensionsSwift: Return an array containing constraints by given identifier
-    public func constraints(identifier: String) -> [NSLayoutConstraint]
+    public func constraints(_ identifier: String) -> [NSLayoutConstraint]
     {
         var cs : [NSLayoutConstraint] = []
         for c in self.constraints

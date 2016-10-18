@@ -26,11 +26,11 @@
 extension NSDictionary {
     
     /// RDExtensionsSwift: Return value for incasesensitive key
-    public func valueForIncasesensitiveKey(key: String) -> AnyObject?
+    public func value(forIncasesensitiveKey key: String) -> Any?
     {
         for k in self.allKeys
         {
-            if((k as? String)?.lowercaseString == key.lowercaseString)
+            if((k as? String)?.lowercased() == key.lowercased())
             {
                 return self[k as! String]
             }

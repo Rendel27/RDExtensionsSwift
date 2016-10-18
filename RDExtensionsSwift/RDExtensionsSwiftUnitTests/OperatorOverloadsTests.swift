@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class OperatorOverloadsTests : XCTestCase {
+open class OperatorOverloadsTests : XCTestCase {
     
     let intNumber : Int = 1
     let cgfloatNumber : CGFloat = 1

@@ -64,12 +64,12 @@ extension String {
     public var toDouble : Double { get { return (self as NSString).doubleValue } }
     
     /// RDExtensionsSwift: Convert String to NSTimeInterval
-    public var toTimeInterval : NSTimeInterval { get { return (self as NSString).doubleValue } }
+    public var toTimeInterval : TimeInterval { get { return (self as NSString).doubleValue } }
     
     /// RDExtensionsSwift: Convert String to NSURL
-    public var toHttpURL : NSURL? { return NSURL(string: self) }
+    public var toHttpURL : URL? { return URL(string: self) }
     
     /// RDExtensionsSwift: Convert String to NSURL
-    public var toFileURL : NSURL? { return NSURL(fileURLWithPath: self) }
+    public var toFileURL : URL? { return URL(fileURLWithPath: self) }
     
 }

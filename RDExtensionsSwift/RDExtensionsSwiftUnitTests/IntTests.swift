@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class IntTests : XCTestCase {
+open class IntTests : XCTestCase {
     
     func testToCharacter()
     {
@@ -37,6 +37,13 @@ public class IntTests : XCTestCase {
     func testToString()
     {
         XCTAssertEqual(47382903.toString, "47382903")
+    }
+    
+    func testToInt()
+    {
+        let value : IntMax = 47382903
+        XCTAssertEqual(47382903.toInt64, value)
+        XCTAssertEqual(47382903.toIntMax, value)
     }
     
 }

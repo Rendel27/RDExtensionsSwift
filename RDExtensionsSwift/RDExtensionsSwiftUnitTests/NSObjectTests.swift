@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class NSObjectTests : XCTestCase {
+open class NSObjectTests : XCTestCase {
     
     func testStringFromClass()
     {

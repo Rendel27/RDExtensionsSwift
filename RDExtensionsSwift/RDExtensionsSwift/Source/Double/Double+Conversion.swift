@@ -32,7 +32,7 @@ extension Double {
     public var toString : String { get { return "\(self)" } }
     
     /// RDExtensionsSwift: Return CGFloat as String with rounding
-    public func toString(rounding: Int = 2) -> String
+    public func toString(_ rounding: Int = 2) -> String
     {
         if(rounding == -1)
         {

@@ -26,11 +26,11 @@
 extension UIImageView {
     
     /// RDExtensionsSwift: Return newly initialized image view from given image with given mask
-    public static func imageView(image: UIImage, mask: UIImage) -> UIImageView
+    public static func imageView(_ image: UIImage, mask: UIImage) -> UIImageView
     {
         let layerMask = CALayer()
-        layerMask.contents = mask.CGImage
-        layerMask.frame = CGRectMake(0, 0, mask.size.width, mask.size.height)
+        layerMask.contents = mask.cgImage
+        layerMask.frame = CGRect(x: 0, y: 0, width: mask.size.width, height: mask.size.height)
         let imageView = UIImageView(image: image)
         imageView.layer.mask = layerMask
         imageView.layer.masksToBounds = true

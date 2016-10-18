@@ -176,7 +176,7 @@ public func /(left: Double, right: Int) -> Double
 // MARK: Overload opertors for Arrays
 
 /// RDExtensionsSwift: Append rhs to lhs
-public func +=(inout left: [NSObject], right: [NSObject])
+public func +=(left: inout [NSObject], right: [NSObject])
 {
     left = left + right
 }

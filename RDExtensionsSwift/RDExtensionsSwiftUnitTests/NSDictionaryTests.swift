@@ -26,12 +26,12 @@
 import XCTest
 import RDExtensionsSwift
 
-public class NSDictionaryTests : XCTestCase {
+open class NSDictionaryTests : XCTestCase {
     
     func testValueForLowercaseKey()
     {
         let dictionary = ["key" : "value"]
-        XCTAssertEqual((dictionary as NSDictionary).valueForIncasesensitiveKey("KEY") as? String, "value")
+        XCTAssertEqual((dictionary as NSDictionary).value(forIncasesensitiveKey: "KEY") as? String, "value")
     }
     
 }

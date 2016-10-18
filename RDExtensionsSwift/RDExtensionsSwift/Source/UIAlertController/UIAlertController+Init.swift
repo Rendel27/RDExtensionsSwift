@@ -26,13 +26,13 @@
 public extension UIAlertController {
     
     /// RDExtensionsSwift: Return a newly initialized view controller for displaying an alert to the user
-    convenience init(title: String? = nil, message: String, style : UIAlertControllerStyle = .Alert, inputFieldPlaceholders: [String] = [], actionTitles: [String], actionBlocks: [((UIAlertAction) -> Void)?], completion: (() -> Void)? = nil)
+    convenience init(title: String? = nil, message: String, style : UIAlertControllerStyle = .alert, inputFieldPlaceholders: [String] = [], actionTitles: [String], actionBlocks: [((UIAlertAction) -> Void)?], completion: (() -> Void)? = nil)
     {
         self.init(title: title, message: message, preferredStyle: style)
         var actionBlocks = actionBlocks
         for tfph in inputFieldPlaceholders
         {
-            self.addTextFieldWithConfigurationHandler { (tf) -> Void in
+            self.addTextField { (tf) -> Void in
                 tf.placeholder = tfph
             }
         }
@@ -42,7 +42,7 @@ public extension UIAlertController {
             {
                 actionBlocks.append(nil)
             }
-            self.addAction(UIAlertAction(title: actionTitles[i], style: .Default, handler: actionBlocks[i]))
+            self.addAction(UIAlertAction(title: actionTitles[i], style: .default, handler: actionBlocks[i]))
         }
     }
     

@@ -48,9 +48,9 @@ extension UIColor {
     /// RDExtensionsSwift: Return newly initialized color from hex value
     public convenience init(hexString: String, alpha: Int = 255)
     {
-        let hex = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+        let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
-        NSScanner(string: hex).scanHexInt(&int)
+        Scanner(string: hex).scanHexInt32(&int)
         let r, g, b : UInt32
         switch hex.characters.count
         {

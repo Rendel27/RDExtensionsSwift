@@ -26,11 +26,11 @@
 extension String {
     
     /// RDExtensionsSwift: Calculate and return width of the string for given hight with given font
-    public func widthForHeight(height: CGFloat, font: UIFont) -> CGFloat
+    public func widthForHeight(_ height: CGFloat, font: UIFont) -> CGFloat
     {
-        let label:UILabel = UILabel(frame: CGRectMake(0, 0, CGFloat.max, height))
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: height))
         label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
         label.text = self
         label.sizeToFit()
@@ -38,11 +38,11 @@ extension String {
     }
     
     /// RDExtensionsSwift: Calculate and return height of the string for given width with given font
-    public func heightForWidth(width: CGFloat, font: UIFont) -> CGFloat
+    public func heightForWidth(_ width: CGFloat, font: UIFont) -> CGFloat
     {
-        let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
         label.text = self
         label.sizeToFit()

@@ -26,12 +26,12 @@
 import XCTest
 import RDExtensionsSwift
 
-public class NSDateTests : XCTestCase {
+open class NSDateTests : XCTestCase {
     
-    let date = NSDate(timeIntervalSince1970: 1474647378)
+    let date = Date(timeIntervalSince1970: 1474647378)
     let second = 18
     let minute = 16
-    let hour = 18
+    let hour = 20
     let day = 23
     let weekDay = 6
     let weekdayOrdinal = 4
@@ -42,7 +42,7 @@ public class NSDateTests : XCTestCase {
     func testToString()
     {
         XCTAssertEqual(self.date.toString("dd-MM-YY"), "23-09-16")
-        XCTAssertEqual(self.date.toString("ss-mm-HH"), "18-16-18")
+        XCTAssertEqual(self.date.toString("ss-mm-HH"), "18-16-20")
     }
     
     func testProperties()
@@ -60,7 +60,7 @@ public class NSDateTests : XCTestCase {
     
     func testDateWithDayMonthYear()
     {
-        let d = NSDate.dateWithDay(self.day, month: self.month, year: self.year)
+        let d = Date.dateWithDay(self.day, month: self.month, year: self.year)
         XCTAssertEqual(self.date.day, d?.day)
         XCTAssertEqual(self.date.month, d?.month)
         XCTAssertEqual(self.date.year, d?.year)

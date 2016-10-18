@@ -39,7 +39,7 @@ public extension UILabel {
     {
         if let string = self.text
         {
-            let size: CGSize = (string as NSString).boundingRectWithSize(CGSize(width: self.frame.size.width, height: CGFloat(FLT_MAX)), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: nil).size
+            let size: CGSize = (string as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: CGFloat(FLT_MAX)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: nil).size
             if(size.height > self.bounds.size.height)
             {
                 return true
@@ -49,18 +49,18 @@ public extension UILabel {
     }
     
     /// RDExtensionsSwift: Truncate tail of the receiver after the given nth characters
-    func truncateTail(characters: Int, attributed: Bool = false)
+    func truncateTail(_ characters: Int, attributed: Bool = false)
     {
         if(attributed)
         {
-            if let attributedStr = self.attributedText where attributedStr.length > 4 + characters
+            if let attributedStr = self.attributedText , attributedStr.length > 4 + characters
             {
                 var visibleString = NSAttributedString()
                 for i in 1...attributedStr.length
                 {
                     let testString = attributedStr.substringTo(i)
                     var r = NSMakeRange(0, testString.string.length)
-                    let stringSize = (testString.string as NSString).sizeWithAttributes(testString.attributesAtIndex(0, effectiveRange: &r))
+                    let stringSize = (testString.string as NSString).size(attributes: testString.attributes(at: 0, effectiveRange: &r))
                     if(stringSize.height*ceil(stringSize.width/self.frame.width) > self.frame.height)
                     {
                         break
@@ -75,8 +75,8 @@ public extension UILabel {
                     var r1 = NSMakeRange(0, str1.length)
                     var r2 = NSMakeRange(0, str3.length)
                     let attrStr = NSMutableAttributedString(string: str1.string + str2 + str3.string)
-                    attrStr.setAttributes(str1.attributesAtIndex(0, effectiveRange: &r1), range: NSMakeRange(0, str1.length + str2.length))
-                    attrStr.setAttributes(str3.attributesAtIndex(0, effectiveRange: &r2), range: NSMakeRange(str1.length + str2.length, str3.length))
+                    attrStr.setAttributes(str1.attributes(at: 0, effectiveRange: &r1), range: NSMakeRange(0, str1.length + str2.length))
+                    attrStr.setAttributes(str3.attributes(at: 0, effectiveRange: &r2), range: NSMakeRange(str1.length + str2.length, str3.length))
                     self.attributedText = attrStr
                 }
             }
@@ -89,7 +89,7 @@ public extension UILabel {
                 for i in 1...self.string.length
                 {
                     let testString = self.string.substringTo(i)
-                    let stringSize = (testString as NSString).sizeWithAttributes([NSFontAttributeName : self.font])
+                    let stringSize = (testString as NSString).size(attributes: [NSFontAttributeName : self.font])
                     if(stringSize.height*ceil(stringSize.width/self.frame.width) > self.frame.height)
                     {
                         break
@@ -107,13 +107,13 @@ public extension UILabel {
     /// RDExtensionsSwift: Return the frame for visible text
     var textRect : CGRect
     {
-        var tr = self.textRectForBounds(self.bounds, limitedToNumberOfLines: self.numberOfLines)
+        var tr = self.textRect(forBounds: self.bounds, limitedToNumberOfLines: self.numberOfLines)
         tr.origin.y = (self.bounds.size.height - tr.size.height)/2
-        if(self.textAlignment == .Center)
+        if(self.textAlignment == .center)
         {
             tr.origin.x = (self.bounds.size.width - tr.size.width)/2
         }
-        if(self.textAlignment == .Right)
+        if(self.textAlignment == .right)
         {
             tr.origin.x = self.bounds.size.width - tr.size.width
         }
@@ -121,12 +121,12 @@ public extension UILabel {
     }
     
     /// RDExtensionsSwift: Return character index at given point
-    func characterIndex(point: CGPoint) -> Int?
+    func characterIndex(_ point: CGPoint) -> Int?
     {
         var point = point
         if let oat = self.attributedText?.mutableCopy() as? NSMutableAttributedString
         {
-            self.attributedText?.enumerateAttributesInRange(NSMakeRange(0, oat.length), options: [], usingBlock: { (attributes, range, stop) in
+            self.attributedText?.enumerateAttributes(in: NSMakeRange(0, oat.length), options: [], using: { (attributes, range, stop) in
                 if(attributes[kCTFontAttributeName as String] == nil)
                 {
                     oat.addAttribute(kCTFontAttributeName as String, value: self.font, range: range)
@@ -138,27 +138,27 @@ public extension UILabel {
                     oat.addAttribute(kCTParagraphStyleAttributeName as String, value: ps, range: range)
                 }
             })
-            oat.enumerateAttribute(kCTParagraphStyleAttributeName as String, inRange: NSMakeRange(0, oat.length), options: [], usingBlock: { (value, range, stop) in
-                if let ps = value?.mutableCopy() as? NSMutableParagraphStyle
+            oat.enumerateAttribute(kCTParagraphStyleAttributeName as String, in: NSMakeRange(0, oat.length), options: [], using: { (value, range, stop) in
+                if let ps = value as? NSMutableParagraphStyle
                 {
-                    if(ps.lineBreakMode == .ByTruncatingTail)
+                    if(ps.lineBreakMode == .byTruncatingTail)
                     {
-                        ps.lineBreakMode = .ByWordWrapping
+                        ps.lineBreakMode = .byWordWrapping
                     }
                     oat.removeAttribute(kCTParagraphStyleAttributeName as String, range: range)
                     oat.addAttribute(kCTParagraphStyleAttributeName as String, value: ps, range: range)
                 }
             })
             let tr = self.textRect
-            if(!CGRectContainsPoint(self.bounds, point) || !CGRectContainsPoint(tr, point))
+            if(!self.bounds.contains(point) || !tr.contains(point))
             {
                 return nil
             }
-            point = CGPointMake(point.x - tr.origin.x, point.y - tr.origin.y)
-            point = CGPointMake(point.x, tr.size.height - point.y)
+            point = CGPoint(x: point.x - tr.origin.x, y: point.y - tr.origin.y)
+            point = CGPoint(x: point.x, y: tr.size.height - point.y)
             let frameSetter = CTFramesetterCreateWithAttributedString(oat)
-            let path = CGPathCreateMutable()
-            CGPathAddRect(path, nil, tr)
+            let path = CGMutablePath()
+            path.addRect(tr)
             let f = CTFramesetterCreateFrame(frameSetter, CFRangeMake(0, oat.length), path, nil)
             let lines = CTFrameGetLines(f)
             let nol = self.numberOfLines > 0 ? min(self.numberOfLines, CFArrayGetCount(lines)) : CFArrayGetCount(lines)
@@ -167,12 +167,12 @@ public extension UILabel {
                 return nil
             }
             var idx : Int?
-            let los = UnsafeMutablePointer<CGPoint>.alloc(nol)
+            let los = UnsafeMutablePointer<CGPoint>.allocate(capacity: nol)
             CTFrameGetLineOrigins(f, CFRangeMake(0, nol), los)
             for li in 0..<nol
             {
                 let lo = los[li]
-                let line = (lines as Array)[li] as! CTLineRef
+                let line = (lines as Array)[li] as! CTLine
                 var a = CGFloat(0)
                 var d = CGFloat(0)
                 var l = CGFloat(0)
@@ -188,7 +188,7 @@ public extension UILabel {
                 {
                     if(point.x >= lo.x && point.x <= lo.x + w)
                     {
-                        let rp = CGPointMake(point.x - lo.x, point.y - lo.y)
+                        let rp = CGPoint(x: point.x - lo.x, y: point.y - lo.y)
                         idx = CTLineGetStringIndexForPosition(line, rp)
                         break
                     }

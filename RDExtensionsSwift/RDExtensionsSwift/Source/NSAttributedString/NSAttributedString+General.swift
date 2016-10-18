@@ -26,25 +26,25 @@
 extension NSAttributedString {
     
     /// RDExtensionsSwift: Return substring from the begining to the index
-    public func substringTo(index: Int) -> NSAttributedString
+    public func substringTo(_ index: Int) -> NSAttributedString
     {
         var r = NSMakeRange(0, self.string.length)
         let attributedStr = NSMutableAttributedString(string: "")
-        attributedStr.setAttributes(self.attributesAtIndex(0, effectiveRange: &r), range: NSMakeRange(0, attributedStr.length))
-        return self.length < index ? attributedStr : self.attributedSubstringFromRange(NSMakeRange(0, index))
+        attributedStr.setAttributes(self.attributes(at: 0, effectiveRange: &r), range: NSMakeRange(0, attributedStr.length))
+        return self.length < index ? attributedStr : self.attributedSubstring(from: NSMakeRange(0, index))
     }
     
     /// RDExtensionsSwift: Return substring from the index to the end
-    public func substringFrom(index: Int) -> NSAttributedString
+    public func substringFrom(_ index: Int) -> NSAttributedString
     {
         var r = NSMakeRange(0, self.string.length)
         let attributedStr = NSMutableAttributedString(string: "")
-        attributedStr.setAttributes(self.attributesAtIndex(0, effectiveRange: &r), range: NSMakeRange(0, attributedStr.length))
-        return self.length < index ? attributedStr : self.attributedSubstringFromRange(NSMakeRange(index, self.string.length - index))
+        attributedStr.setAttributes(self.attributes(at: 0, effectiveRange: &r), range: NSMakeRange(0, attributedStr.length))
+        return self.length < index ? attributedStr : self.attributedSubstring(from: NSMakeRange(index, self.string.length - index))
     }
     
     /// RDExtensionsSwift: Return substring from the index to the index
-    public func substring(from: Int, to: Int) -> NSAttributedString
+    public func substring(_ from: Int, to: Int) -> NSAttributedString
     {
         return self.substringTo(to).substringFrom(from)
     }

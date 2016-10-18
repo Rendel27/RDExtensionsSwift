@@ -26,13 +26,13 @@
 extension NSObject {
     
     /// RDExtensionsSwift: Return object from nib with given nib name
-    public static func objectFromNib(nibName: String? = nil) -> Self
+    public static func objectFromNib(_ nibName: String? = nil) -> Self
     {
         return self.objectFromNib(nibName, bundle: nil, owner: nil, options: nil)
     }
     
     /// RDExtensionsSwift: Return object from nib with given nib name, boundle, owner and options
-    public static func objectFromNib(nibName: String?, bundle: NSBundle?, owner: AnyObject?, options: [NSObject : AnyObject]?) -> Self
+    public static func objectFromNib(_ nibName: String?, bundle: Bundle?, owner: AnyObject?, options: [AnyHashable: Any]?) -> Self
     {
         return UINib.instantiateType(self, nibName: nibName ?? self.stringFromClass, bundle: bundle, owner: owner, options: options)
     }

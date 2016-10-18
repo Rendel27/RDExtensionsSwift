@@ -26,16 +26,16 @@
 extension UIView {
     
     /// RDExtensionsSwift: Mask the receiver outside of the frame with given corner radius
-    public func outterMask(frame: CGRect, cornerRadius : CGFloat = 0)
+    public func outterMask(_ frame: CGRect, cornerRadius : CGFloat = 0)
     {
         let layerMask = CALayer()
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(frame.size.width, frame.size.height), true, 0.0);
-        let viewMask = UIView(frame: CGRectMake(0, 0, frame.size.width, frame.size.height))
-        viewMask.backgroundColor = UIColor.blackColor()
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: frame.size.width, height: frame.size.height), true, 0.0);
+        let viewMask = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        viewMask.backgroundColor = UIColor.black
         if let ctx = UIGraphicsGetCurrentContext()
         {
-            viewMask.layer.renderInContext(ctx)
-            if let blackImage = UIGraphicsGetImageFromCurrentImageContext()?.CGImage
+            viewMask.layer.render(in: ctx)
+            if let blackImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
             {
                 layerMask.contents = blackImage
                 layerMask.frame = frame
@@ -47,18 +47,18 @@ extension UIView {
     }
     
     /// RDExtensionsSwift: Mask the receiver inside of the frame with given corner radius
-    public func innerMask(frame: CGRect, cornerRadius : CGFloat = 0)
+    public func innerMask(_ frame: CGRect, cornerRadius : CGFloat = 0)
     {
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(frame.size.width, frame.size.height), true, 0.0)
-        let blackImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: frame.size.width, height: frame.size.height), true, 0.0)
+        let blackImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         UIGraphicsBeginImageContext(self.frame.size)
-        let context : CGContextRef = UIGraphicsGetCurrentContext()!
-        CGContextSaveGState(context)
+        let context : CGContext = UIGraphicsGetCurrentContext()!
+        context.saveGState()
         UIColor(white: 1, alpha: 0).setFill()
-        CGContextSetBlendMode(context, .DestinationIn)
-        blackImage.drawInRect(frame, blendMode: .Normal, alpha: 1)
+        context.setBlendMode(.destinationIn)
+        blackImage.draw(in: frame, blendMode: .normal, alpha: 1)
         var mergedImage : UIImage?
         mergedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -66,7 +66,7 @@ extension UIView {
         mergedImage = mergedImage?.invertTransparancy()
         
         let layerMask : CALayer = CALayer()
-        layerMask.contents = mergedImage?.CGImage
+        layerMask.contents = mergedImage?.cgImage
         layerMask.frame = self.frame
         layerMask.cornerRadius = cornerRadius
         self.layer.mask = layerMask

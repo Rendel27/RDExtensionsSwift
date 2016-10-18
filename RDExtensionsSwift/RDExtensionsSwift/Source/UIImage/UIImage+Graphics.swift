@@ -30,12 +30,12 @@ extension UIImage {
     {
         var img : UIImage?
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        let r : CGRect = CGRectMake(0, 0, self.size.width, self.size.height)
-        if let ctx : CGContextRef = UIGraphicsGetCurrentContext()
+        let r : CGRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        if let ctx : CGContext = UIGraphicsGetCurrentContext()
         {
-            CGContextSetRGBFillColor(ctx, 1, 1, 1, 1)
-            CGContextFillRect(ctx, r)
-            self.drawInRect(r, blendMode: .DestinationOut, alpha: 1)
+            ctx.setFillColor(red: 1, green: 1, blue: 1, alpha: 1)
+            ctx.fill(r)
+            self.draw(in: r, blendMode: .destinationOut, alpha: 1)
             img = UIGraphicsGetImageFromCurrentImageContext()
         }
         UIGraphicsEndImageContext()
@@ -43,45 +43,45 @@ extension UIImage {
     }
     
     /// RDExtensionsSwift: Return color at given pixel
-    public func color(pixel: CGPoint) -> UIColor
+    public func color(_ pixel: CGPoint) -> UIColor
     {
-        let data = CFDataGetBytePtr(CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage)))
+        let data = CFDataGetBytePtr(self.cgImage?.dataProvider?.data)
         let index = Int((self.size.width*pixel.y + pixel.x)*4)
-        let red = data[index]
-        let green = data[index + 1]
-        let blue = data[index + 2]
-        let alpha = data[index + 3]
-        return UIColor(red: red.toCGFloat/255, green: green.toCGFloat/255, blue: blue.toCGFloat/255, alpha: alpha.toCGFloat/255)
+        let red = data?[index]
+        let green = data?[index + 1]
+        let blue = data?[index + 2]
+        let alpha = data?[index + 3]
+        return UIColor(red: red!.toCGFloat/255, green: green!.toCGFloat/255, blue: blue!.toCGFloat/255, alpha: alpha!.toCGFloat/255)
     }
     
     /// RDExtensionsSwift: Return rescaled image
-    public func rescale(scale: CGFloat) -> UIImage?
+    public func rescale(_ scale: CGFloat) -> UIImage?
     {
-        return self.resize(CGSizeMake(self.size.width*scale, self.size.height*scale))
+        return self.resize(CGSize(width: self.size.width*scale, height: self.size.height*scale))
     }
     
     /// RDExtensionsSwift: Return resized image
-    public func resize(size: CGSize) -> UIImage?
+    public func resize(_ size: CGSize) -> UIImage?
     {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        self.drawInRect(CGRectMake(0, 0, size.width, size.height))
+        self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img
     }
     
     /// RDExtensionsSwift: Cut and return circle from the receiver by given radius
-    public func cutCircle(radius: CGFloat) -> UIImage?
+    public func cutCircle(_ radius: CGFloat) -> UIImage?
     {
         var image : UIImage?
-        let rect = CGRectMake(0, 0, radius*4, radius*4)
+        let rect = CGRect(x: 0, y: 0, width: radius*4, height: radius*4)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 1)
         if let context = UIGraphicsGetCurrentContext()
         {
-            CGContextClearRect(context, rect)
-            let path = UIBezierPath(roundedRect:CGRectMake(0, 0, rect.size.width, rect.size.height), cornerRadius:rect.size.width)
+            context.clear(rect)
+            let path = UIBezierPath(roundedRect:CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height), cornerRadius:rect.size.width)
             path.addClip()
-            self.drawInRect(CGRectMake(0, 0, rect.size.width, rect.size.height))
+            self.draw(in: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height))
             image = UIGraphicsGetImageFromCurrentImageContext()
         }
         UIGraphicsEndImageContext()
@@ -89,33 +89,33 @@ extension UIImage {
     }
     
     /// RDExtensionsSwift: Rotate receiver and return
-    public func imageByRotation(degrees: CGFloat) -> UIImage
+    public func imageByRotation(_ degrees: CGFloat) -> UIImage
     {
-        let rotatedViewBox = UIView(frame: CGRectMake(0, 0, self.size.width, self.size.height))
-        let t = CGAffineTransformMakeRotation(degrees * CGFloat(M_PI) / 180)
+        let rotatedViewBox = UIView(frame: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        let t = CGAffineTransform(rotationAngle: degrees * CGFloat(M_PI) / 180)
         rotatedViewBox.transform = t
         let rotatedSize = rotatedViewBox.frame.size
         
         UIGraphicsBeginImageContext(rotatedSize)
         let bitmap = UIGraphicsGetCurrentContext()
         
-        CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2)
-        CGContextRotateCTM(bitmap, degrees * CGFloat(M_PI) / 180)
-        CGContextScaleCTM(bitmap, 1.0, -1.0)
-        CGContextDrawImage(bitmap, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), self.CGImage)
+        bitmap?.translateBy(x: rotatedSize.width/2, y: rotatedSize.height/2)
+        bitmap?.rotate(by: degrees * CGFloat(M_PI) / 180)
+        bitmap?.scaleBy(x: 1.0, y: -1.0)
+        bitmap?.draw(self.cgImage!, in: CGRect(x: -self.size.width / 2, y: -self.size.height / 2, width: self.size.width, height: self.size.height))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return newImage!
     }
     
     /// RDExtensionsSwift: Change orientation of the receiver and return
-    public func changeOrientation(orientation: UIImageOrientation) -> UIImage?
+    public func changeOrientation(_ orientation: UIImageOrientation) -> UIImage?
     {
         var image : UIImage?
-        if let img = self.CGImage
+        if let img = self.cgImage
         {
-            image = UIImage(CGImage: img, scale: self.scale, orientation: orientation)
+            image = UIImage(cgImage: img, scale: self.scale, orientation: orientation)
         }
         return image
     }

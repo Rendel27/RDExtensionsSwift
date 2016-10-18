@@ -23,12 +23,12 @@
 //  THE SOFTWARE.
 //
 
-extension NSURL {
+extension URL {
     
     /// RDExtensionsSwift: Exclude or include content of url from icloud backup
-    public func excludeFromBackup(exclude: Bool = true) throws
+    public func excludeFromBackup(_ exclude: Bool = true) throws
     {
-        try self.setResourceValue(exclude, forKey: NSURLIsExcludedFromBackupKey)
+        try (self as NSURL).setResourceValue(exclude, forKey: URLResourceKey.isExcludedFromBackupKey)
     }
     
     /// RDExtensionsSwift: Check if content of url is excluded or included in icloud backup
@@ -37,7 +37,7 @@ extension NSURL {
         do
         {
             var value : AnyObject?
-            try self.getResourceValue(&value, forKey: NSURLIsExcludedFromBackupKey)
+            try (self as NSURL).getResourceValue(&value, forKey: URLResourceKey.isExcludedFromBackupKey)
             if let v = value as? Bool
             {
                 return v

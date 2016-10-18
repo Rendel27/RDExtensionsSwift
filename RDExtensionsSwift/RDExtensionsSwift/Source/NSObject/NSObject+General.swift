@@ -29,12 +29,12 @@ extension NSObject {
     public static var stringFromClass : String { return NSStringFromClass(self) }
     
     /// RDExtensionsSwift: Return class full name as String
-    public var stringFromClass : String { return NSStringFromClass(self.dynamicType) }
+    public var stringFromClass : String { return NSStringFromClass(type(of: self)) }
     
     /// RDExtensionsSwift: Return class name as String
-    public static var className : String { return self.stringFromClass.componentsSeparatedByString(".").last! }
+    public static var className : String { return self.stringFromClass.components(separatedBy: ".").last! }
     
     /// RDExtensionsSwift: Return class name as String
-    public var className : String { return self.stringFromClass.componentsSeparatedByString(".").last! }
+    public var className : String { return self.stringFromClass.components(separatedBy: ".").last! }
     
 }

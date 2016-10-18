@@ -23,16 +23,16 @@
 //  THE SOFTWARE.
 //
 
-extension NSDate {
+extension Date {
     
     /// RDExtensionsSwift: Create and return date with give day, month and year
-    public static func dateWithDay(day: Int, month: Int, year: Int) -> NSDate?
+    public static func dateWithDay(_ day: Int, month: Int, year: Int) -> Date?
     {
-        let components = NSDateComponents()
+        var components = DateComponents()
         components.day = day;
         components.month = month;
         components.year = year;
-        return NSCalendar.currentCalendar().dateFromComponents(components)
+        return Calendar.current.date(from: components)
     }
     
 }

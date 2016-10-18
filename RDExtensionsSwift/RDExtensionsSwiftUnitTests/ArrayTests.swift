@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class ArrayTests : XCTestCase {
+open class ArrayTests : XCTestCase {
     
     func testRemove()
     {
@@ -54,7 +54,7 @@ public class ArrayTests : XCTestCase {
     {
         let o = NSObject()
         let array = [[NSObject()], [o, NSObject()]]
-        XCTAssertEqual(array[NSIndexPath(forRow: 0, inSection: 1)], o)
+        XCTAssertEqual(array[IndexPath(row: 0, section: 1)], o)
     }
     
     func testRemoveObjectAtIndexPath()
@@ -63,8 +63,12 @@ public class ArrayTests : XCTestCase {
         let o2 = NSObject()
         let o3 = NSObject()
         var array = [[o1], [o2, o3]]
-        XCTAssertEqual(array.removeAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)), o2)
-        XCTAssertEqual(array, [[o1], [o3]])
+        let finalArray = [[o1], [o3]]
+        XCTAssertEqual(array.remove(at: IndexPath(row: 0, section: 1)), o2)
+        for i in 0 ..< array.count
+        {
+            XCTAssertEqual(array[i], finalArray[i])
+        }
     }
     
 }

@@ -26,13 +26,13 @@
 extension UIView {
     
     /// RDExtensionsSwift: Return newly initialized nib by given name and class
-    public static func loadNibNamed(nibName: String, nibClass: AnyClass) -> UIView?
+    public static func loadNibNamed(_ nibName: String, nibClass: AnyClass) -> UIView?
     {
-        if let views = NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil) as? [UIView!]
+        if let views = Bundle.main.loadNibNamed(nibName, owner: nil, options: nil) as? [UIView?]
         {
             for view in views
             {
-                if(view.isKindOfClass(nibClass))
+                if(view?.isKind(of: nibClass))!
                 {
                     return view
                 }

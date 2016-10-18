@@ -26,15 +26,15 @@
 import XCTest
 import RDExtensionsSwift
 
-public class UIColorTests : XCTestCase {
+open class UIColorTests : XCTestCase {
     
     func testProperties()
     {
         let color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        XCTAssertEqual(color.red, 0.5)
-        XCTAssertEqual(color.green, 0.5)
-        XCTAssertEqual(color.blue, 0.5)
-        XCTAssertEqual(color.alpha, 0.5)
+        XCTAssertEqual(color.redComponent, 0.5)
+        XCTAssertEqual(color.greenComponent, 0.5)
+        XCTAssertEqual(color.blueComponent, 0.5)
+        XCTAssertEqual(color.alphaComponent, 0.5)
     }
     
     func testInit()

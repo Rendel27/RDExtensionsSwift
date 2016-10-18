@@ -26,25 +26,25 @@
 extension UIViewController {
     
     /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard
-    private static func _loadWithId<T>(id: String, storyboard: String) -> T?
+    fileprivate static func _loadWithId<T>(_ id: String, storyboard: String) -> T?
     {
-        return UIStoryboard(name: storyboard, bundle: nil).instantiateViewControllerWithIdentifier(id) as? T
+        return UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(withIdentifier: id) as? T
     }
     
     /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard
-    public static func loadWithId(id: String, storyboard: String = "Main") -> Self?
+    public static func loadWithId(_ id: String, storyboard: String = "Main") -> Self?
     {
         return self._loadWithId(self.className, storyboard: storyboard)
     }
     
     /// RDExtensionsSwift: Return newly initialized view controller from given storyboard
-    public static func loadFromStoryboard(storyboard: String = "Main") -> Self?
+    public static func loadFromStoryboard(_ storyboard: String = "Main") -> Self?
     {
         return self.loadWithId(self.className, storyboard: storyboard)
     }
     
     /// RDExtensionsSwift: Return newly initialized view controller from given storyboard and load as root view controller
-    public static func loadAsRootViewControllerFromStoryboard(storyboard: String = "Main") -> Self?
+    public static func loadAsRootViewControllerFromStoryboard(_ storyboard: String = "Main") -> Self?
     {
         return self.loadFromStoryboard(storyboard)?.loadAsRootViewController()
     }
@@ -52,7 +52,7 @@ extension UIViewController {
     /// RDExtensionsSwift: Load the receiver as root view controller
     public func loadAsRootViewController() -> Self?
     {
-        let window = UIApplication.sharedApplication().delegate?.window
+        let window = UIApplication.shared.delegate?.window
         window??.rootViewController = self
         window??.makeKeyAndVisible()
         return self

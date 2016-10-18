@@ -26,7 +26,7 @@
 public extension Array {
     
     /// RDExtensionsSwift: Remove object from array
-    mutating func remove <U: Equatable> (object: U) -> [U]?
+    mutating func remove <U: Equatable> (_ object: U) -> [U]?
     {
         if(self.count == 0)
         {
@@ -41,7 +41,7 @@ public extension Array {
             {
                 if(element == object)
                 {
-                    self.removeAtIndex(i)
+                    self.remove(at: i)
                     removedObjects.append(element)
                     i -= 1
                 }
@@ -52,13 +52,13 @@ public extension Array {
     }
     
     /// RDExtensionsSwift: Insert contents of new elements and return new array
-    func insertContentsOf(newElements: [Element], atIndex: Int) -> [Element]
+    func insertContentsOf(_ newElements: [Element], atIndex: Int) -> [Element]
     {
         var array = Array(self)
         var index = atIndex
         for e in newElements
         {
-            array.insert(e, atIndex: index)
+            array.insert(e, at: index)
             index += 1
         }
         return array
@@ -66,10 +66,16 @@ public extension Array {
     
 }
 
-public extension Array where Element : _ArrayType {
+public extension Array where Element : _ArrayProtocol {
     
     /// RDExtensionsSwift: Return element at indexPath
-    subscript(indexPath: NSIndexPath) -> Element.Generator.Element?
+    subscript(indexPath: IndexPath) -> Element.Iterator.Element?
+    {
+        return self.object(at: indexPath)
+    }
+    
+    /// RDExtensionsSwift: Return element at indexPath
+    func object(at indexPath: IndexPath) -> Element.Iterator.Element?
     {
         if(indexPath.section < self.count && indexPath.row < self[indexPath.section].count)
         {
@@ -79,11 +85,11 @@ public extension Array where Element : _ArrayType {
     }
     
     /// RDExtensionsSwift: Remove and return the element at indexPath
-    mutating func removeAtIndexPath(indexPath: NSIndexPath) -> Element.Generator.Element?
+    mutating func remove(at indexPath: IndexPath) -> Element.Iterator.Element?
     {
         if(indexPath.section < self.count && indexPath.row < self[indexPath.section].count)
         {
-            return self[indexPath.section].removeAtIndex(indexPath.row)
+            return self[indexPath.section].remove(at: indexPath.row)
         }
         return nil
     }

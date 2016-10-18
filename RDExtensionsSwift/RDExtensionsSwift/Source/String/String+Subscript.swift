@@ -38,17 +38,9 @@ extension String {
     }
     
     /// RDExtensionsSwift: Return substring with range
-    public subscript (r: Range<Int>) -> String
-    {
-        let start = startIndex.advancedBy(r.startIndex)
-        let end = start.advancedBy(r.endIndex - r.startIndex)
-        return self[Range(start ..< end)]
-    }
-    
-    /// RDExtensionsSwift: Return substring with range
     public subscript(range: NSRange) -> String
     {
-        return (self as NSString).substringWithRange(range)
+        return (self as NSString).substring(with: range)
     }
     
 }

@@ -43,10 +43,10 @@ extension Character {
     }
     
     /// RDExtensionsSwift: Encrypt Character with key Character
-    public func encrypt(key: Character) -> String?
+    public func encrypt(_ key: Character) -> String?
     {
         let byte = [self.utf8 ^ key.utf8]
-        return String(bytes: byte, encoding: NSUTF8StringEncoding)
+        return String(bytes: byte, encoding: String.Encoding.utf8)
     }
     
 }

@@ -32,17 +32,17 @@ public extension UIImage {
     {
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height))
+        context?.setFillColor(color.cgColor)
+        context?.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        self.init(CGImage: img.CGImage!)
+        self.init(cgImage: (img?.cgImage!)!)
     }
     
     /// RDExtensionsSwift: Return unique identifier and download image from the given url
-    public static func download(url: NSURL, completeInMainThread: Bool = true, completion: ((image: UIImage?, id: String) -> Void)?) -> String
+    public static func download(_ url: URL, completeInMainThread: Bool = true, completion: ((_ image: UIImage?, _ id: String) -> Void)?) -> String
     {
-        return NSData.download(url, completion: { (data, id) in
+        return Data.download(url, completion: { (data, id) in
             var img : UIImage?
             if let d = data
             {
@@ -50,23 +50,23 @@ public extension UIImage {
             }
             if(completeInMainThread)
             {
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion?(image: img, id: id)
+                DispatchQueue.main.async(execute: {
+                    completion?(img, id)
                 })
             }
             else
             {
-                completion?(image: img, id: id)
+                completion?(img, id)
             }
         })
     }
     
     /// RDExtensionsSwift: Return newly initialized animated image by given name
     @objc(gifWithName:)
-    public static func gif(named: String) -> UIImage?
+    public static func gif(_ named: String) -> UIImage?
     {
         var image : UIImage?
-        if let n = named.componentsSeparatedByString(".gif").first, url = NSBundle.mainBundle().URLForResource(n, withExtension: ".gif")
+        if let n = named.components(separatedBy: ".gif").first, let url = Bundle.main.url(forResource: n, withExtension: ".gif")
         {
             image = self.gif(url)
         }
@@ -75,10 +75,10 @@ public extension UIImage {
     
     /// RDExtensionsSwift: Return newly initialized animated image by given url
     @objc(gifWithURL:)
-    public static func gif(url: NSURL) -> UIImage?
+    public static func gif(_ url: URL) -> UIImage?
     {
         var image : UIImage?
-        if let s = CGImageSourceCreateWithURL(url, nil)
+        if let s = CGImageSourceCreateWithURL(url as CFURL, nil)
         {
             image = self.gif(s)
         }
@@ -87,10 +87,10 @@ public extension UIImage {
     
     /// RDExtensionsSwift: Return newly animated image by given data
     @objc(gifWithData:)
-    public static func gif(data: NSData) -> UIImage?
+    public static func gif(_ data: Data) -> UIImage?
     {
         var image : UIImage?
-        if let d = CGImageSourceCreateWithData(data, nil)
+        if let d = CGImageSourceCreateWithData(data as CFData, nil)
         {
             image = self.gif(d)
         }
@@ -99,12 +99,12 @@ public extension UIImage {
     
     /// RDExtensionsSwift: Return newly initialized image by given source
     @objc(gifWithSource:)
-    public static func gif(source: CGImageSourceRef) -> UIImage?
+    public static func gif(_ source: CGImageSource) -> UIImage?
     {
         let count = CGImageSourceGetCount(source)
-        var images : [CGImageRef] = []
+        var images : [CGImage] = []
         var delay : [Int] = []
-        for i in 0.stride(to: count, by: 1)
+        for i in stride(from: 0, to: count, by: 1)
         {
             images.append(CGImageSourceCreateImageAtIndex(source, i, nil)!)
             var d = 1
@@ -136,7 +136,7 @@ public extension UIImage {
         if(count == images.count && images.count == delay.count && count == delay.count)
         {
             var hcf = delay.first ?? 0
-            for i in 1.stride(to: count, by: 1)
+            for i in stride(from: 1, to: count, by: 1)
             {
                 var n1 = delay[i]
                 var n2 = hcf
@@ -158,10 +158,10 @@ public extension UIImage {
                 }
             }
             
-            for i in 0.stride(to: count, by: 1)
+            for i in stride(from: 0, to: count, by: 1)
             {
-                let frame = UIImage(CGImage: images[i])
-                for _ in 0.stride(through: delay[i] / hcf, by: 1).reverse()
+                let frame = UIImage(cgImage: images[i])
+                for _ in stride(from: 0, through: delay[i] / hcf, by: 1).reversed()
                 {
                     frames.append(frame)
                 }
@@ -171,7 +171,7 @@ public extension UIImage {
         {
             print("GIF ERROR: Cannot extract gif frames")
         }
-        return UIImage.animatedImageWithImages(frames, duration: NSTimeInterval(td)/100)
+        return UIImage.animatedImage(with: frames, duration: TimeInterval(td)/100)
     }
     
 }

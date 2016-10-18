@@ -26,9 +26,9 @@
 import XCTest
 import RDExtensionsSwift
 
-public class CGRectTests : XCTestCase {
+open class CGRectTests : XCTestCase {
     
-    let frame = CGRectMake(1, 2, 3, 4)
+    let frame = CGRect(x: 1, y: 2, width: 3, height: 4)
     
     func testX()
     {
@@ -62,12 +62,12 @@ public class CGRectTests : XCTestCase {
     
     func testCenter()
     {
-        XCTAssertEqual(self.frame.center, CGPointMake(self.frame.origin.x + self.frame.size.width/2, self.frame.origin.y + self.frame.size.height/2))
+        XCTAssertEqual(self.frame.center, CGPoint(x: self.frame.origin.x + self.frame.size.width/2, y: self.frame.origin.y + self.frame.size.height/2))
     }
     
     func testMiddle()
     {
-        XCTAssertEqual(self.frame.middle, CGPointMake(self.frame.size.width/2, self.frame.size.height/2))
+        XCTAssertEqual(self.frame.middle, CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2))
     }
     
 }

@@ -26,25 +26,25 @@
 import XCTest
 import RDExtensionsSwift
 
-public class UIImageTests : XCTestCase {
+open class UIImageTests : XCTestCase {
     
     func testMethods()
     {
-        let size1 = CGSizeMake(100, 100)
-        let size2 = CGSizeMake(50, 50)
-        let size3 = CGSizeMake(20, 20)
-        let color = UIColor.greenColor()
+        let size1 = CGSize(width: 100, height: 100)
+        let size2 = CGSize(width: 50, height: 50)
+        let size3 = CGSize(width: 20, height: 20)
+        let color = UIColor.green
         let image = UIImage(color: color, size: size1)
-        XCTAssertEqual(image.color(CGPointZero), color)
+        XCTAssertEqual(image.color(CGPoint.zero), color)
         XCTAssertEqual(image.rescale(0.5)?.size, size2)
         XCTAssertEqual(image.resize(size3)?.size, size3)
-        XCTAssertEqual(image.changeOrientation(UIImageOrientation.Down)?.imageOrientation, UIImageOrientation.Down)
+        XCTAssertEqual(image.changeOrientation(UIImageOrientation.down)?.imageOrientation, UIImageOrientation.down)
     }
     
     func testDownload()
     {
-        let expectation = self.expectationWithDescription("UIImage.testDownload")
-        let url = NSURL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
+        let expectation = self.expectation(description: "UIImage.testDownload")
+        let url = URL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
         var uuid : String = ""
         uuid = UIImage.download(url, completion: { (image, id) in
             expectation.fulfill()
@@ -52,7 +52,7 @@ public class UIImageTests : XCTestCase {
             XCTAssertNotNil(image)
         })
         
-        self.waitForExpectationsWithTimeout(30) { (error) in
+        self.waitForExpectations(timeout: 30) { (error) in
             if(error != nil)
             {
                 XCTAssert(false, "Request Timeout for URL: " + url.absoluteString)

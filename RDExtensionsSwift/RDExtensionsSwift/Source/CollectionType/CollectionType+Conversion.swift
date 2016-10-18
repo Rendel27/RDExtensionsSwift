@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-public extension CollectionType where Generator.Element == String {
+public extension Collection where Iterator.Element == String {
     
     /// RDExtensionsSwift: Convert String array to Int array
     var toInt : [Int]

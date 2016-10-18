@@ -23,46 +23,33 @@
 //  THE SOFTWARE.
 //
 
-extension NSDate {
-    
-    /// RDExtensionsSwift: Return current date by local timezone
-    public static var localDate : NSDate
-    {
-        let sourceDate = NSDate()
-        let sourceTimeZone = NSTimeZone()
-        let destinationTimeZone = NSTimeZone.systemTimeZone()
-        let sourceTimeZoneOffset = sourceTimeZone.secondsFromGMTForDate(sourceDate)
-        let destinationTimeZoneOffset = destinationTimeZone.secondsFromGMTForDate(sourceDate)
-        let interval = NSTimeInterval(destinationTimeZoneOffset - sourceTimeZoneOffset)
-        let localDate = NSDate(timeInterval: interval, sinceDate: sourceDate)
-        return localDate
-    }
+extension Date {
     
     /// RDExtensionsSwift: Return date second
-    public var second : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: self).second }
+    public var second : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.second, from: self).second! }
     
     /// RDExtensionsSwift: Return date minute
-    public var minute : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: self).minute }
+    public var minute : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.minute, from: self).minute! }
     
     /// RDExtensionsSwift: Return date hour
-    public var hour : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: self).hour }
+    public var hour : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.hour, from: self).hour! }
     
     /// RDExtensionsSwift: Return date day
-    public var day : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: self).day }
+    public var day : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.day, from: self).day! }
     
     /// RDExtensionsSwift: Return date week day
-    public var weekDay : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Weekday, fromDate: self).weekday }
+    public var weekDay : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.weekday, from: self).weekday! }
     
     /// RDExtensionsSwift: Return date ordinal week day
-    public var weekdayOrdinal : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.WeekdayOrdinal, fromDate: self).weekdayOrdinal }
+    public var weekdayOrdinal : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.weekdayOrdinal, from: self).weekdayOrdinal! }
     
     /// RDExtensionsSwift: Return date month
-    public var month : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Month, fromDate: self).month }
+    public var month : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.month, from: self).month! }
     
     /// RDExtensionsSwift: Return date year
-    public var year : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: self).year }
+    public var year : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.year, from: self).year! }
     
     /// RDExtensionsSwift: Return date era
-    public var era : Int { return NSCalendar.currentCalendar().components(NSCalendarUnit.Era, fromDate: self).era }
+    public var era : Int { return (Calendar.current as NSCalendar).components(NSCalendar.Unit.era, from: self).era! }
     
 }

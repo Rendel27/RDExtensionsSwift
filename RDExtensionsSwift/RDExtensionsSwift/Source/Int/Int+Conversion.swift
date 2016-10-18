@@ -26,9 +26,15 @@
 extension Int {
     
     /// RDExtensionsSwift: Convert Int to Character
-    public var toCharacter : Character { return Character(UnicodeScalar(self)) }
+    public var toCharacter : Character { return Character(UnicodeScalar(self)!) }
     
     /// RDExtensionsSwift: Convert Int to String
     public var toString : String { get { return "\(self)" } }
+    
+    /// RDExtensionsSwift: Convert Int to Int64
+    public var toInt64 : Int64 { get { return Int64(self) } }
+    
+    /// RDExtensionsSwift: Convert Int to IntMax
+    public var toIntMax : IntMax { get { return IntMax(self) } }
     
 }

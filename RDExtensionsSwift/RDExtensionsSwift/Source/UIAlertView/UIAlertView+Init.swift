@@ -26,16 +26,16 @@
 extension UIAlertView {
     
     /// RDExtensionsSwift: Return a newly initialized view for displaying an alert to the user
-    public convenience init(title: String? = nil, message: String, delegate: AnyObject?, tag: Int = 0, style: UIAlertViewStyle = .Default, keyboardType: UIKeyboardType = .Default, cancelButtonTitle: String?, otherButtonTitles firstButtonTitle: String, _ moreButtonTitles: String...)
+    public convenience init(title: String? = nil, message: String, delegate: AnyObject?, tag: Int = 0, style: UIAlertViewStyle = .default, keyboardType: UIKeyboardType = .default, cancelButtonTitle: String?, otherButtonTitles firstButtonTitle: String, _ moreButtonTitles: String...)
     {
         self.init(title: title, message: message, delegate: delegate, cancelButtonTitle: cancelButtonTitle, otherButtonTitles: firstButtonTitle)
         self.tag = tag
         for t in moreButtonTitles
         {
-            self.addButtonWithTitle(t)
+            self.addButton(withTitle: t)
         }
         self.alertViewStyle = style
-        self.textFieldAtIndex(0)?.keyboardType = keyboardType
+        self.textField(at: 0)?.keyboardType = keyboardType
     }
     
 }

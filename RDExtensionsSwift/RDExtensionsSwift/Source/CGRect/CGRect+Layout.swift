@@ -44,9 +44,9 @@ extension CGRect {
     public var lastY : CGFloat { get { return self.y + self.height } set { self.y = newValue + self.height/2 } }
     
     /// RDExtensionsSwift: Get or Set frame center point
-    public var center : CGPoint { get { return CGPointMake(self.centerX, self.centerY) } set { self.centerX = newValue.x; self.centerY = newValue.y } }
+    public var center : CGPoint { get { return CGPoint(x: self.centerX, y: self.centerY) } set { self.centerX = newValue.x; self.centerY = newValue.y } }
     
     /// RDExtensionsSwift: Get or Set frame middle point
-    public var middle : CGPoint { get { return CGPointMake(self.width/2, self.height/2) } }
+    public var middle : CGPoint { get { return CGPoint(x: self.width/2, y: self.height/2) } }
     
 }

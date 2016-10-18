@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class CharacterTests : XCTestCase {
+open class CharacterTests : XCTestCase {
     
     func testToInt()
     {

@@ -26,16 +26,16 @@
 extension UIView {
     
     /// RDExtensionsSwift: Generate and return the screenshot of the receiver. Returns UIImage
-    public func screenshot(rect: CGRect? = nil) -> UIImage?
+    public func screenshot(_ rect: CGRect? = nil) -> UIImage?
     {
         var image : UIImage?
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
         if let context = UIGraphicsGetCurrentContext()
         {
-            self.layer.renderInContext(context)
+            self.layer.render(in: context)
             if let r = rect
             {
-                CGContextClearRect(context, r)
+                context.clear(r)
             }
             image = UIGraphicsGetImageFromCurrentImageContext()
         }
@@ -48,7 +48,7 @@ extension UIView {
     {
         var image : UIImage?
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0)
-        if(self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true) == true)
+        if(self.drawHierarchy(in: self.bounds, afterScreenUpdates: true) == true)
         {
             image = UIGraphicsGetImageFromCurrentImageContext()
         }

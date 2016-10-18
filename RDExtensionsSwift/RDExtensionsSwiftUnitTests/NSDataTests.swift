@@ -26,20 +26,20 @@
 import XCTest
 import RDExtensionsSwift
 
-public class NSDataTests : XCTestCase {
+open class NSDataTests : XCTestCase {
     
     func testDownload()
     {
-        let expectation = self.expectationWithDescription("NSData.testDownload")
-        let url = NSURL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
+        let expectation = self.expectation(description: "NSData.testDownload")
+        let url = URL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
         var uuid : String = ""
-        uuid = NSData.download(url, completion: { (data, id) in
+        uuid = Data.download(url, completion: { (data, id) in
             expectation.fulfill()
             XCTAssertEqual(uuid, id)
             XCTAssertNotNil(data)
         })
         
-        self.waitForExpectationsWithTimeout(30) { (error) in
+        self.waitForExpectations(timeout: 30) { (error) in
             if(error != nil)
             {
                 XCTAssert(false, "Request Timeout for URL: " + url.absoluteString)

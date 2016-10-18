@@ -23,23 +23,23 @@
 //  THE SOFTWARE.
 //
 
-extension NSData {
+extension Data {
     
     /// RDExtensionsSwift: Return unique identifier and download data from the given url
-    public static func download(url: NSURL, completeInMainThread: Bool = true, completion: ((data: NSData?, id: String) -> Void)?) -> String
+    public static func download(_ url: URL, completeInMainThread: Bool = true, completion: ((_ data: Data?, _ id: String) -> Void)?) -> String
     {
         let id = String.UUID
-        dispatch_async(dispatch_queue_create(id, DISPATCH_QUEUE_CONCURRENT), {
-            let data = NSData(contentsOfURL: url)
+        DispatchQueue(label: id, attributes: DispatchQueue.Attributes.concurrent).async(execute: {
+            let data = try? Data(contentsOf: url)
             if(completeInMainThread)
             {
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion?(data: data, id: id)
+                DispatchQueue.main.async(execute: {
+                    completion?(data, id)
                 })
             }
             else
             {
-                completion?(data: data, id: id)
+                completion?(data, id)
             }
         })
         return id

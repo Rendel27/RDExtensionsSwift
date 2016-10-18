@@ -26,7 +26,7 @@
 extension UIView {
     
     /// RDExtensionsSwift: Return subviews of the receiver by given tag recursively
-    public func subviews(tag: Int? = nil, recursively: Bool = false) -> [UIView]
+    public func subviews(_ tag: Int? = nil, recursively: Bool = false) -> [UIView]
     {
         var arraySubviews : [UIView] = []
         for view in self.subviews

@@ -23,21 +23,21 @@
 //  THE SOFTWARE.
 //
 
-extension UIColor {
+public extension UIColor {
     
     /// RDExtensionsSwift: Return color's red component value
-    public var red : CGFloat { get { return CGColorGetComponents(self.CGColor)[0] } }
+    var redComponent : CGFloat { get { return self.cgColor.components?[0] ?? 0 } }
     
     /// RDExtensionsSwift: Return color's green component value
-    public var green : CGFloat { get { return CGColorGetComponents(self.CGColor)[1] } }
+    var greenComponent : CGFloat { get { return self.cgColor.components?[1] ?? 0 } }
     
     /// RDExtensionsSwift: Return color's blue component value
-    public var blue : CGFloat { get { return CGColorGetComponents(self.CGColor)[2] } }
+    var blueComponent : CGFloat { get { return self.cgColor.components?[2] ?? 0 } }
     
     /// RDExtensionsSwift: Return color's alpha component value
-    public var alpha : CGFloat { get { return CGColorGetComponents(self.CGColor)[3] } }
+    var alphaComponent : CGFloat { get { return self.cgColor.components?[3] ?? 0 } }
     
     /// RDExtensionsSwift: Generate and return random color
-    public static var randomColor : UIColor { get { return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0) } }
+    static var randomColor : UIColor { get { return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0) } }
     
 }

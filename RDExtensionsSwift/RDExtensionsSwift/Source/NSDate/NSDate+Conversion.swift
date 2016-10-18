@@ -23,14 +23,14 @@
 //  THE SOFTWARE.
 //
 
-extension NSDate {
+extension Date {
     
     /// RDExtensionsSwift: Convert NSDate to String with given format
-    public func toString(format: String) -> String
+    public func toString(_ format: String) -> String
     {
-        let df = NSDateFormatter()
+        let df = DateFormatter()
         df.dateFormat = format
-        return df.stringFromDate(self)
+        return df.string(from: self)
     }
     
 }

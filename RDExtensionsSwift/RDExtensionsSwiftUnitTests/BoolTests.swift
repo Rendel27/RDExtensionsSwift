@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class BoolTests : XCTestCase {
+open class BoolTests : XCTestCase {
     
     func testToString()
     {

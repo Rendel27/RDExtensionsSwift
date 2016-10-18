@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class StringTests : XCTestCase {
+open class StringTests : XCTestCase {
     
     func testConversions()
     {
@@ -51,7 +51,7 @@ public class StringTests : XCTestCase {
         XCTAssertEqual("123".toFloat, Float(123))
         XCTAssertEqual("123".toCGFloat, CGFloat(123))
         XCTAssertEqual("123".toDouble, Double(123))
-        XCTAssertEqual("123".toTimeInterval, NSTimeInterval(123))
+        XCTAssertEqual("123".toTimeInterval, TimeInterval(123))
         XCTAssertNotNil("www.example.com".toHttpURL)
         XCTAssertNotNil("example/file".toFileURL)
     }
@@ -96,13 +96,13 @@ public class StringTests : XCTestCase {
     
     func testStringByReplacingCharactersInRange()
     {
-        XCTAssertEqual("0123456789".stringByReplacingCharactersInRange(NSMakeRange(4, 3), withString: "000"), "0123000789")
+        XCTAssertEqual("0123456789".replacingCharacters(in: NSMakeRange(4, 3), with: "000"), "0123000789")
     }
     
     func testReplaceCharactersInRange()
     {
         var string = "0123456789"
-        string.replaceCharactersInRange(NSMakeRange(4, 3), withString: "000")
+        string.replaceCharacters(in: NSMakeRange(4, 3), with: "000")
         XCTAssertEqual(string, "0123000789")
     }
     
@@ -129,7 +129,14 @@ public class StringTests : XCTestCase {
         do
         {
             let array = try "name1 name2 name3".ranges("name")
-            XCTAssertEqual(array, [NSMakeRange(0, 4), NSMakeRange(6, 4), NSMakeRange(12, 4)])
+            let finalArray = [NSMakeRange(0, 4), NSMakeRange(6, 4), NSMakeRange(12, 4)]
+            for i in 0 ..< array.count
+            {
+                let lhs = array[i]
+                let rhs = finalArray[i]
+                XCTAssertEqual(lhs.location, rhs.location)
+                XCTAssertEqual(lhs.length, rhs.length)
+            }
         }
         catch
         {
@@ -142,7 +149,6 @@ public class StringTests : XCTestCase {
         XCTAssertEqual("123"[1], Character("2"))
         XCTAssertEqual("123"[1], "2")
         XCTAssertEqual("123"[NSMakeRange(1, 1)], "2")
-        XCTAssertEqual("123"[NSMakeRange(1, 1).toRange()!], "2")
     }
     
 }

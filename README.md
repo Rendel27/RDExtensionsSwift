@@ -3,6 +3,8 @@
 [![License](https://img.shields.io/cocoapods/l/RDExtensionsSwift.svg?style=flat)](https://github.com/Rendel27/RDExtensionsSwift/blob/master/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/RDExtensionsSwift.svg?style=flat)](http://cocoapods.org/pods/RDExtensionsSwift)
 [![Language](https://img.shields.io/badge/swift-2.2-orange.svg)](http://swift.org)
+[![Language](https://img.shields.io/badge/swift-2.3-orange.svg)](http://swift.org)
+[![Language](https://img.shields.io/badge/swift-3-orange.svg)](http://swift.org)
 
 
 
@@ -154,11 +156,11 @@ Find regex matches:
 ```swift
 do
 {
-    let array = try "name1 name2 name3".matches("[a-zA-Z]{4}[0-9]{1}") // array value will be ["name1", "name2", "name3"]
+let array = try "name1 name2 name3".matches("[a-zA-Z]{4}[0-9]{1}") // array value will be ["name1", "name2", "name3"]
 }
 catch
 {
-    // handle an error here
+// handle an error here
 }
 ```
 
@@ -166,11 +168,11 @@ Find ranges for values:
 ```swift
 do
 {
-    let array = try "name1 name2 name3".ranges("name") // array value will be [NSMakeRange(0, 4), NSMakeRange(6, 4), NSMakeRange(12, 4)]
+let array = try "name1 name2 name3".ranges("name") // array value will be [NSMakeRange(0, 4), NSMakeRange(6, 4), NSMakeRange(12, 4)]
 }
 catch
 {
-    // handle an error here
+// handle an error here
 }
 ```
 
@@ -286,8 +288,8 @@ Download data from internet:
 ```swift
 let url = NSURL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
 let uuid = NSData.download(url, completeInMainThread: true, completion: { (data, id) in
-    id == uuid
-    data == downloaded data from url
+id == uuid
+data == downloaded data from url
 })
 ```
 
@@ -394,8 +396,8 @@ Download image from url:
 ```swift
 let url = NSURL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
 let uuid = UIImage.download(url, completion: { (image, id) in
-    id == uuid
-    image == downloaded image from url
+id == uuid
+image == downloaded image from url
 })
 ```
 
@@ -602,26 +604,27 @@ player.thumbnail(CMTime) // returns UIImage. Time is optional. If it is not pres
 ## Installation
 
 - **Manually**  
-    - ***As Open Source:***
-        1. Download RDExtensionsSwift project  
-        2. Drag n drop the Source folder into your project (Make sure that you tick on Copy if needed checkbox)  
-    - ***As Embedded Framework:***
-        1. Download RDExtensionsSwift project  
-        2. Build it for desired target  
-        3. Copy it into your project director  
-        4. In xcode navigator select project >> General >> Embedded Binaries: click + button and select RDExtensionsSwift framework.
+- ***As Open Source:***
+1. Download RDExtensionsSwift project (for swift 2 download version 1.0.7, for swift 3 download the latest version)  
+2. Drag n drop the Source folder into your project (Make sure that you tick on Copy if needed checkbox)  
+- ***As Embedded Framework:***
+1. Download RDExtensionsSwift project(for swift 2 download version 1.0.7, for swift 3 download the latest version)  
+2. Build it for desired target  
+3. Copy it into your project directory  
+4. In Xcode navigator select project >> General >> Embedded Binaries: click + button and select RDExtensionsSwift framework.
 
 
 - **[CocoaPods](https://cocoapods.org)**  
 
-    ```ruby
-    source 'https://github.com/CocoaPods/Specs.git'
-    use_frameworks!
-    target 'ProjectName' do
-    	pod 'RDExtensionsSwift'
-    end
-    ```
-    Run `pod install`, and you should now have the latest RDExtensionsSwift release.
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+target 'ProjectName' do
+pod 'RDExtensionsSwift' # for latest version (Swift 3)
+pod 'RDExtensionsSwift' # for Swift 2
+end
+```
+Run `pod install`, and you should now have the latest RDExtensionsSwift release.
 
 
 
@@ -634,7 +637,7 @@ import RDExtensionsSwift
 
 
 ## Requirements
-- Swift 2
+- Swift 2.2 or later
 
 
 

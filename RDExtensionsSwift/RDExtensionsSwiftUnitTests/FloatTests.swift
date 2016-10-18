@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-public class FloatTests : XCTestCase {
+open class FloatTests : XCTestCase {
     
     func testToInt()
     {
