@@ -33,4 +33,30 @@ open class Int64Tests : XCTestCase {
         XCTAssertEqual(47382903.toString, "47382903")
     }
     
+    func testToIntMax()
+    {
+        XCTAssertEqual(47382903.toIntMax, IntMax(47382903))
+    }
+    
+    func testToCGFloat()
+    {
+        XCTAssertEqual(47382903.toCGFloat, CGFloat(47382903))
+    }
+    
+    func testToFloat()
+    {
+        XCTAssertEqual(47382903.toFloat, Float(47382903))
+    }
+    
+    func testToDouble()
+    {
+        XCTAssertEqual(47382903.toDouble, Double(47382903))
+    }
+    
+    func testToBool()
+    {
+        XCTAssertEqual(1.toBool, true)
+        XCTAssertEqual(0.toBool, false)
+    }
+    
 }

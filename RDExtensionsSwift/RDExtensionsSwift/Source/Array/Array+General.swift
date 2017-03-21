@@ -25,6 +25,28 @@
 
 public extension Array {
     
+    /// RDExtensionsSwift: Return first n objects from array
+    func first(n elements: Int) -> [Element]
+    {
+        var es : [Element] = []
+        for i in 0 ..< (elements <= self.count ? elements : self.count)
+        {
+            es.append(self[i])
+        }
+        return es
+    }
+    
+    /// RDExtensionsSwift: Return last n objects from array
+    func last(n elements: Int) -> [Element]
+    {
+        var es : [Element] = []
+        for i in 0 ..< (elements <= self.count ? elements : self.count)
+        {
+            es.append(self[self.count - 1 - (elements - 1 - i)])
+        }
+        return es
+    }
+    
     /// RDExtensionsSwift: Remove object from array
     mutating func remove <U: Equatable> (_ object: U) -> [U]?
     {
@@ -94,4 +116,41 @@ public extension Array where Element : _ArrayProtocol {
         return nil
     }
     
+}
+
+public extension Array where Element : Equatable
+{
+    /// RDExtensionsSwift: Return indexes of elements
+    func indexes(of elements: [Element]) -> [Int]
+    {
+        var indexes : [Int] = []
+        for element in elements
+        {
+            if let indx = self.index(of: element)
+            {
+                indexes.append(indx)
+            }
+        }
+        return indexes
+    }
+    
+    /// RDExtensionsSwift: Return the previous element of the given element
+    func previous(of object: Element) -> Element?
+    {
+        if let index = self.index(of: object), index > 0
+        {
+            return self[index - 1]
+        }
+        return nil
+    }
+    
+    /// RDExtensionsSwift: Return the next element of the given element
+    func next(of object: Element) -> Element?
+    {
+        if let index = self.index(of: object), index < self.count - 1
+        {
+            return self[index + 1]
+        }
+        return nil
+    }
 }

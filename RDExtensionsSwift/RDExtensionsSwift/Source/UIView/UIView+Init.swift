@@ -23,23 +23,22 @@
 //  THE SOFTWARE.
 //
 
-extension UIView {
+public extension UIView {
     
-    /// RDExtensionsSwift: Return newly initialized nib by given name and class
-    public static func loadNibNamed(_ nibName: String, nibClass: AnyClass) -> UIView?
+    /// RDExtensionsSwift: Return newly initialized view by given name for given owner with given options
+    static func load<T>(with name: String, for owner: Any? = self, with options: [AnyHashable : Any]? = nil) -> T?
     {
-        if let views = Bundle.main.loadNibNamed(nibName, owner: nil, options: nil) as? [UIView?]
+        if let views = Bundle.main.loadNibNamed(name, owner: owner, options: options)
         {
             for view in views
             {
-                if(view?.isKind(of: nibClass))!
+                if view is T
                 {
-                    return view
+                    return view as? T
                 }
             }
         }
-        
-        return nil;
+        return nil
     }
     
 }

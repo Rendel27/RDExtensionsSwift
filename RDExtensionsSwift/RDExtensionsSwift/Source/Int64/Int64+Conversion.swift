@@ -23,9 +23,24 @@
 //  THE SOFTWARE.
 //
 
-extension Int64 {
+public extension Int64 {
     
     /// RDExtensionsSwift: Convert Int64 to String
-    public var toString : String { get { return "\(self)" } }
+    var toString : String { get { return "\(self)" } }
+    
+    /// RDExtensionsSwift: Convert Int64 to IntMax
+    var toIntMax : IntMax { get { return IntMax(self) } }
+    
+    /// RDExtensionsSwift: Convert Int64 to CGFloat
+    var toCGFloat : CGFloat { get { return CGFloat(self) } }
+    
+    /// RDExtensionsSwift: Convert Int64 to Float
+    var toFloat : Float { get { return Float(self) } }
+    
+    /// RDExtensionsSwift: Convert Int64 to Double
+    var toDouble : Double { get { return Double(self) } }
+    
+    /// RDExtensionsSwift: Convert Int64 to Bool
+    var toBool : Bool { get { return self != 0 } }
     
 }

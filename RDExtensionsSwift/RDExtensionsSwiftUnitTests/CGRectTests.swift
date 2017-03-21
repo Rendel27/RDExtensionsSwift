@@ -40,6 +40,16 @@ open class CGRectTests : XCTestCase {
         XCTAssertEqual(self.frame.y, self.frame.origin.y)
     }
     
+//    func testWidth()
+//    {
+//        XCTAssertEqual(self.frame.width, self.frame.size.width)
+//    }
+//    
+//    func testHeight()
+//    {
+//        XCTAssertEqual(self.frame.height, self.frame.size.height)
+//    }
+    
     func testCenterX()
     {
         XCTAssertEqual(self.frame.centerX, self.frame.origin.x + self.frame.size.width/2)

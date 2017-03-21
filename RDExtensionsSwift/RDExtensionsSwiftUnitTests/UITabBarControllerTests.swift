@@ -1,8 +1,8 @@
 //
-//  Int+Conversion.swift
+//  UITabBarControllerTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
-//  Copyright (c) 2016 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 12.03.17.
+//  Copyright (c) 2017 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,30 +23,18 @@
 //  THE SOFTWARE.
 //
 
-public extension Int {
+import XCTest
+import RDExtensionsSwift
+
+public class UITabBarControllerTests : XCTestCase {
     
-    /// RDExtensionsSwift: Convert Int to Character
-    var toCharacter : Character { return Character(UnicodeScalar(self)!) }
-    
-    /// RDExtensionsSwift: Convert Int to String
-    var toString : String { get { return "\(self)" } }
-    
-    /// RDExtensionsSwift: Convert Int to Int64
-    var toInt64 : Int64 { get { return Int64(self) } }
-    
-    /// RDExtensionsSwift: Convert Int to IntMax
-    var toIntMax : IntMax { get { return IntMax(self) } }
-    
-    /// RDExtensionsSwift: Convert Int to CGFloat
-    var toCGFloat : CGFloat { get { return CGFloat(self) } }
-    
-    /// RDExtensionsSwift: Convert Int to Float
-    var toFloat : Float { get { return Float(self) } }
-    
-    /// RDExtensionsSwift: Convert Int to Double
-    var toDouble : Double { get { return Double(self) } }
-    
-    /// RDExtensionsSwift: Convert Int to Bool
-    var toBool : Bool { get { return self != 0 } }
+    func testCurrentViewController()
+    {
+        let tabBarController = UITabBarController()
+        let cvc = UIViewController()
+        tabBarController.setViewControllers([UIViewController(), cvc, UIViewController()], animated: false)
+        tabBarController.selectedIndex = 1
+        XCTAssertEqual(tabBarController.currentViewController, cvc)
+    }
     
 }

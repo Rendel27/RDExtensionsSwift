@@ -621,7 +621,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 target 'ProjectName' do
 pod 'RDExtensionsSwift' # for latest version (Swift 3)
-pod 'RDExtensionsSwift' # for Swift 2
+pod 'RDExtensionsSwift', '~> 1.0.7' # for Swift 2
 end
 ```
 Run `pod install`, and you should now have the latest RDExtensionsSwift release.

@@ -1,5 +1,5 @@
 //
-//  UIViewController.swift
+//  UIViewController+Init.swift
 //
 //  Created by Giorgi Iashvili on 19.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
@@ -25,36 +25,43 @@
 
 extension UIViewController {
     
-    /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard
-    fileprivate static func _loadWithId<T>(_ id: String, storyboard: String) -> T?
+    /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard for given bundle
+    fileprivate static func _load<T>(with id: String, from storyboard: String, for bundle: Bundle? = nil) -> T?
     {
-        return UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(withIdentifier: id) as? T
+        return UIStoryboard(name: storyboard, bundle: bundle).instantiateViewController(withIdentifier: id) as? T
     }
     
-    /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard
-    public static func loadWithId(_ id: String, storyboard: String = "Main") -> Self?
+    /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard for given bundle
+    public static func load(with id: String, from storyboard: String, for bundle: Bundle? = nil) -> Self?
     {
-        return self._loadWithId(self.className, storyboard: storyboard)
+        return self._load(with: self.className, from: storyboard, for: bundle)
     }
     
-    /// RDExtensionsSwift: Return newly initialized view controller from given storyboard
-    public static func loadFromStoryboard(_ storyboard: String = "Main") -> Self?
+    /// RDExtensionsSwift: Return newly initialized view controller with classname as id from given storyboard for given bundle
+    public static func load(from storyboard: String, for bundle: Bundle? = nil) -> Self?
     {
-        return self.loadWithId(self.className, storyboard: storyboard)
+        return self.load(with: self.className, from: storyboard, for: bundle)
     }
     
-    /// RDExtensionsSwift: Return newly initialized view controller from given storyboard and load as root view controller
-    public static func loadAsRootViewControllerFromStoryboard(_ storyboard: String = "Main") -> Self?
+    /// RDExtensionsSwift: Return newly initialized view controller with classname as id from given storyboard for given bundle and load as root view controller on given window. If the given window is nil, it will be loaded on the current window
+    public static func loadAsRootViewController(from storyboard: String, for bundle: Bundle? = nil, on window: UIWindow? = nil) -> Self?
     {
-        return self.loadFromStoryboard(storyboard)?.loadAsRootViewController()
+        return self.load(from: storyboard, for: bundle)?.loadAsRootViewController(on: window)
     }
     
-    /// RDExtensionsSwift: Load the receiver as root view controller
-    public func loadAsRootViewController() -> Self?
+    /// RDExtensionsSwift: Load the receiver as root view controller on given window. If the given window is nil, it will be loaded on the current window
+    public func loadAsRootViewController(on window: UIWindow? = nil) -> Self?
     {
-        let window = UIApplication.shared.delegate?.window
-        window??.rootViewController = self
-        window??.makeKeyAndVisible()
+        var w : UIWindow?
+        if(window == nil)
+        {
+            if let window = UIApplication.shared.delegate?.window
+            {
+                w = window
+            }
+        }
+        w?.rootViewController = self
+        w?.makeKeyAndVisible()
         return self
     }
     

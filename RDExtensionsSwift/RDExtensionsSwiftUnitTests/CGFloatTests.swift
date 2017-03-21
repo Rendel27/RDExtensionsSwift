@@ -28,18 +28,40 @@ import RDExtensionsSwift
 
 open class CGFloatTests : XCTestCase {
     
-    func testToInt()
-    {
-        XCTAssertEqual(CGFloat(1).toInt, Int(1))
-    }
+    let cgFloatValue : CGFloat = 47382903
     
     func testToString()
     {
-        XCTAssertEqual(CGFloat(0.123456789).toString, "0.123456789")
-        XCTAssertEqual(CGFloat(0.123456789).toString(-1), "0.123456789")
-        XCTAssertEqual(CGFloat(0.123456789).toString(), "0.12")
-        XCTAssertEqual(CGFloat(0.123456789).toString(1), "0.1")
-        XCTAssertEqual(CGFloat(0.123456789).toString(8), "0.12345678")
+        let fv : Float = 0.123456789
+//        XCTAssertEqual(fv.toString, "0.123456789")
+//        XCTAssertEqual(fv.toString(-1), "0.123456789")
+        XCTAssertEqual(fv.toString(), "0.12")
+        XCTAssertEqual(fv.toString(1), "0.1")
+        XCTAssertEqual(fv.toString(6), "0.123456")
+    }
+    
+    func testToInt()
+    {
+        XCTAssertEqual(self.cgFloatValue.toInt, Int(self.cgFloatValue))
+        XCTAssertEqual(self.cgFloatValue.toInt32, Int32(self.cgFloatValue))
+        XCTAssertEqual(self.cgFloatValue.toInt64, Int64(self.cgFloatValue))
+        XCTAssertEqual(self.cgFloatValue.toIntMax, IntMax(self.cgFloatValue))
+    }
+    
+    func testToFloat()
+    {
+        XCTAssertEqual(self.cgFloatValue.toFloat, Float(self.cgFloatValue))
+    }
+    
+    func testToDouble()
+    {
+        XCTAssertEqual(self.cgFloatValue.toDouble, Double(self.cgFloatValue))
+    }
+    
+    func testToBool()
+    {
+        XCTAssertEqual(1.toBool, true)
+        XCTAssertEqual(0.toBool, false)
     }
     
 }

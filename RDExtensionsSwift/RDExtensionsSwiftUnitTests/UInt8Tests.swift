@@ -28,12 +28,40 @@ import RDExtensionsSwift
 
 open class UInt8Tests : XCTestCase {
     
-    func testConversions()
+    let int8Value : UInt8 = 47
+    
+    func testToString()
     {
-        let uint8 = UInt8(27)
-        XCTAssertEqual(uint8.toDouble, Double(27))
-        XCTAssertEqual(uint8.toFloat, Float(27))
-        XCTAssertEqual(uint8.toCGFloat, CGFloat(27))
+        XCTAssertEqual(self.int8Value.toString, "47")
+    }
+    
+    func testToInt()
+    {
+        XCTAssertEqual(self.int8Value.toInt, Int(self.int8Value))
+        XCTAssertEqual(self.int8Value.toInt32, Int32(self.int8Value))
+        XCTAssertEqual(self.int8Value.toInt64, Int64(self.int8Value))
+        XCTAssertEqual(self.int8Value.toIntMax, IntMax(self.int8Value))
+    }
+    
+    func testToCGFloat()
+    {
+        XCTAssertEqual(self.int8Value.toCGFloat, CGFloat(self.int8Value))
+    }
+    
+    func testToFloat()
+    {
+        XCTAssertEqual(self.int8Value.toFloat, Float(self.int8Value))
+    }
+    
+    func testToDouble()
+    {
+        XCTAssertEqual(self.int8Value.toDouble, Double(self.int8Value))
+    }
+    
+    func testToBool()
+    {
+        XCTAssertEqual(1.toBool, true)
+        XCTAssertEqual(0.toBool, false)
     }
     
 }

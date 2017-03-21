@@ -28,6 +28,13 @@ import RDExtensionsSwift
 
 open class ArrayTests : XCTestCase {
     
+    func testFirstAndLastNElements()
+    {
+        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        XCTAssertEqual(array.first(n: 2), [0, 1])
+        XCTAssertEqual(array.last(n: 2), [8, 9])
+    }
+    
     func testRemove()
     {
         let o1 = NSObject()
@@ -69,6 +76,22 @@ open class ArrayTests : XCTestCase {
         {
             XCTAssertEqual(array[i], finalArray[i])
         }
+    }
+    
+    func testIndexes()
+    {
+        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        XCTAssertEqual(array.indexes(of: [3, 4]), [3, 4])
+        XCTAssertEqual(array.indexes(of: [11, 12]), [])
+    }
+    
+    func testPreviousAndNextElement()
+    {
+        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        XCTAssertEqual(array.previous(of: 4), 3)
+        XCTAssertNil(array.previous(of: 0))
+        XCTAssertEqual(array.next(of: 4), 5)
+        XCTAssertNil(array.next(of: 9))
     }
     
 }

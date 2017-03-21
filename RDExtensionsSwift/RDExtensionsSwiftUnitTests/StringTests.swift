@@ -68,17 +68,17 @@ open class StringTests : XCTestCase {
     
     func testSubstringTo()
     {
-        XCTAssertEqual("0123456789".substringTo(5), "01234")
+        XCTAssertEqual("0123456789".substring(to: 5), "01234")
     }
     
     func testSubstringFrom()
     {
-        XCTAssertEqual("0123456789".substringFrom(5), "56789")
+        XCTAssertEqual("0123456789".substring(from: 5), "56789")
     }
     
     func testSubstring()
     {
-        XCTAssertEqual("0123456789".substring(4, to: 7), "456")
+        XCTAssertEqual("0123456789".substring(from: 4, to: 7), "456")
     }
     
     func testRange()
@@ -149,6 +149,12 @@ open class StringTests : XCTestCase {
         XCTAssertEqual("123"[1], Character("2"))
         XCTAssertEqual("123"[1], "2")
         XCTAssertEqual("123"[NSMakeRange(1, 1)], "2")
+    }
+    
+    func testTheSmallestAndLargestWord()
+    {
+        XCTAssertEqual("Lorem ipsum dolor sit amet, at erroribus repudiare eos.".smallestWord, "at")
+        XCTAssertEqual("Lorem ipsum dolor sit amet, at erroribus repudiare eos.".largestWord, "erroribus")
     }
     
 }

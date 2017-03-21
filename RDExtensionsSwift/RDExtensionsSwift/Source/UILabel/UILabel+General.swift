@@ -28,6 +28,9 @@ public extension UILabel {
     /// RDExtensionsSwift: Return non nilable text
     var string : String { get { return self.text ?? "" } set { self.text = newValue } }
     
+    /// RDExtensionsSwift: Return the largest word width from the text
+    var largestWordWidth : CGFloat { get { return self.string.largestWord.widthForHeight(self.frame.height, font: self.font) } }
+    
     /// RDExtensionsSwift: Calculate and return width of the label for given hight with given font
     var widthForText : CGFloat { return self.string.widthForHeight(self.frame.size.height, font: self.font) }
     
@@ -88,7 +91,7 @@ public extension UILabel {
                 var visibleString = "";
                 for i in 1...self.string.length
                 {
-                    let testString = self.string.substringTo(i)
+                    let testString = self.string.substring(to: i)
                     let stringSize = (testString as NSString).size(attributes: [NSFontAttributeName : self.font])
                     if(stringSize.height*ceil(stringSize.width/self.frame.width) > self.frame.height)
                     {
@@ -98,7 +101,7 @@ public extension UILabel {
                 }
                 if(self.string.length > visibleString.length)
                 {
-                    self.text = visibleString.substringTo(visibleString.length - (5 + characters)) + " ..." + self.string.substringFrom(self.string.length - characters)
+                    self.text = visibleString.substring(to: visibleString.length - (5 + characters)) + " ..." + self.string.substring(from: self.string.length - characters)
                 }
             }
         }

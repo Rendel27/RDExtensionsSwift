@@ -23,15 +23,33 @@
 //  THE SOFTWARE.
 //
 
-extension UInt8 {
+public extension UInt8 {
     
-    /// RDExtensionsSwift: Convert UInt8 to Double
-    public var toDouble : Double { return Double(self) }
+    /// RDExtensionsSwift: Convert UInt8 to String
+    var toString : String { get { return "\(self)" } }
+    
+    /// RDExtensionsSwift: Convert UInt8 to Int
+    var toInt : Int { get { return Int(self) } }
+    
+    /// RDExtensionsSwift: Convert UInt8 to Int32
+    var toInt32 : Int32 { get { return Int32(self) } }
+    
+    /// RDExtensionsSwift: Convert UInt8 to Int64
+    var toInt64 : Int64 { get { return Int64(self) } }
+    
+    /// RDExtensionsSwift: Convert UInt8 to IntMax
+    var toIntMax : IntMax { get { return IntMax(self) } }
+    
+    /// RDExtensionsSwift: Convert UInt8 to CGFloat
+    var toCGFloat : CGFloat { get { return CGFloat(self) } }
     
     /// RDExtensionsSwift: Convert UInt8 to Float
-    public var toFloat : Float { return Float(self) }
+    var toFloat : Float { get { return Float(self) } }
     
-    /// RDExtensionsSwift: UInt8 to CGFloat
-    public var toCGFloat : CGFloat { return CGFloat(self) }
+    /// RDExtensionsSwift: Convert UInt8 to Double
+    var toDouble : Double { get { return Double(self) } }
+    
+    /// RDExtensionsSwift: Convert UInt8 to Bool
+    var toBool : Bool { get { return self != 0 } }
     
 }

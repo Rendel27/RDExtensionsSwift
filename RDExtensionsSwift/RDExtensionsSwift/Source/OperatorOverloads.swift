@@ -180,3 +180,66 @@ public func +=(left: inout [NSObject], right: [NSObject])
 {
     left = left + right
 }
+
+// MARK: Overload opertors for Nullable Types
+
+precedencegroup NotGreaterThan {
+    associativity: left
+}
+infix operator !> : NotGreaterThan
+precedencegroup NotLessThan {
+    associativity: left
+}
+infix operator !< : NotLessThan
+
+/// RDExtensionsSwift: Check if nullable lhs is greater than nullable rhs
+public func ><T : Comparable>(left: T?, right: T?) -> Bool
+{
+    if let l = left, let r = right
+    {
+        return l > r
+    }
+    return false
+}
+
+/// RDExtensionsSwift: Check if nullable lhs is less than nullable rhs
+public func <<T : Comparable>(left: T?, right: T?) -> Bool
+{
+    if let l = left, let r = right
+    {
+        return l < r
+    }
+    return false
+}
+
+/// RDExtensionsSwift: Check if nullable lhs is not greater than nullable rhs
+public func !><T : Comparable>(left: T?, right: T?) -> Bool
+{
+    return !(left > right)
+}
+
+/// RDExtensionsSwift: Check if nullable lhs is not less than nullable rhs
+public func !<<T : Comparable>(left: T?, right: T?) -> Bool
+{
+    return !(left < right)
+}
+
+/// RDExtensionsSwift: Check if nullable lhs equals or is greater than nullable rhs
+public func >=<T : Comparable>(left: T?, right: T?) -> Bool
+{
+    if let l = left, let r = right
+    {
+        return l >= r
+    }
+    return false
+}
+
+/// RDExtensionsSwift: Check if nullable lhs equals or is less than nullable rhs
+public func <=<T : Comparable>(left: T?, right: T?) -> Bool
+{
+    if let l = left, let r = right
+    {
+        return l <= r
+    }
+    return false
+}

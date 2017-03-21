@@ -28,10 +28,7 @@ import RDExtensionsSwift
 
 open class DoubleTests : XCTestCase {
     
-    func testToInt()
-    {
-        XCTAssertEqual(Double(1).toInt, Int(1))
-    }
+    let doubleValue : Double = 47382903
     
     func testToString()
     {
@@ -40,6 +37,30 @@ open class DoubleTests : XCTestCase {
         XCTAssertEqual(Double(0.123456789).toString(), "0.12")
         XCTAssertEqual(Double(0.123456789).toString(1), "0.1")
         XCTAssertEqual(Double(0.123456789).toString(8), "0.12345678")
+    }
+    
+    func testToInt()
+    {
+        XCTAssertEqual(self.doubleValue.toInt, Int(self.doubleValue))
+        XCTAssertEqual(self.doubleValue.toInt32, Int32(self.doubleValue))
+        XCTAssertEqual(self.doubleValue.toInt64, Int64(self.doubleValue))
+        XCTAssertEqual(self.doubleValue.toIntMax, IntMax(self.doubleValue))
+    }
+    
+    func testToCGFloat()
+    {
+        XCTAssertEqual(self.doubleValue.toCGFloat, CGFloat(self.doubleValue))
+    }
+    
+    func testToFloat()
+    {
+        XCTAssertEqual(self.doubleValue.toFloat, Float(self.doubleValue))
+    }
+    
+    func testToBool()
+    {
+        XCTAssertEqual(1.toBool, true)
+        XCTAssertEqual(0.toBool, false)
     }
     
 }

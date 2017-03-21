@@ -194,4 +194,28 @@ open class OperatorOverloadsTests : XCTestCase {
         XCTAssertEqual(firstArray, ans)
     }
     
+    // MARK: Test overloaded opertors for Nullable Types
+    
+    func testNullableTypeOperators()
+    {
+        let intA : Int? = 1
+        let intB : Int? = 2
+        XCTAssertFalse(intA > intB)
+        XCTAssertTrue(intA < intB)
+        XCTAssertTrue(intA !> intB)
+        XCTAssertFalse(intA !< intB)
+        XCTAssertFalse(intA >= intB)
+        XCTAssertTrue(intA <= intB)
+        
+        
+        let floatA : Float? = 1.1
+        let floatB : Float? = 2.2
+        XCTAssertFalse(floatA > floatB)
+        XCTAssertTrue(floatA < floatB)
+        XCTAssertTrue(floatA !> floatB)
+        XCTAssertFalse(floatA !< floatB)
+        XCTAssertFalse(floatA >= floatB)
+        XCTAssertTrue(floatA <= floatB)
+    }
+    
 }

@@ -23,16 +23,13 @@
 //  THE SOFTWARE.
 //
 
-extension Double {
-    
-    /// RDExtensionsSwift: Convert Double to Int
-    public var toInt : Int { return Int(self) }
+public extension Double {
     
     /// RDExtensionsSwift: Convert Double to String
-    public var toString : String { get { return "\(self)" } }
+    var toString : String { get { return "\(self)" } }
     
-    /// RDExtensionsSwift: Return CGFloat as String with rounding
-    public func toString(_ rounding: Int = 2) -> String
+    /// RDExtensionsSwift: Return Double as String with rounding
+    func toString(_ rounding: Int = 2) -> String
     {
         if(rounding == -1)
         {
@@ -40,5 +37,26 @@ extension Double {
         }
         return String(format: "%.\(rounding)f", floor(self*pow(10.0, Double(rounding)))/pow(10.0, Double(rounding)))
     }
+    
+    /// RDExtensionsSwift: Convert Double to Int
+    var toInt : Int { return Int(self) }
+    
+    /// RDExtensionsSwift: Convert Double to Int32
+    var toInt32 : Int32 { get { return Int32(self) } }
+    
+    /// RDExtensionsSwift: Convert Double to Int64
+    var toInt64 : Int64 { get { return Int64(self) } }
+    
+    /// RDExtensionsSwift: Convert Double to IntMax
+    var toIntMax : IntMax { get { return IntMax(self) } }
+    
+    /// RDExtensionsSwift: Convert Double to CGFloat
+    var toCGFloat : CGFloat { get { return CGFloat(self) } }
+    
+    /// RDExtensionsSwift: Convert Double to Float
+    var toFloat : Float { get { return Float(self) } }
+    
+    /// RDExtensionsSwift: Convert Double to Bool
+    var toBool : Bool { get { return self != 0 } }
     
 }

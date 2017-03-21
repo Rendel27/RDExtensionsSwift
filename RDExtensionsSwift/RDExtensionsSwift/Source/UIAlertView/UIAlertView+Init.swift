@@ -25,7 +25,13 @@
 
 extension UIAlertView {
     
-    /// RDExtensionsSwift: Return a newly initialized view for displaying an alert to the user
+    /// RDExtensionsSwift: Return a newly initialized simple alert view
+    public convenience init(title: String? = nil, message: String, cancelButtonTitle: String?)
+    {
+        self.init(title: title, message: message, delegate: nil, cancelButtonTitle: cancelButtonTitle)
+    }
+    
+    /// RDExtensionsSwift: Return a newly initialized alert view
     public convenience init(title: String? = nil, message: String, delegate: AnyObject?, tag: Int = 0, style: UIAlertViewStyle = .default, keyboardType: UIKeyboardType = .default, cancelButtonTitle: String?, otherButtonTitles firstButtonTitle: String, _ moreButtonTitles: String...)
     {
         self.init(title: title, message: message, delegate: delegate, cancelButtonTitle: cancelButtonTitle, otherButtonTitles: firstButtonTitle)
