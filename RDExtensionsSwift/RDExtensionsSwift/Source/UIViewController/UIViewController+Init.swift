@@ -34,7 +34,7 @@ extension UIViewController {
     /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard for given bundle
     public static func load(with id: String, from storyboard: String, for bundle: Bundle? = nil) -> Self?
     {
-        return self._load(with: self.className, from: storyboard, for: bundle)
+        return self._load(with: id, from: storyboard, for: bundle)
     }
     
     /// RDExtensionsSwift: Return newly initialized view controller with classname as id from given storyboard for given bundle
