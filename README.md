@@ -620,8 +620,9 @@ player.thumbnail(CMTime) // returns UIImage. Time is optional. If it is not pres
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 target 'ProjectName' do
-pod 'RDExtensionsSwift' # for latest version (Swift 3)
-pod 'RDExtensionsSwift', '~> 1.0.7' # for Swift 2
+    pod 'RDExtensionsSwift' # for latest version (Swift 3.1)
+    pod 'RDExtensionsSwift', '~> 2.1.0' # for latest version (Swift 3.0)
+    pod 'RDExtensionsSwift', '~> 1.0.7' # for Swift 2
 end
 ```
 Run `pod install`, and you should now have the latest RDExtensionsSwift release.

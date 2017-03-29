@@ -1,7 +1,7 @@
 //
-//  CollectionType+Conversion.swift
+//  CollectionTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,17 +23,35 @@
 //  THE SOFTWARE.
 //
 
-public extension Collection where Iterator.Element == String {
+import XCTest
+import RDExtensionsSwift
+
+open class CollectionTests : XCTestCase {
     
-    /// RDExtensionsSwift: Convert String array to Int array
-    var toInt : [Int]
+    func testToInt()
     {
-        var elements : [Int] = []
-        for e in self
+        XCTAssertEqual(["1", "2", "3"].toInt, [1, 2, 3])
+    }
+    
+    func testObjectAtIndexPath()
+    {
+        let o = NSObject()
+        let array = [[NSObject()], [o, NSObject()]]
+        XCTAssertEqual(array[IndexPath(row: 0, section: 1)], o)
+    }
+    
+    func testRemoveObjectAtIndexPath()
+    {
+        let o1 = NSObject()
+        let o2 = NSObject()
+        let o3 = NSObject()
+        var array = [[o1], [o2, o3]]
+        let finalArray = [[o1], [o3]]
+        XCTAssertEqual(array.remove(at: IndexPath(row: 0, section: 1)), o2)
+        for i in 0 ..< array.count
         {
-            elements.append(e.toInt)
+            XCTAssertEqual(array[i], finalArray[i])
         }
-        return elements
     }
     
 }

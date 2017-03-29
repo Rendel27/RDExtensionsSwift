@@ -42,7 +42,7 @@ public extension UILabel {
     {
         if let string = self.text
         {
-            let size: CGSize = (string as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: CGFloat(FLT_MAX)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: nil).size
+            let size: CGSize = (string as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: .greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: nil).size
             if(size.height > self.bounds.size.height)
             {
                 return true

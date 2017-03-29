@@ -18,7 +18,6 @@
 		7262FC741D941233004D68C3 /* CGRect+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC211D941233004D68C3 /* CGRect+Layout.swift */; };
 		7262FC751D941233004D68C3 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC231D941233004D68C3 /* Character.swift */; };
 		7262FC761D941233004D68C3 /* CMTime+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC251D941233004D68C3 /* CMTime+Conversion.swift */; };
-		7262FC771D941233004D68C3 /* CollectionType+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC271D941233004D68C3 /* CollectionType+Conversion.swift */; };
 		7262FC781D941233004D68C3 /* Double+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC291D941233004D68C3 /* Double+Conversion.swift */; };
 		7262FC791D941233004D68C3 /* Float+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC2B1D941233004D68C3 /* Float+Conversion.swift */; };
 		7262FC7A1D941233004D68C3 /* Int+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC2D1D941233004D68C3 /* Int+Conversion.swift */; };
@@ -68,10 +67,12 @@
 		729335291E7564100028FDDB /* Describable+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729335281E7564100028FDDB /* Describable+Init.swift */; };
 		7293352D1E75645D0028FDDB /* Collectable+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7293352C1E75645D0028FDDB /* Collectable+Init.swift */; };
 		7293352F1E7564BA0028FDDB /* Collectable+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7293352E1E7564BA0028FDDB /* Collectable+General.swift */; };
+		72950D931E8BE5C2005E69C2 /* Collection+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72950D911E8BE5C2005E69C2 /* Collection+General.swift */; };
+		72950D941E8BE5C2005E69C2 /* Collection+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72950D921E8BE5C2005E69C2 /* Collection+Conversion.swift */; };
 		7296C95C1D95743D0060F483 /* CGFloatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C95B1D95743D0060F483 /* CGFloatTests.swift */; };
 		7296C95E1D9577FB0060F483 /* CGRectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C95D1D9577FB0060F483 /* CGRectTests.swift */; };
 		7296C9601D9579490060F483 /* CharacterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C95F1D9579490060F483 /* CharacterTests.swift */; };
-		7296C9621D957CF40060F483 /* CollectionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9611D957CF40060F483 /* CollectionTypeTests.swift */; };
+		7296C9621D957CF40060F483 /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9611D957CF40060F483 /* CollectionTests.swift */; };
 		7296C9641D957D510060F483 /* DoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9631D957D510060F483 /* DoubleTests.swift */; };
 		7296C9661D957D710060F483 /* FloatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9651D957D710060F483 /* FloatTests.swift */; };
 		7296C9681D95813A0060F483 /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9671D95813A0060F483 /* IntTests.swift */; };
@@ -111,7 +112,6 @@
 		7262FC211D941233004D68C3 /* CGRect+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Layout.swift"; sourceTree = "<group>"; };
 		7262FC231D941233004D68C3 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		7262FC251D941233004D68C3 /* CMTime+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMTime+Conversion.swift"; sourceTree = "<group>"; };
-		7262FC271D941233004D68C3 /* CollectionType+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Conversion.swift"; sourceTree = "<group>"; };
 		7262FC291D941233004D68C3 /* Double+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Conversion.swift"; sourceTree = "<group>"; };
 		7262FC2B1D941233004D68C3 /* Float+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+Conversion.swift"; sourceTree = "<group>"; };
 		7262FC2D1D941233004D68C3 /* Int+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Conversion.swift"; sourceTree = "<group>"; };
@@ -162,10 +162,12 @@
 		729335281E7564100028FDDB /* Describable+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Describable+Init.swift"; sourceTree = "<group>"; };
 		7293352C1E75645D0028FDDB /* Collectable+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collectable+Init.swift"; sourceTree = "<group>"; };
 		7293352E1E7564BA0028FDDB /* Collectable+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collectable+General.swift"; sourceTree = "<group>"; };
+		72950D911E8BE5C2005E69C2 /* Collection+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+General.swift"; sourceTree = "<group>"; };
+		72950D921E8BE5C2005E69C2 /* Collection+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Conversion.swift"; sourceTree = "<group>"; };
 		7296C95B1D95743D0060F483 /* CGFloatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatTests.swift; sourceTree = "<group>"; };
 		7296C95D1D9577FB0060F483 /* CGRectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectTests.swift; sourceTree = "<group>"; };
 		7296C95F1D9579490060F483 /* CharacterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTests.swift; sourceTree = "<group>"; };
-		7296C9611D957CF40060F483 /* CollectionTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTypeTests.swift; sourceTree = "<group>"; };
+		7296C9611D957CF40060F483 /* CollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTests.swift; sourceTree = "<group>"; };
 		7296C9631D957D510060F483 /* DoubleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTests.swift; sourceTree = "<group>"; };
 		7296C9651D957D710060F483 /* FloatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatTests.swift; sourceTree = "<group>"; };
 		7296C9671D95813A0060F483 /* IntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntTests.swift; sourceTree = "<group>"; };
@@ -253,7 +255,7 @@
 				7262FC241D941233004D68C3 /* CMTime */,
 				7262FC181D941233004D68C3 /* AVPlayerItem */,
 				7262FC161D941233004D68C3 /* Array */,
-				7262FC261D941233004D68C3 /* CollectionType */,
+				72950D901E8BE5C2005E69C2 /* Collection */,
 				7262FC3C1D941233004D68C3 /* NSObject */,
 				7262FC341D941233004D68C3 /* NSData */,
 				7262FC361D941233004D68C3 /* NSDate */,
@@ -334,14 +336,6 @@
 				7262FC251D941233004D68C3 /* CMTime+Conversion.swift */,
 			);
 			path = CMTime;
-			sourceTree = "<group>";
-		};
-		7262FC261D941233004D68C3 /* CollectionType */ = {
-			isa = PBXGroup;
-			children = (
-				7262FC271D941233004D68C3 /* CollectionType+Conversion.swift */,
-			);
-			path = CollectionType;
 			sourceTree = "<group>";
 		};
 		7262FC281D941233004D68C3 /* Double */ = {
@@ -598,7 +592,7 @@
 				7296C96B1D9582810060F483 /* NSAttributedStringTests.swift */,
 				7296C95D1D9577FB0060F483 /* CGRectTests.swift */,
 				7296C9751D9595680060F483 /* ArrayTests.swift */,
-				7296C9611D957CF40060F483 /* CollectionTypeTests.swift */,
+				7296C9611D957CF40060F483 /* CollectionTests.swift */,
 				7296C9731D9592980060F483 /* NSObjectTests.swift */,
 				7296C96D1D9584CB0060F483 /* NSDataTests.swift */,
 				7296C96F1D958C1C0060F483 /* NSDateTests.swift */,
@@ -629,6 +623,15 @@
 				729335261E755B3D0028FDDB /* UITabBarController+General.swift */,
 			);
 			path = UITabBarController;
+			sourceTree = "<group>";
+		};
+		72950D901E8BE5C2005E69C2 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				72950D911E8BE5C2005E69C2 /* Collection+General.swift */,
+				72950D921E8BE5C2005E69C2 /* Collection+Conversion.swift */,
+			);
+			path = Collection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -749,6 +752,7 @@
 				7262FC8D1D941233004D68C3 /* String+Subscript.swift in Sources */,
 				7262FC9D1D941233004D68C3 /* UIView+General.swift in Sources */,
 				7262FC9E1D941233004D68C3 /* UIView+Graphics.swift in Sources */,
+				72950D931E8BE5C2005E69C2 /* Collection+General.swift in Sources */,
 				729335221E7556A50028FDDB /* RawRepresentable+General.swift in Sources */,
 				7262FC831D941233004D68C3 /* NSObject+General.swift in Sources */,
 				729335271E755B3D0028FDDB /* UITabBarController+General.swift in Sources */,
@@ -761,6 +765,7 @@
 				7262FC761D941233004D68C3 /* CMTime+Conversion.swift in Sources */,
 				7262FC891D941233004D68C3 /* String+Conversion.swift in Sources */,
 				7262FC8B1D941233004D68C3 /* String+Init.swift in Sources */,
+				72950D941E8BE5C2005E69C2 /* Collection+Conversion.swift in Sources */,
 				7262FC7D1D941233004D68C3 /* NSAttributedString+General.swift in Sources */,
 				7262FC751D941233004D68C3 /* Character.swift in Sources */,
 				7262FC9B1D941233004D68C3 /* UITextField+General.swift in Sources */,
@@ -781,7 +786,6 @@
 				7262FC951D941233004D68C3 /* UIImage+Init.swift in Sources */,
 				7262FC8A1D941233004D68C3 /* String+General.swift in Sources */,
 				7262FC791D941233004D68C3 /* Float+Conversion.swift in Sources */,
-				7262FC771D941233004D68C3 /* CollectionType+Conversion.swift in Sources */,
 				7293352F1E7564BA0028FDDB /* Collectable+General.swift in Sources */,
 				7262FC9A1D941233004D68C3 /* UIScrollView+General.swift in Sources */,
 				7262FC9C1D941233004D68C3 /* UITextView+General.swift in Sources */,
@@ -816,7 +820,7 @@
 				727CEF601D96C8A50023D161 /* UIImageTests.swift in Sources */,
 				72316FCE1D96A0D90078DC66 /* StringTests.swift in Sources */,
 				72C53F921E757ECD008D10C1 /* ProtocolTests.swift in Sources */,
-				7296C9621D957CF40060F483 /* CollectionTypeTests.swift in Sources */,
+				7296C9621D957CF40060F483 /* CollectionTests.swift in Sources */,
 				7296C9701D958C1C0060F483 /* NSDateTests.swift in Sources */,
 				7296C9741D9592980060F483 /* NSObjectTests.swift in Sources */,
 				723F2D5C1D96B7E70086B2A6 /* UIColorTests.swift in Sources */,

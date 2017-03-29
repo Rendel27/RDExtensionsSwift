@@ -88,36 +88,6 @@ public extension Array {
     
 }
 
-public extension Array where Element : _ArrayProtocol {
-    
-    /// RDExtensionsSwift: Return element at indexPath
-    subscript(indexPath: IndexPath) -> Element.Iterator.Element?
-    {
-        return self.object(at: indexPath)
-    }
-    
-    /// RDExtensionsSwift: Return element at indexPath
-    func object(at indexPath: IndexPath) -> Element.Iterator.Element?
-    {
-        if(indexPath.section < self.count && indexPath.row < self[indexPath.section].count)
-        {
-            return self[indexPath.section][indexPath.row]
-        }
-        return nil
-    }
-    
-    /// RDExtensionsSwift: Remove and return the element at indexPath
-    mutating func remove(at indexPath: IndexPath) -> Element.Iterator.Element?
-    {
-        if(indexPath.section < self.count && indexPath.row < self[indexPath.section].count)
-        {
-            return self[indexPath.section].remove(at: indexPath.row)
-        }
-        return nil
-    }
-    
-}
-
 public extension Array where Element : Equatable
 {
     /// RDExtensionsSwift: Return indexes of elements

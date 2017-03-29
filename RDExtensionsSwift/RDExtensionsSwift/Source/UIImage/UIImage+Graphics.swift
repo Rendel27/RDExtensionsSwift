@@ -92,7 +92,7 @@ extension UIImage {
     public func imageByRotation(_ degrees: CGFloat) -> UIImage
     {
         let rotatedViewBox = UIView(frame: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-        let t = CGAffineTransform(rotationAngle: degrees * CGFloat(M_PI) / 180)
+        let t = CGAffineTransform(rotationAngle: degrees * CGFloat(Double.pi) / 180)
         rotatedViewBox.transform = t
         let rotatedSize = rotatedViewBox.frame.size
         
@@ -100,7 +100,7 @@ extension UIImage {
         let bitmap = UIGraphicsGetCurrentContext()
         
         bitmap?.translateBy(x: rotatedSize.width/2, y: rotatedSize.height/2)
-        bitmap?.rotate(by: degrees * CGFloat(M_PI) / 180)
+        bitmap?.rotate(by: degrees * CGFloat(Double.pi) / 180)
         bitmap?.scaleBy(x: 1.0, y: -1.0)
         bitmap?.draw(self.cgImage!, in: CGRect(x: -self.size.width / 2, y: -self.size.height / 2, width: self.size.width, height: self.size.height))
         
