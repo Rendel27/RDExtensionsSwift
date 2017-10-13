@@ -44,7 +44,6 @@ open class DoubleTests : XCTestCase {
         XCTAssertEqual(self.doubleValue.toInt, Int(self.doubleValue))
         XCTAssertEqual(self.doubleValue.toInt32, Int32(self.doubleValue))
         XCTAssertEqual(self.doubleValue.toInt64, Int64(self.doubleValue))
-        XCTAssertEqual(self.doubleValue.toIntMax, IntMax(self.doubleValue))
     }
     
     func testToCGFloat()

@@ -47,9 +47,6 @@ public extension Double {
     /// RDExtensionsSwift: Convert Double to Int64
     var toInt64 : Int64 { get { return Int64(self) } }
     
-    /// RDExtensionsSwift: Convert Double to IntMax
-    var toIntMax : IntMax { get { return IntMax(self) } }
-    
     /// RDExtensionsSwift: Convert Double to CGFloat
     var toCGFloat : CGFloat { get { return CGFloat(self) } }
     

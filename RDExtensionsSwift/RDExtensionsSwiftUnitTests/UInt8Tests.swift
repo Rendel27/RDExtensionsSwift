@@ -40,7 +40,6 @@ open class UInt8Tests : XCTestCase {
         XCTAssertEqual(self.int8Value.toInt, Int(self.int8Value))
         XCTAssertEqual(self.int8Value.toInt32, Int32(self.int8Value))
         XCTAssertEqual(self.int8Value.toInt64, Int64(self.int8Value))
-        XCTAssertEqual(self.int8Value.toIntMax, IntMax(self.int8Value))
     }
     
     func testToCGFloat()

@@ -147,7 +147,7 @@ public extension String {
         for i in 0 ..< self.length
         {
             let testString = self.substring(to: i)
-            let stringSize = (testString as NSString).size(attributes: [NSFontAttributeName : font])
+            let stringSize = (testString as NSString).size(withAttributes: [NSAttributedStringKey.font : font])
             if(stringSize.height > rect.size.height || stringSize.width > rect.size.width)
             {
                 break

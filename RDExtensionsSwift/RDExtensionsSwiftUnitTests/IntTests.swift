@@ -41,9 +41,8 @@ open class IntTests : XCTestCase {
     
     func testToInt()
     {
-        let value : IntMax = 47382903
+        let value : Int64 = 47382903
         XCTAssertEqual(47382903.toInt64, value)
-        XCTAssertEqual(47382903.toIntMax, value)
     }
     
     func testToCGFloat()

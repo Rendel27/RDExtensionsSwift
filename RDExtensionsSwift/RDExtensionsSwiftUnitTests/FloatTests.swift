@@ -45,7 +45,6 @@ open class FloatTests : XCTestCase {
         XCTAssertEqual(self.floatValue.toInt, Int(self.floatValue))
         XCTAssertEqual(self.floatValue.toInt32, Int32(self.floatValue))
         XCTAssertEqual(self.floatValue.toInt64, Int64(self.floatValue))
-        XCTAssertEqual(self.floatValue.toIntMax, IntMax(self.floatValue))
     }
     
     func testToCGFloat()

@@ -43,9 +43,6 @@ public extension CGFloat {
     /// RDExtensionsSwift: Convert CGFloat to Int64
     var toInt64 : Int64 { get { return Int64(self) } }
     
-    /// RDExtensionsSwift: Convert CGFloat to IntMax
-    var toIntMax : IntMax { get { return IntMax(self) } }
-    
     /// RDExtensionsSwift: Convert CGFloat to Float
     var toFloat : Float { get { return Float(self) } }
     

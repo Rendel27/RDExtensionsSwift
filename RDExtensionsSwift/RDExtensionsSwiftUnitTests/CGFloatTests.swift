@@ -45,7 +45,6 @@ open class CGFloatTests : XCTestCase {
         XCTAssertEqual(self.cgFloatValue.toInt, Int(self.cgFloatValue))
         XCTAssertEqual(self.cgFloatValue.toInt32, Int32(self.cgFloatValue))
         XCTAssertEqual(self.cgFloatValue.toInt64, Int64(self.cgFloatValue))
-        XCTAssertEqual(self.cgFloatValue.toIntMax, IntMax(self.cgFloatValue))
     }
     
     func testToFloat()

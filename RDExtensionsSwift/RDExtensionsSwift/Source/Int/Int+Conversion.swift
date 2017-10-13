@@ -34,9 +34,6 @@ public extension Int {
     /// RDExtensionsSwift: Convert Int to Int64
     var toInt64 : Int64 { get { return Int64(self) } }
     
-    /// RDExtensionsSwift: Convert Int to IntMax
-    var toIntMax : IntMax { get { return IntMax(self) } }
-    
     /// RDExtensionsSwift: Convert Int to CGFloat
     var toCGFloat : CGFloat { get { return CGFloat(self) } }
     

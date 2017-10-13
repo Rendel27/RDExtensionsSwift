@@ -28,9 +28,6 @@ public extension Int64 {
     /// RDExtensionsSwift: Convert Int64 to String
     var toString : String { get { return "\(self)" } }
     
-    /// RDExtensionsSwift: Convert Int64 to IntMax
-    var toIntMax : IntMax { get { return IntMax(self) } }
-    
     /// RDExtensionsSwift: Convert Int64 to CGFloat
     var toCGFloat : CGFloat { get { return CGFloat(self) } }
     
