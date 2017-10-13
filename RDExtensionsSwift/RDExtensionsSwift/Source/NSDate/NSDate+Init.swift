@@ -23,16 +23,28 @@
 //  THE SOFTWARE.
 //
 
-extension Date {
+public extension Date {
     
-    /// RDExtensionsSwift: Create and return date with give day, month and year
-    public static func dateWithDay(_ day: Int, month: Int, year: Int) -> Date?
+    /// RDExtensionsSwift: Initializes date with give day, month and year
+    init?(nanoseconnd: Int? = nil, second: Int? = nil, minute: Int? = nil, hour: Int? = nil, day: Int? = nil, month: Int? = nil, year: Int? = nil, era: Int? = nil)
     {
         var components = DateComponents()
-        components.day = day;
-        components.month = month;
-        components.year = year;
-        return Calendar.current.date(from: components)
+        components.nanosecond = nanoseconnd
+        components.second = second
+        components.minute = minute
+        components.hour = hour
+        components.day = day
+        components.month = month
+        components.year = year
+        components.era = era
+        if let date = Calendar.current.date(from: components)
+        {
+            self = date
+        }
+        else
+        {
+            return nil
+        }
     }
     
 }

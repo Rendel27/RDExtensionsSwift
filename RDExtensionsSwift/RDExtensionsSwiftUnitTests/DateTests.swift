@@ -1,5 +1,5 @@
 //
-//  NSDateTests.swift
+//  DateTests.swift
 //
 //  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
@@ -26,7 +26,7 @@
 import XCTest
 import RDExtensionsSwift
 
-open class NSDateTests : XCTestCase {
+open class DateTests : XCTestCase {
     
     let date = Date(timeIntervalSince1970: 1474647378)
     let second = 18
@@ -60,7 +60,7 @@ open class NSDateTests : XCTestCase {
     
     func testDateWithDayMonthYear()
     {
-        let d = Date.dateWithDay(self.day, month: self.month, year: self.year)
+        let d = Date(second: self.second, minute: self.minute, hour: self.hour, day: self.day, month: self.month, year: self.year)
         XCTAssertEqual(self.date.day, d?.day)
         XCTAssertEqual(self.date.month, d?.month)
         XCTAssertEqual(self.date.year, d?.year)

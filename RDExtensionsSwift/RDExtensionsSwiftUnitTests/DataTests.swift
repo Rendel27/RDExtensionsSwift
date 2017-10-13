@@ -1,5 +1,5 @@
 //
-//  NSDataTests.swift
+//  DataTests.swift
 //
 //  Created by Giorgi Iashvili on 23.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
@@ -26,11 +26,11 @@
 import XCTest
 import RDExtensionsSwift
 
-open class NSDataTests : XCTestCase {
+open class DataTests : XCTestCase {
     
     func testDownload()
     {
-        let expectation = self.expectation(description: "NSData.testDownload")
+        let expectation = self.expectation(description: "Data.testDownload")
         let url = URL(string: "https://avatars3.githubusercontent.com/u/5988751?v=3&s=466")!
         var uuid : String = ""
         uuid = Data.download(url, completion: { (data, id) in
