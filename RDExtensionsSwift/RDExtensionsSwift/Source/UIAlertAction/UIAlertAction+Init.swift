@@ -1,8 +1,8 @@
 //
-//  NSURL+General.swift
+//  UIAlertAction+Init.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
-//  Copyright (c) 2016 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 12.03.17.
+//  Copyright (c) 2017 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,31 +23,14 @@
 //  THE SOFTWARE.
 //
 
-extension URL {
+public extension UIAlertAction {
     
-    /// RDExtensionsSwift: Exclude or include content of url from icloud backup
-    public func excludeFromBackup(_ exclude: Bool = true) throws
+    /// RDExtensionsSwift: Return a newly initialized alert action
+    convenience init(title: String?, style: UIAlertActionStyle = .default, isEnabled: Bool, handler: ((UIAlertAction) -> Swift.Void)? = nil)
     {
-        try (self as NSURL).setResourceValue(exclude, forKey: URLResourceKey.isExcludedFromBackupKey)
-    }
-    
-    /// RDExtensionsSwift: Check if content of url is excluded or included in icloud backup
-    public var excludedFromBackup : Bool
-    {
-        do
-        {
-            var value : AnyObject?
-            try (self as NSURL).getResourceValue(&value, forKey: URLResourceKey.isExcludedFromBackupKey)
-            if let v = value as? Bool
-            {
-                return v
-            }
-            return false
-        }
-        catch
-        {
-            return false
-        }
+        self.init(title: title, style: style, handler: handler)
+        
+        self.isEnabled = isEnabled
     }
     
 }

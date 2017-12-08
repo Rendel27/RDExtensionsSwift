@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension NSDictionary {
+public extension NSDictionary {
     
     /// RDExtensionsSwift: Return value for incasesensitive key
-    public func value(forIncasesensitiveKey key: String) -> Any?
+    func value(forIncasesensitiveKey key: String) -> Any?
     {
         for k in self.allKeys
         {

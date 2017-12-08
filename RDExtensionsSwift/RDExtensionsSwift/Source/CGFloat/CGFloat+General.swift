@@ -1,8 +1,8 @@
 //
-//  NSData+Init.swift
+//  CGFloat+General.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
-//  Copyright (c) 2016 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 12.03.17.
+//  Copyright (c) 2017 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,26 +23,7 @@
 //  THE SOFTWARE.
 //
 
-extension Data {
-    
-    /// RDExtensionsSwift: Return unique identifier and download data from the given url
-    public static func download(_ url: URL, completeInMainThread: Bool = true, completion: ((_ data: Data?, _ id: String) -> Void)?) -> String
-    {
-        let id = String.UUID
-        DispatchQueue(label: id, attributes: DispatchQueue.Attributes.concurrent).async(execute: {
-            let data = try? Data(contentsOf: url)
-            if(completeInMainThread)
-            {
-                DispatchQueue.main.async(execute: {
-                    completion?(data, id)
-                })
-            }
-            else
-            {
-                completion?(data, id)
-            }
-        })
-        return id
-    }
-    
+public func fabsf(_ number: CGFloat) -> CGFloat
+{
+    return number >= 0 ? number : -number
 }

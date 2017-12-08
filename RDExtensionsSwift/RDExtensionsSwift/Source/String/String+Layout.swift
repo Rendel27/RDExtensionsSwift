@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension String {
+public extension String {
     
     /// RDExtensionsSwift: Calculate and return width of the string for given hight with given font
-    public func widthForHeight(_ height: CGFloat, font: UIFont) -> CGFloat
+    func widthForHeight(_ height: CGFloat, font: UIFont) -> CGFloat
     {
         let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: height))
         label.numberOfLines = 0
@@ -38,7 +38,7 @@ extension String {
     }
     
     /// RDExtensionsSwift: Calculate and return height of the string for given width with given font
-    public func heightForWidth(_ width: CGFloat, font: UIFont) -> CGFloat
+    func heightForWidth(_ width: CGFloat, font: UIFont) -> CGFloat
     {
         let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
@@ -47,6 +47,36 @@ extension String {
         label.text = self
         label.sizeToFit()
         return label.frame.size.height
+    }
+    
+    /// RDExtensionsSwift: Calculate and return font size of the string for given width, height and font name
+    public func fontSizeFor(width: CGFloat, height: CGFloat, fontName: String) -> CGFloat
+    {
+        var fontSize = 0 as CGFloat
+        var w = 0 as CGFloat
+        while(w < width)
+        {
+            w = self.widthForHeight(height, font: UIFont(name: fontName, size: fontSize)!)
+            fontSize += 1
+        }
+        return fontSize - 1
+    }
+    
+    /// RDExtensionsSwift: Calculate and return font size of the attributed string for given width, height and font name
+    public func attributedFontSizeFor(width: CGFloat, height: CGFloat, fontName: String) -> CGFloat
+    {
+        var fontSize = 0 as CGFloat
+        var w = 0 as CGFloat
+        while(w < width)
+        {
+            fontSize += 1
+            let textView = UITextView(frame: CGRect(x: 0, y: 0, width: 0, height: height))
+            textView.text = self
+            textView.font = UIFont(name: fontName, size: fontSize)
+            textView.sizeToFit()
+            w = textView.frame.width
+        }
+        return fontSize - 1
     }
     
 }

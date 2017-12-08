@@ -1,5 +1,5 @@
 //
-//  NSDate+Init.swift
+//  Character+Conversions.swift
 //
 //  Created by Giorgi Iashvili on 19.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
@@ -23,28 +23,25 @@
 //  THE SOFTWARE.
 //
 
-public extension Date {
+public extension Character {
     
-    /// RDExtensionsSwift: Initializes date with give day, month and year
-    init?(nanoseconnd: Int? = nil, second: Int? = nil, minute: Int? = nil, hour: Int? = nil, day: Int? = nil, month: Int? = nil, year: Int? = nil, era: Int? = nil)
+    /// RDExtensionsSwift: Convert Character to UInt8
+    var toUInt8 : UInt8
     {
-        var components = DateComponents()
-        components.nanosecond = nanoseconnd
-        components.second = second
-        components.minute = minute
-        components.hour = hour
-        components.day = day
-        components.month = month
-        components.year = year
-        components.era = era
-        if let date = Calendar.current.date(from: components)
-        {
-            self = date
-        }
-        else
-        {
-            return nil
-        }
+        let utf8 = String(self).utf8
+        return utf8[utf8.startIndex]
     }
+    
+    /// RDExtensionsSwift: Convert Character to UInt32
+    var toUInt32 : UInt32
+    {
+        for s in String(self).unicodeScalars
+        {
+            return s.value
+        }
+        return 0
+    }
+    
+    var toString : String { get { return String(self) } }
     
 }

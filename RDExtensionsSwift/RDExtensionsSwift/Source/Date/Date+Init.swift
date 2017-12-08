@@ -1,8 +1,8 @@
 //
-//  ProtocolTests.swift
+//  Date+Init.swift
 //
-//  Created by Giorgi Iashvili on 12.03.17.
-//  Copyright (c) 2017 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 19.09.16.
+//  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +23,32 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-import RDExtensionsSwift
-
-public class ProtocolTests : XCTestCase {
+public extension Date {
     
-    public enum kType : Int, Collectable {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
-    
-    func testItems()
+    /// RDExtensionsSwift: Initializes date with specified values
+    init?(nanosecond: Int? = nil, second: Int? = nil, minute: Int? = nil, hour: Int? = nil, day: Int? = nil, month: Int? = nil, year: Int? = nil, era: Int? = nil, timeZone: TimeZone? = nil)
     {
-        XCTAssertEqual(kType.items, [.one, .two, .three])
+        var components = DateComponents()
+        components.nanosecond = nanosecond
+        components.second = second
+        components.minute = minute
+        components.hour = hour
+        components.day = day
+        components.month = month
+        components.year = year
+        components.era = era
+        if let tz = timeZone
+        {
+            components.timeZone = tz
+        }
+        if let date = Calendar.current.date(from: components)
+        {
+            self = date
+        }
+        else
+        {
+            return nil
+        }
     }
     
 }

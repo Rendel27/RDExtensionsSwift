@@ -1,5 +1,5 @@
 //
-//  NSDate+Conversion.swift
+//  Data+Init.swift
 //
 //  Created by Giorgi Iashvili on 19.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili
@@ -23,14 +23,26 @@
 //  THE SOFTWARE.
 //
 
-extension Date {
+public extension Data {
     
-    /// RDExtensionsSwift: Convert NSDate to String with given format
-    public func toString(_ format: String) -> String
+    /// RDExtensionsSwift: Return unique identifier and download data from the given url
+    static func download(_ url: URL, completeInMainThread: Bool = true, completion: ((_ data: Data?, _ id: String) -> Void)?) -> String
     {
-        let df = DateFormatter()
-        df.dateFormat = format
-        return df.string(from: self)
+        let id = String.UUID
+        DispatchQueue(label: id, attributes: DispatchQueue.Attributes.concurrent).async(execute: {
+            let data = try? Data(contentsOf: url)
+            if(completeInMainThread)
+            {
+                DispatchQueue.main.async(execute: {
+                    completion?(data, id)
+                })
+            }
+            else
+            {
+                completion?(data, id)
+            }
+        })
+        return id
     }
     
 }

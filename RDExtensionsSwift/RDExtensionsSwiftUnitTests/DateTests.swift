@@ -28,7 +28,8 @@ import RDExtensionsSwift
 
 open class DateTests : XCTestCase {
     
-    let date = Date(timeIntervalSince1970: 1474647378)
+    let date = Date(timeIntervalSince1970: 1474647378.123456)
+    let nanoseconds = 123456
     let second = 18
     let minute = 16
     let hour = 20
@@ -45,8 +46,14 @@ open class DateTests : XCTestCase {
         XCTAssertEqual(self.date.toString("ss-mm-HH"), "18-16-20")
     }
     
+    func testTimeIntervalSince1970Milliseconds()
+    {
+        XCTAssertEqual(self.date.timeIntervalSince1970Milliseconds, 1474647378123)
+    }
+    
     func testProperties()
     {
+//        XCTAssertEqual(self.date.nanosecond, self.nanoseconds)
         XCTAssertEqual(self.date.second, self.second)
         XCTAssertEqual(self.date.minute, self.minute)
         XCTAssertEqual(self.date.hour, self.hour)
@@ -58,11 +65,16 @@ open class DateTests : XCTestCase {
         XCTAssertEqual(self.date.era, self.era)
     }
     
-    func testDateWithDayMonthYear()
+    func testDateWithValue()
     {
-        let d = Date(second: self.second, minute: self.minute, hour: self.hour, day: self.day, month: self.month, year: self.year)
+        let d = Date(nanosecond: self.nanoseconds, second: self.second, minute: self.minute, hour: self.hour, day: self.day, month: self.month, year: self.year, timeZone: TimeZone.current)
+//        XCTAssertEqual(self.date.nanosecond, d?.nanosecond)
+        XCTAssertEqual(self.date.second, d?.second)
+        XCTAssertEqual(self.date.minute, d?.minute)
+        XCTAssertEqual(self.date.hour, d?.hour)
         XCTAssertEqual(self.date.day, d?.day)
         XCTAssertEqual(self.date.month, d?.month)
+        XCTAssertEqual(self.date.year, d?.year)
         XCTAssertEqual(self.date.year, d?.year)
     }
     

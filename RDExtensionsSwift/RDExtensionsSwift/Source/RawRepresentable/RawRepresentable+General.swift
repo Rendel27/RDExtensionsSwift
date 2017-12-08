@@ -1,5 +1,5 @@
 //
-//  ProtocolTests.swift
+//  RawRepresentable+General.swift
 //
 //  Created by Giorgi Iashvili on 12.03.17.
 //  Copyright (c) 2017 Giorgi Iashvili
@@ -23,22 +23,9 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-import RDExtensionsSwift
-
-public class ProtocolTests : XCTestCase {
+public extension RawRepresentable {
     
-    public enum kType : Int, Collectable {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
-    
-    func testItems()
-    {
-        XCTAssertEqual(kType.items, [.one, .two, .three])
-    }
+    /// RDExtensionsSwift: Return the name of the raw represantable element
+    var toString : String { get { return "\(self)" } }
     
 }

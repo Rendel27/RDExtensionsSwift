@@ -25,9 +25,9 @@
 
 import Photos
 
-extension PHAsset {
+public extension PHAsset {
     
     /// RDExtensionsSwift: Check if asset is already fetched from the server
-    public var downloaded : Bool { get { if(self.description.range(of: "assetSource=3") == nil) { return false }; return true } }
+    var downloaded : Bool { get { if(self.description.range(of: "assetSource=3") == nil) { return false }; return true } }
     
 }

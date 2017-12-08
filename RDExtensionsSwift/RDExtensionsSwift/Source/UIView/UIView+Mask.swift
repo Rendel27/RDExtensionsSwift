@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension UIView {
+public extension UIView {
     
     /// RDExtensionsSwift: Mask the receiver outside of the frame with given corner radius
-    public func outterMask(_ frame: CGRect, cornerRadius : CGFloat = 0)
+    func outterMask(_ frame: CGRect, cornerRadius : CGFloat = 0)
     {
         let layerMask = CALayer()
         UIGraphicsBeginImageContextWithOptions(CGSize(width: frame.size.width, height: frame.size.height), true, 0.0);
@@ -47,7 +47,7 @@ extension UIView {
     }
     
     /// RDExtensionsSwift: Mask the receiver inside of the frame with given corner radius
-    public func innerMask(_ frame: CGRect, cornerRadius : CGFloat = 0)
+    func innerMask(_ frame: CGRect, cornerRadius : CGFloat = 0)
     {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: frame.size.width, height: frame.size.height), true, 0.0)
         let blackImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -72,13 +72,27 @@ extension UIView {
         self.layer.mask = layerMask
     }
     
+    /// RDExtensionsSwift: Mask the receiver in/out side of give frame
+    func mask(with rect: CGRect, inverse: Bool = false)
+    {
+        let path = UIBezierPath(rect: rect)
+        let maskLayer = CAShapeLayer()
+        if(inverse)
+        {
+            path.append(UIBezierPath(rect: self.bounds))
+            maskLayer.fillRule = kCAFillRuleEvenOdd
+        }
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+    }
+    
     /// RDExtensionsSwift: Remove mask from the receiver
-    public func removeMask()
+    func removeMask()
     {
         self.layer.mask = nil
     }
     
     /// RDExtensionsSwift: Check if the receiver is masked
-    public var masked : Bool { get { return self.layer.mask != nil } }
+    var isMasked : Bool { get { return self.layer.mask != nil } }
     
 }

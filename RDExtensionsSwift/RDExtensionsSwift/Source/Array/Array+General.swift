@@ -48,11 +48,11 @@ public extension Array {
     }
     
     /// RDExtensionsSwift: Remove object from array
-    mutating func remove <U: Equatable> (_ object: U) -> [U]?
+    mutating func remove <U: Equatable> (_ object: U)
     {
         if(self.count == 0)
         {
-            return nil
+            return
         }
         
         var removedObjects : [U] = []
@@ -70,20 +70,92 @@ public extension Array {
             }
             i += 1
         }
-        return removedObjects
     }
     
-    /// RDExtensionsSwift: Insert contents of new elements and return new array
-    func insertContentsOf(_ newElements: [Element], atIndex: Int) -> [Element]
+    /// RDExtensionsSwift: Remove objects from array
+    mutating func remove <U: Equatable> (_ objects: [U])
     {
-        var array = Array(self)
-        var index = atIndex
-        for e in newElements
+        for object in objects
         {
-            array.insert(e, at: index)
+            _ = self.remove(object)
+        }
+    }
+    
+    /// RDExtensionsSwift: Insert a new element after the specified element
+    mutating func insert <U: Equatable> (_ element: Element, after: U) -> Bool
+    {
+        for i in 0 ..< self.count
+        {
+            if(self[i] as? U == after)
+            {
+                self.insert(element, at: i + 1)
+                return true
+            }
+        }
+        return false
+    }
+    
+    /// RDExtensionsSwift: Insert new elements after the specified element
+    mutating func insert <U: Equatable> (_ elements: [Element], after: U) -> Bool
+    {
+        for i in 0 ..< self.count
+        {
+            if(self[i] as? U == after)
+            {
+                var i = i + 1
+                for element in elements
+                {
+                    self.insert(element, at: i)
+                    i += 1
+                }
+                return true
+            }
+        }
+        return false
+    }
+    
+    /// RDExtensionsSwift: Insert a new element before the specified element
+    mutating func insert <U: Equatable> (_ element: Element, before: U) -> Bool
+    {
+        for i in 0 ..< self.count
+        {
+            if(self[i] as? U == before)
+            {
+                self.insert(element, at: i)
+                return true
+            }
+        }
+        return false
+    }
+    
+    /// RDExtensionsSwift: Insert new elements before the specified element
+    mutating func insert <U: Equatable> (_ elements: [Element], before: U) -> Bool
+    {
+        for i in 0 ..< self.count
+        {
+            if(self[i] as? U == before)
+            {
+                var i = i
+                for element in elements
+                {
+                    self.insert(element, at: i)
+                    i += 1
+                }
+                return true
+            }
+        }
+        return false
+    }
+    
+    /// RDExtensionsSwift: Insert contents of new elements at specified index
+    mutating func insert(_ elements: [Element], at index: Int)
+    {
+        var index = index
+        for e in elements
+        {
+            self.insert(e, at: index)
             index += 1
         }
-        return array
     }
     
 }
@@ -123,4 +195,21 @@ public extension Array where Element : Equatable
         }
         return nil
     }
+}
+
+public extension Array where Element : RawRepresentable {
+    
+    var rawValues : [Element.RawValue]
+    {
+        get
+        {
+            var rawValues : [Element.RawValue] = []
+            for item in self
+            {
+                rawValues.append(item.rawValue)
+            }
+            return rawValues
+        }
+    }
+    
 }

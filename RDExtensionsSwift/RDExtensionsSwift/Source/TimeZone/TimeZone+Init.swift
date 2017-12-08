@@ -1,5 +1,5 @@
 //
-//  Collectable+General.swift
+//  TimeZone+Init.swift
 //
 //  Created by Giorgi Iashvili on 12.03.17.
 //  Copyright (c) 2017 Giorgi Iashvili
@@ -23,23 +23,8 @@
 //  THE SOFTWARE.
 //
 
-public extension Collectable {
+public extension TimeZone {
     
-    /// RDExtensionsSwift: Return array (collection) of items
-    static var items : Array<Self>
-    {
-        typealias S = Self
-        return Array(AnySequence { () -> AnyIterator<S> in
-            var raw = 0
-            return AnyIterator {
-                let current : Self = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: S.self, capacity: 1) { $0.pointee } }
-                guard current.hashValue == raw else {
-                    return nil
-                }
-                raw += 1
-                return current
-            }
-        })
-    }
+    static var utc : TimeZone? { get { return TimeZone(abbreviation: "UTC") } }
     
 }

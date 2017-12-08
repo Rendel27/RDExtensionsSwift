@@ -23,18 +23,18 @@
 //  THE SOFTWARE.
 //
 
-extension NSObject {
+public extension NSObject {
     
     /// RDExtensionsSwift: Return class full name as String
-    public static var stringFromClass : String { return NSStringFromClass(self) }
+    static var stringFromClass : String { return NSStringFromClass(self) }
     
     /// RDExtensionsSwift: Return class full name as String
-    public var stringFromClass : String { return NSStringFromClass(type(of: self)) }
+    var stringFromClass : String { return NSStringFromClass(type(of: self)) }
     
     /// RDExtensionsSwift: Return class name as String
-    public static var className : String { return self.stringFromClass.components(separatedBy: ".").last! }
+    static var className : String { return self.stringFromClass.components(separatedBy: ".").last! }
     
     /// RDExtensionsSwift: Return class name as String
-    public var className : String { return self.stringFromClass.components(separatedBy: ".").last! }
+    var className : String { return self.stringFromClass.components(separatedBy: ".").last! }
     
 }

@@ -65,6 +65,15 @@ public extension UITextField {
         return false
     }
     
+    /// RDExtensionsSwift: Set cursor at given index
+    func setCursor(at index: Int)
+    {
+        if let position = self.position(from: beginningOfDocument, offset: index)
+        {
+            self.selectedTextRange = self.textRange(from: position, to: position)
+        }
+    }
+    
 }
 
 public extension UITextFieldDelegate {

@@ -1,8 +1,8 @@
 //
-//  Character.swift
+//  TimeZoneTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
-//  Copyright (c) 2016 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 12.03.17.
+//  Copyright (c) 2017 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,30 +23,14 @@
 //  THE SOFTWARE.
 //
 
-extension Character {
+import XCTest
+import RDExtensionsSwift
+
+open class TimeZoneTests : XCTestCase {
     
-    /// RDExtensionsSwift: Convert Character to UInt32
-    public var toInt : UInt32
+    func testUTC()
     {
-        for s in String(self).unicodeScalars
-        {
-            return s.value
-        }
-        return 0
-    }
-    
-    /// RDExtensionsSwift: Convert Character to UInt8
-    public var utf8 : UInt8
-    {
-        let utf8 = String(self).utf8
-        return utf8[utf8.startIndex]
-    }
-    
-    /// RDExtensionsSwift: Encrypt Character with key Character
-    public func encrypt(_ key: Character) -> String?
-    {
-        let byte = [self.utf8 ^ key.utf8]
-        return String(bytes: byte, encoding: String.Encoding.utf8)
+        XCTAssertNotNil(TimeZone.utc)
     }
     
 }

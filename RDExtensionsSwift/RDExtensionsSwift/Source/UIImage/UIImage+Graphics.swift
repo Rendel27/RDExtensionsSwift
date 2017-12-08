@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension UIImage {
+public extension UIImage {
     
     /// RDExtensionsSwift: Invert Transparency of the receiver and return
-    public func invertTransparancy() -> UIImage?
+    func invertTransparancy() -> UIImage?
     {
         var img : UIImage?
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
@@ -43,7 +43,7 @@ extension UIImage {
     }
     
     /// RDExtensionsSwift: Return color at given pixel
-    public func color(_ pixel: CGPoint) -> UIColor
+    func color(_ pixel: CGPoint) -> UIColor
     {
         let data = CFDataGetBytePtr(self.cgImage?.dataProvider?.data)
         let index = Int((self.size.width*pixel.y + pixel.x)*4)
@@ -55,13 +55,13 @@ extension UIImage {
     }
     
     /// RDExtensionsSwift: Return rescaled image
-    public func rescale(_ scale: CGFloat) -> UIImage?
+    func rescale(_ scale: CGFloat) -> UIImage?
     {
         return self.resize(CGSize(width: self.size.width*scale, height: self.size.height*scale))
     }
     
     /// RDExtensionsSwift: Return resized image
-    public func resize(_ size: CGSize) -> UIImage?
+    func resize(_ size: CGSize) -> UIImage?
     {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
@@ -71,7 +71,7 @@ extension UIImage {
     }
     
     /// RDExtensionsSwift: Cut and return circle from the receiver by given radius
-    public func cutCircle(_ radius: CGFloat) -> UIImage?
+    func cutCircle(_ radius: CGFloat) -> UIImage?
     {
         var image : UIImage?
         let rect = CGRect(x: 0, y: 0, width: radius*4, height: radius*4)
@@ -89,7 +89,7 @@ extension UIImage {
     }
     
     /// RDExtensionsSwift: Rotate receiver and return
-    public func imageByRotation(_ degrees: CGFloat) -> UIImage
+    func imageByRotation(_ degrees: CGFloat) -> UIImage
     {
         let rotatedViewBox = UIView(frame: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
         let t = CGAffineTransform(rotationAngle: degrees * CGFloat(Double.pi) / 180)
@@ -110,7 +110,7 @@ extension UIImage {
     }
     
     /// RDExtensionsSwift: Change orientation of the receiver and return
-    public func changeOrientation(_ orientation: UIImageOrientation) -> UIImage?
+    func changeOrientation(_ orientation: UIImageOrientation) -> UIImage?
     {
         var image : UIImage?
         if let img = self.cgImage
@@ -118,6 +118,42 @@ extension UIImage {
             image = UIImage(cgImage: img, scale: self.scale, orientation: orientation)
         }
         return image
+    }
+    
+    /// RDExtensionsSwift: Change tint color of the receiver and return
+    func tint(with color: UIColor) -> UIImage?
+    {
+        if let maskImage = self.cgImage
+        {
+            let width = self.size.width
+            let height = self.size.height
+            let bounds = CGRect(x: 0, y: 0, width: width, height: height)
+            let colorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+            if let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+            {
+                context.clip(to: bounds, mask: maskImage)
+                context.setFillColor(color.cgColor)
+                context.fill(bounds)
+                
+                if let cgImage = context.makeImage()
+                {
+                    let coloredImage = UIImage(cgImage: cgImage)
+                    return coloredImage
+                }
+            }
+        }
+        return nil
+    }
+    
+    /// RDExtensionsSwift: Invert colors of the receiver and return
+    func invertColors() -> UIImage?
+    {
+        let coreImage = CIImage(image: self)
+        guard let filter = CIFilter(name: "CIColorInvert") else { return nil }
+        filter.setValue(coreImage, forKey: kCIInputImageKey)
+        guard let result = filter.value(forKey: kCIOutputImageKey) as? CIImage else { return nil }
+        return UIImage(ciImage: result)
     }
     
 }

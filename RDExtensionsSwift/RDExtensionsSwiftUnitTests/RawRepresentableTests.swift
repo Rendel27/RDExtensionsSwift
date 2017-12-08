@@ -1,5 +1,5 @@
 //
-//  RawRepresentable+General.swift
+//  RawRepresentableTests.swift
 //
 //  Created by Giorgi Iashvili on 12.03.17.
 //  Copyright (c) 2017 Giorgi Iashvili
@@ -23,45 +23,24 @@
 //  THE SOFTWARE.
 //
 
-public extension RawRepresentable {
-    
-    /// RDExtensionsSwift: Return the name of the raw represantable element
-    var toString : String { get { return "\(self)" } }
-    
-}
+import XCTest
+import RDExtensionsSwift
 
-public extension RawRepresentable where Self: Collectable {
+public class RawRepresentableTests : XCTestCase {
     
-    /// RDExtensionsSwift: Return key value array of enum elements
-    static var keyValueArray : [(key: String, value: RawValue)]
-    {
-        get
-        {
-            var array : [(String, RawValue)] = []
-            for item in self.items
-            {
-                array.append((item.toString, item.rawValue))
-            }
-            return array
-        }
+    enum kType : Int {
+        
+        case one = 1
+        case two = 2
+        case three = 3
+        
     }
     
-}
-
-public extension RawRepresentable where Self: Collectable, Self: Describable {
-    
-    /// RDExtensionsSwift: Return key value description array of enum elements
-    static var keyValueDescriptionArray : [(key: String, value: RawValue, description: String)]
+    func testToString()
     {
-        get
-        {
-            var array : [(String, RawValue, String)] = []
-            for item in self.items
-            {
-                array.append((item.toString, item.rawValue, item.description))
-            }
-            return array
-        }
+        XCTAssertEqual(kType.one.toString, "one")
+        XCTAssertEqual(kType.two.toString, "two")
+        XCTAssertEqual(kType.three.toString, "three")
     }
     
 }

@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-extension UIViewController {
+public extension UIViewController {
     
     /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard for given bundle
     fileprivate static func _load<T>(with id: String, from storyboard: String, for bundle: Bundle? = nil) -> T?
@@ -32,25 +32,25 @@ extension UIViewController {
     }
     
     /// RDExtensionsSwift: Return newly initialized view controller with given id from given storyboard for given bundle
-    public static func load(with id: String, from storyboard: String, for bundle: Bundle? = nil) -> Self?
+    static func load(with id: String, from storyboard: String, for bundle: Bundle? = nil) -> Self?
     {
         return self._load(with: id, from: storyboard, for: bundle)
     }
     
     /// RDExtensionsSwift: Return newly initialized view controller with classname as id from given storyboard for given bundle
-    public static func load(from storyboard: String, for bundle: Bundle? = nil) -> Self?
+    static func load(from storyboard: String, for bundle: Bundle? = nil) -> Self?
     {
         return self.load(with: self.className, from: storyboard, for: bundle)
     }
     
     /// RDExtensionsSwift: Return newly initialized view controller with classname as id from given storyboard for given bundle and load as root view controller on given window. If the given window is nil, it will be loaded on the current window
-    public static func loadAsRootViewController(from storyboard: String, for bundle: Bundle? = nil, on window: UIWindow? = nil) -> Self?
+    static func loadAsRootViewController(from storyboard: String, for bundle: Bundle? = nil, on window: UIWindow? = nil) -> Self?
     {
         return self.load(from: storyboard, for: bundle)?.loadAsRootViewController(on: window)
     }
     
     /// RDExtensionsSwift: Load the receiver as root view controller on given window. If the given window is nil, it will be loaded on the current window
-    public func loadAsRootViewController(on window: UIWindow? = nil) -> Self?
+    func loadAsRootViewController(on window: UIWindow? = nil) -> Self?
     {
         var w : UIWindow?
         if(window == nil)

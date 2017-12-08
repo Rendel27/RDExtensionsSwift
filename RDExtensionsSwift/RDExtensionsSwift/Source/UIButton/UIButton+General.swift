@@ -23,12 +23,12 @@
 //  THE SOFTWARE.
 //
 
-extension UIButton {
+public extension UIButton {
     
-    /// RDExtensionsSwift: Set UIImage to UIButton for Normal state
-    public func setImage(_ image: UIImage?, state: UIControlState = UIControlState(), circled: Bool = false)
+    /// RDExtensionsSwift: Set image to receiver for given state
+    func setImage(_ image: UIImage?, state: UIControlState = UIControlState(), circled: Bool = false)
     {
-        self.setImage(circled ? image?.cutCircle(self.frame.width/2) : image, for: UIControlState())
+        self.setImage(circled ? image?.cutCircle(self.frame.width/2) : image, for: state)
     }
     
 }

@@ -28,6 +28,17 @@ import RDExtensionsSwift
 
 open class CollectionTests : XCTestCase {
     
+    func testLambdaExpression()
+    {
+        let array = [1, 2, 3]
+        var count = 0
+        array.lambda { i in
+            XCTAssertEqual(array[count], i)
+            count += 1
+        }
+        XCTAssertEqual(array.count, count)
+    }
+    
     func testToInt()
     {
         XCTAssertEqual(["1", "2", "3"].toInt, [1, 2, 3])

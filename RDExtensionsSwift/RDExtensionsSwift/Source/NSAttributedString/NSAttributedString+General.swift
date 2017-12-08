@@ -23,10 +23,26 @@
 //  THE SOFTWARE.
 //
 
-extension NSAttributedString {
+public extension NSAttributedString {
+    
+    /// RDExtensionsSwift: Calculate and return width of the NSAttributedString for given hight
+    public func widthForHeight(_ height: CGFloat) -> CGFloat
+    {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
+        return ceil(boundingBox.width)
+    }
+    
+    /// RDExtensionsSwift: Calculate and return height of the NSAttributedString for given width
+    public func heightForWidth(_ width: CGFloat) -> CGFloat
+    {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
+        return ceil(boundingBox.height)
+    }
     
     /// RDExtensionsSwift: Return substring from the begining to the index
-    public func substringTo(_ index: Int) -> NSAttributedString
+    func substringTo(_ index: Int) -> NSAttributedString
     {
         var r = NSMakeRange(0, self.string.length)
         let attributedStr = NSMutableAttributedString(string: "")
@@ -35,7 +51,7 @@ extension NSAttributedString {
     }
     
     /// RDExtensionsSwift: Return substring from the index to the end
-    public func substringFrom(_ index: Int) -> NSAttributedString
+    func substringFrom(_ index: Int) -> NSAttributedString
     {
         var r = NSMakeRange(0, self.string.length)
         let attributedStr = NSMutableAttributedString(string: "")
@@ -44,7 +60,7 @@ extension NSAttributedString {
     }
     
     /// RDExtensionsSwift: Return substring from the index to the index
-    public func substring(_ from: Int, to: Int) -> NSAttributedString
+    func substring(_ from: Int, to: Int) -> NSAttributedString
     {
         return self.substringTo(to).substringFrom(from)
     }

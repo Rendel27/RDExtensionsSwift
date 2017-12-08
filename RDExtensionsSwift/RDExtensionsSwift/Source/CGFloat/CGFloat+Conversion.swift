@@ -26,16 +26,22 @@
 public extension CGFloat {
     
     /// RDExtensionsSwift: Convert CGFloat to String
-    var toString : String { get { return self.toDouble.toString } }
+    var toString : String { get { return "\(self)" } }
     
     /// RDExtensionsSwift: Return CGFloat as String with rounding
-    func toString(_ rounding: Int = 2) -> String
+    func toString(rounding: Int = 2) -> String
     {
-        return self.toDouble.toString(rounding)
+        return self.toDouble.toString(rounding: rounding)
     }
     
     /// RDExtensionsSwift: Convert CGFloat to Int
     var toInt : Int { return Int(self) }
+    
+    /// RDExtensionsSwift: Convert CGFloat to Int8
+    var toInt8 : Int8 { get { return Int8(self) } }
+    
+    /// RDExtensionsSwift: Convert CGFloat to Int16
+    var toInt16 : Int16 { get { return Int16(self) } }
     
     /// RDExtensionsSwift: Convert CGFloat to Int32
     var toInt32 : Int32 { get { return Int32(self) } }

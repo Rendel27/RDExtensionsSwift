@@ -29,31 +29,36 @@ public extension Double {
     var toString : String { get { return "\(self)" } }
     
     /// RDExtensionsSwift: Return Double as String with rounding
-    func toString(_ rounding: Int = 2) -> String
+    func toString(rounding: Int = 2) -> String
     {
-        if(rounding == -1)
-        {
-            return self.toString
-        }
-        return String(format: "%.\(rounding)f", floor(self*pow(10.0, Double(rounding)))/pow(10.0, Double(rounding)))
+        let decimalNumber = NSDecimalNumber(value: self)
+        let formatter = NumberFormatter()
+        formatter.decimalSeparator = "."
+        formatter.positiveFormat = "0." + String(repeating: "0", count: rounding)
+        formatter.negativeFormat = "0." + String(repeating: "0", count: rounding)
+        let value = formatter.string(from: decimalNumber)
+        return value ?? String(format: "%.\(rounding)f", self)
     }
     
     /// RDExtensionsSwift: Convert Double to Int
-    var toInt : Int { return Int(self) }
+    var toInt : Int { return NSDecimalNumber(value: self).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.plain, scale: 0, raiseOnExactness: true, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)).intValue }
+    
+    /// RDExtensionsSwift: Convert Double to Int8
+    var toInt8 : Int8 { get { return NSDecimalNumber(value: self).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.plain, scale: 0, raiseOnExactness: true, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)).int8Value } }
+    
+    /// RDExtensionsSwift: Convert Double to Int16
+    var toInt16 : Int16 { get { return NSDecimalNumber(value: self).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.plain, scale: 0, raiseOnExactness: true, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)).int16Value } }
     
     /// RDExtensionsSwift: Convert Double to Int32
-    var toInt32 : Int32 { get { return Int32(self) } }
+    var toInt32 : Int32 { get { return NSDecimalNumber(value: self).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.plain, scale: 0, raiseOnExactness: true, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)).int32Value } }
     
     /// RDExtensionsSwift: Convert Double to Int64
-    var toInt64 : Int64 { get { return Int64(self) } }
+    var toInt64 : Int64 { get { return NSDecimalNumber(value: self).rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: NSDecimalNumber.RoundingMode.plain, scale: 0, raiseOnExactness: true, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)).int64Value } }
     
     /// RDExtensionsSwift: Convert Double to CGFloat
     var toCGFloat : CGFloat { get { return CGFloat(self) } }
     
-    /// RDExtensionsSwift: Convert Double to Float
-    var toFloat : Float { get { return Float(self) } }
-    
-    /// RDExtensionsSwift: Convert Double to Bool
-    var toBool : Bool { get { return self != 0 } }
+    /// RDExtensionsSwift: Convert Double to Double
+    var toFloat : Float { get { return NSDecimalNumber(value: self).floatValue } }
     
 }

@@ -1,5 +1,5 @@
 //
-//  ProtocolTests.swift
+//  NSTextRange+Conversions.swift
 //
 //  Created by Giorgi Iashvili on 12.03.17.
 //  Copyright (c) 2017 Giorgi Iashvili
@@ -23,22 +23,14 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-import RDExtensionsSwift
-
-public class ProtocolTests : XCTestCase {
+public extension UITextRange {
     
-    public enum kType : Int, Collectable {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
-    
-    func testItems()
+    /// RDExtensionsSwift: Convert UITextRange to NSRange
+    func toNSRange(from textInput: UITextInput) -> NSRange
     {
-        XCTAssertEqual(kType.items, [.one, .two, .three])
+        let si = textInput.offset(from: textInput.beginningOfDocument, to: self.start)
+        let ei = textInput.offset(from: self.start, to: self.end)
+        return NSRange(location: si, length: ei)
     }
     
 }

@@ -45,13 +45,15 @@ open class StringTests : XCTestCase {
         XCTAssertTrue("no".toBool == false)
         XCTAssertTrue("0".toBool == false)
         
-        XCTAssertEqual("123".toInt, Int(123))
-        XCTAssertEqual("123".toInt32, Int32(123))
-        XCTAssertEqual("123".toInt64, Int64(123))
-        XCTAssertEqual("123".toFloat, Float(123))
-        XCTAssertEqual("123".toCGFloat, CGFloat(123))
-        XCTAssertEqual("123".toDouble, Double(123))
-        XCTAssertEqual("123".toTimeInterval, TimeInterval(123))
+        XCTAssertEqual("-123".toInt, -123)
+        XCTAssertEqual("-123".toInt8, -123)
+        XCTAssertEqual("-123".toInt16, -123)
+        XCTAssertEqual("-123456".toInt32, -123456)
+        XCTAssertEqual("-12345678901234".toInt64, -12345678901234)
+        XCTAssertEqual("123".toFloat, 123)
+        XCTAssertEqual("123".toCGFloat, 123)
+        XCTAssertEqual("123".toDouble, 123)
+        XCTAssertEqual("123".toTimeInterval, 123)
         XCTAssertNotNil("www.example.com".toHttpURL)
         XCTAssertNotNil("example/file".toFileURL)
     }
@@ -69,6 +71,11 @@ open class StringTests : XCTestCase {
     func testSubstringTo()
     {
         XCTAssertEqual("0123456789".substring(to: 5), "01234")
+    }
+    
+    func testSubstringFromLength()
+    {
+        XCTAssertEqual("0123456789".substring(from: 5, length: 2), "56")
     }
     
     func testSubstringFrom()
@@ -147,7 +154,7 @@ open class StringTests : XCTestCase {
     func testSubscripts()
     {
         XCTAssertEqual("123"[1], Character("2"))
-        XCTAssertEqual("123"[1], "2")
+        XCTAssertEqual("123"[1].toString, "2")
         XCTAssertEqual("123"[NSMakeRange(1, 1)], "2")
     }
     

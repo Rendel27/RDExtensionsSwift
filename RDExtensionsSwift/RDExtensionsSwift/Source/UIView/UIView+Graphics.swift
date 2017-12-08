@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension UIView {
+public extension UIView {
     
     /// RDExtensionsSwift: Generate and return the screenshot of the receiver. Returns UIImage
-    public func screenshot(_ rect: CGRect? = nil) -> UIImage?
+    func screenshot(_ rect: CGRect? = nil) -> UIImage?
     {
         var image : UIImage?
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
@@ -44,7 +44,7 @@ extension UIView {
     }
     
     /// RDExtensionsSwift: Convert UIView to UIImage
-    public var toImage : UIImage?
+    var toImage : UIImage?
     {
         var image : UIImage?
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0)

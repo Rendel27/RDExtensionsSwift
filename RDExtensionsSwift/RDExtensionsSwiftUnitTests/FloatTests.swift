@@ -28,39 +28,32 @@ import RDExtensionsSwift
 
 open class FloatTests : XCTestCase {
     
-    let floatValue : Float = 47382903
-    
     func testToString()
     {
-        let fv : Float = 0.123456789
-//        XCTAssertEqual(fv.toString, "0.123456789")
-//        XCTAssertEqual(fv.toString(-1), "0.123456789")
-        XCTAssertEqual(fv.toString(), "0.12")
-        XCTAssertEqual(fv.toString(1), "0.1")
-        XCTAssertEqual(fv.toString(6), "0.123456")
+        XCTAssertEqual((123.45 as Float).toString, "123.45")
+        XCTAssertEqual((0.123456789 as Float).toString(), "0.12")
+        XCTAssertEqual((0.123456789 as Float).toString(rounding: 1), "0.1")
     }
     
     func testToInt()
     {
-        XCTAssertEqual(self.floatValue.toInt, Int(self.floatValue))
-        XCTAssertEqual(self.floatValue.toInt32, Int32(self.floatValue))
-        XCTAssertEqual(self.floatValue.toInt64, Int64(self.floatValue))
+        XCTAssertEqual((123.4567 as Float).toInt, 123)
+        XCTAssertEqual((123.4567 as Float).toInt8, 123)
+        XCTAssertEqual((123.4567 as Float).toInt16, 123)
+        XCTAssertEqual((123.4567 as Float).toInt32, 123)
+        XCTAssertEqual((123.4567 as Float).toInt64, 123)
     }
     
-    func testToCGFloat()
-    {
-        XCTAssertEqual(self.floatValue.toCGFloat, CGFloat(self.floatValue))
-    }
-    
-    func testToDouble()
-    {
-        XCTAssertEqual(self.floatValue.toDouble, Double(self.floatValue))
-    }
-    
-    func testToBool()
-    {
-        XCTAssertEqual(1.toBool, true)
-        XCTAssertEqual(0.toBool, false)
-    }
+//    func testToCGFloat()
+//    {
+//        XCTAssertEqual((123.4567 as Float).toCGFloat, 123.4567 as CGFloat)
+//        XCTAssertEqual((-123.4567 as Float).toCGFloat, -123.4567 as CGFloat)
+//    }
+//
+//    func testToDouble()
+//    {
+//        XCTAssertEqual((123.4567 as Float).toDouble, 123.4567 as Double)
+//        XCTAssertEqual((-123.4567 as Float).toDouble, -123.4567 as Double)
+//    }
     
 }

@@ -23,12 +23,12 @@
 //  THE SOFTWARE.
 //
 
-extension Bool {
+public extension Bool {
     
     /// RDExtensionsSwift: Convert Bool to String. Returns "true" or "false"
-    public var toString : String { get { return self ? "true" : "false" } }
+    var toString : String { get { return self ? "true" : "false" } }
     
     /// RDExtensionsSwift: Convert Bool to Int. Returns 1 or 0
-    public var toInt : Int { get { return self ? 1 : 0 } }
+    var toInt : Int { get { return self ? 1 : 0 } }
     
 }

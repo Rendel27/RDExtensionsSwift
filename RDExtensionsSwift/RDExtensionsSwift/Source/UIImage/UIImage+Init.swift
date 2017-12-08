@@ -40,7 +40,7 @@ public extension UIImage {
     }
     
     /// RDExtensionsSwift: Return unique identifier and download image from the given url
-    public static func download(_ url: URL, completeInMainThread: Bool = true, completion: ((_ image: UIImage?, _ id: String) -> Void)?) -> String
+    static func download(_ url: URL, completeInMainThread: Bool = true, completion: ((_ image: UIImage?, _ id: String) -> Void)?) -> String
     {
         return Data.download(url, completion: { (data, id) in
             var img : UIImage?
@@ -62,8 +62,7 @@ public extension UIImage {
     }
     
     /// RDExtensionsSwift: Return newly initialized animated image by given name
-    @objc(gifWithName:)
-    public static func gif(_ named: String) -> UIImage?
+    static func gif(_ named: String) -> UIImage?
     {
         var image : UIImage?
         if let n = named.components(separatedBy: ".gif").first, let url = Bundle.main.url(forResource: n, withExtension: ".gif")
@@ -74,8 +73,7 @@ public extension UIImage {
     }
     
     /// RDExtensionsSwift: Return newly initialized animated image by given url
-    @objc(gifWithURL:)
-    public static func gif(_ url: URL) -> UIImage?
+    static func gif(_ url: URL) -> UIImage?
     {
         var image : UIImage?
         if let s = CGImageSourceCreateWithURL(url as CFURL, nil)
@@ -86,8 +84,7 @@ public extension UIImage {
     }
     
     /// RDExtensionsSwift: Return newly animated image by given data
-    @objc(gifWithData:)
-    public static func gif(_ data: Data) -> UIImage?
+    static func gif(_ data: Data) -> UIImage?
     {
         var image : UIImage?
         if let d = CGImageSourceCreateWithData(data as CFData, nil)
@@ -98,8 +95,7 @@ public extension UIImage {
     }
     
     /// RDExtensionsSwift: Return newly initialized image by given source
-    @objc(gifWithSource:)
-    public static func gif(_ source: CGImageSource) -> UIImage?
+    static func gif(_ source: CGImageSource) -> UIImage?
     {
         let count = CGImageSourceGetCount(source)
         var images : [CGImage] = []

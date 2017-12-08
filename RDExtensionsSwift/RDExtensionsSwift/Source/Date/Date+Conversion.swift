@@ -1,8 +1,8 @@
 //
-//  ProtocolTests.swift
+//  Date+Conversion.swift
 //
-//  Created by Giorgi Iashvili on 12.03.17.
-//  Copyright (c) 2017 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 19.09.16.
+//  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +23,21 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-import RDExtensionsSwift
-
-public class ProtocolTests : XCTestCase {
+public extension Date {
     
-    public enum kType : Int, Collectable {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
-    
-    func testItems()
+    /// RDExtensionsSwift: Convert NSDate to String with given format
+    func toString(_ format: String, locale: Locale? = nil) -> String
     {
-        XCTAssertEqual(kType.items, [.one, .two, .three])
+        let df = DateFormatter()
+        df.dateFormat = format
+        if let locale = locale
+        {
+            df.locale = locale
+        }
+        return df.string(from: self)
     }
+    
+    /// RDExtensionsSwift: The milliseconds interval between the date object and 00:00:00 UTC on 1 January 1970.
+    var timeIntervalSince1970Milliseconds : Int64 { get { return (self.timeIntervalSince1970 * 1000).toInt64 } }
     
 }

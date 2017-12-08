@@ -23,9 +23,9 @@
 //  THE SOFTWARE.
 //
 
-extension String {
+public extension String {
     
     /// RDExtensionsSwift: Generate and return unique identifier
-    public static var UUID : String { get { return CFUUIDCreateString(kCFAllocatorDefault, CFUUIDCreate(kCFAllocatorDefault)) as String } }
+    static var UUID : String { get { return CFUUIDCreateString(kCFAllocatorDefault, CFUUIDCreate(kCFAllocatorDefault)) as String } }
     
 }

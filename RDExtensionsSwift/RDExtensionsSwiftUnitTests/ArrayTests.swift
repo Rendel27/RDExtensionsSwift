@@ -40,21 +40,66 @@ open class ArrayTests : XCTestCase {
         let o1 = NSObject()
         let o2 = o1
         let o3 = NSObject()
-        var array = [o1, o2, o3]
-        let removedObjects = array.remove(o1)
-        XCTAssertNotNil(removedObjects)
-        XCTAssertEqual(removedObjects!, [o1, o2])
+        let o4 = NSObject()
+        let o5 = NSObject()
+        var array = [o1, o2, o3, o4, o5]
+        array.remove(o1)
+        XCTAssertEqual(array, [o3, o4, o5])
+        array.remove([o2, o3])
+        XCTAssertEqual(array, [o4, o5])
     }
     
-    func testInsertContentsOfNewElementsAtIndex()
+    func testInsertElementAfter()
     {
         let o1 = NSObject()
         let o2 = NSObject()
-        let array = [o1, o2]
+        var array = [o1, o2]
+        let o3 = NSObject()
+        XCTAssert(array.insert(o3, after: o1))
+        XCTAssertEqual(array, [o1, o3, o2])
+    }
+    
+    func testInsertElementsAfter()
+    {
+        let o1 = NSObject()
+        let o2 = NSObject()
+        var array = [o1, o2]
         let o3 = NSObject()
         let o4 = NSObject()
-        XCTAssertEqual(array.insertContentsOf([o3, o4], atIndex: 1), [o1, o3, o4, o2])
-        XCTAssertEqual(array, [o1, o2])
+        XCTAssert(array.insert([o3, o4], after: o1))
+        XCTAssertEqual(array, [o1, o3, o4, o2])
+    }
+    
+    func testInsertElementBefore()
+    {
+        let o1 = NSObject()
+        let o2 = NSObject()
+        var array = [o1, o2]
+        let o3 = NSObject()
+        XCTAssert(array.insert(o3, before: o2))
+        XCTAssertEqual(array, [o1, o3, o2])
+    }
+    
+    func testInsertElementsBefore()
+    {
+        let o1 = NSObject()
+        let o2 = NSObject()
+        var array = [o1, o2]
+        let o3 = NSObject()
+        let o4 = NSObject()
+        XCTAssert(array.insert([o3, o4], before: o2))
+        XCTAssertEqual(array, [o1, o3, o4, o2])
+    }
+    
+    func testInsertElementsAtIndex()
+    {
+        let o1 = NSObject()
+        let o2 = NSObject()
+        var array = [o1, o2]
+        let o3 = NSObject()
+        let o4 = NSObject()
+        array.insert([o3, o4], at: 1)
+        XCTAssertEqual(array, [o1, o3, o4, o2])
     }
     
     func testIndexes()
@@ -71,6 +116,19 @@ open class ArrayTests : XCTestCase {
         XCTAssertNil(array.previous(of: 0))
         XCTAssertEqual(array.next(of: 4), 5)
         XCTAssertNil(array.next(of: 9))
+    }
+    
+    enum kType : Int, Collectable {
+        
+        case one = 1
+        case two = 2
+        case three = 3
+        
+    }
+    
+    func testRawRepresentableItemsArrayRawValues()
+    {
+        XCTAssertEqual(kType.items.rawValues, [1, 2, 3])
     }
     
 }

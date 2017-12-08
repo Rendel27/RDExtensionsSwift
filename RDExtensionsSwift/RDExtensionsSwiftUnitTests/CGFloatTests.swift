@@ -28,39 +28,38 @@ import RDExtensionsSwift
 
 open class CGFloatTests : XCTestCase {
     
-    let cgFloatValue : CGFloat = 47382903
+    func testFabsf()
+    {
+        let number = -123.4567 as CGFloat
+        XCTAssertEqual(-number, fabsf(number))
+    }
     
     func testToString()
     {
-        let fv : Float = 0.123456789
-//        XCTAssertEqual(fv.toString, "0.123456789")
-//        XCTAssertEqual(fv.toString(-1), "0.123456789")
-        XCTAssertEqual(fv.toString(), "0.12")
-        XCTAssertEqual(fv.toString(1), "0.1")
-        XCTAssertEqual(fv.toString(6), "0.123456")
+        XCTAssertEqual((123.45 as CGFloat).toString, "123.45")
+        XCTAssertEqual((0.123456789 as CGFloat).toString(), "0.12")
+        XCTAssertEqual((0.123456789 as CGFloat).toString(rounding: 1), "0.1")
     }
     
     func testToInt()
     {
-        XCTAssertEqual(self.cgFloatValue.toInt, Int(self.cgFloatValue))
-        XCTAssertEqual(self.cgFloatValue.toInt32, Int32(self.cgFloatValue))
-        XCTAssertEqual(self.cgFloatValue.toInt64, Int64(self.cgFloatValue))
+        XCTAssertEqual((123.4567 as CGFloat).toInt, 123)
+        XCTAssertEqual((123.4567 as CGFloat).toInt8, 123)
+        XCTAssertEqual((123.4567 as CGFloat).toInt16, 123)
+        XCTAssertEqual((123.4567 as CGFloat).toInt32, 123)
+        XCTAssertEqual((123.4567 as CGFloat).toInt64, 123)
     }
     
-    func testToFloat()
-    {
-        XCTAssertEqual(self.cgFloatValue.toFloat, Float(self.cgFloatValue))
-    }
-    
-    func testToDouble()
-    {
-        XCTAssertEqual(self.cgFloatValue.toDouble, Double(self.cgFloatValue))
-    }
-    
-    func testToBool()
-    {
-        XCTAssertEqual(1.toBool, true)
-        XCTAssertEqual(0.toBool, false)
-    }
+//    func testToFloat()
+//    {
+//        XCTAssertEqual((123.4567 as CGFloat).toFloat, 123.4567 as Float)
+//        XCTAssertEqual((-123.4567 as CGFloat).toFloat, -123.4567 as Float)
+//    }
+//
+//    func testToDouble()
+//    {
+//        XCTAssertEqual((123.4567 as CGFloat).toDouble, 123.4567 as Double)
+//        XCTAssertEqual((-123.4567 as CGFloat).toDouble, -123.4567 as Double)
+//    }
     
 }

@@ -1,5 +1,5 @@
 //
-//  ProtocolTests.swift
+//  UIViewController+General.swift
 //
 //  Created by Giorgi Iashvili on 12.03.17.
 //  Copyright (c) 2017 Giorgi Iashvili
@@ -23,22 +23,12 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-import RDExtensionsSwift
-
-public class ProtocolTests : XCTestCase {
+public extension UIViewController {
     
-    public enum kType : Int, Collectable {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
-    
-    func testItems()
+    /// RDExtensionsSwift: Present view controller on recever
+    func present(on viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil)
     {
-        XCTAssertEqual(kType.items, [.one, .two, .three])
+        viewController.present(self, animated: animated, completion: completion)
     }
     
 }

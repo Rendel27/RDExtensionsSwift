@@ -26,23 +26,22 @@
 public extension UIAlertController {
     
     /// RDExtensionsSwift: Return a newly initialized view controller for displaying an alert to the user
-    convenience init(title: String? = nil, message: String, style : UIAlertControllerStyle = .alert, inputFieldPlaceholders: [String] = [], actionTitles: [String], actionBlocks: [((UIAlertAction) -> Void)?], completion: (() -> Void)? = nil)
+    convenience init(title: String? = nil, message: String? = nil, style : UIAlertControllerStyle = .alert, inputFieldPlaceholders: [String] = [], actions: [UIAlertAction], cancelButtonTitle: String?, completion: (() -> Void)? = nil)
     {
         self.init(title: title, message: message, preferredStyle: style)
-        var actionBlocks = actionBlocks
         for tfph in inputFieldPlaceholders
         {
             self.addTextField { (tf) -> Void in
                 tf.placeholder = tfph
             }
         }
-        for i in 0 ..< actionTitles.count
+        for action in actions
         {
-            if(i > actionBlocks.count - 1)
-            {
-                actionBlocks.append(nil)
-            }
-            self.addAction(UIAlertAction(title: actionTitles[i], style: .default, handler: actionBlocks[i]))
+            self.addAction(action)
+        }
+        if let c = cancelButtonTitle
+        {
+            self.addAction(UIAlertAction(title: c, style: .cancel, handler: { _ in }))
         }
     }
     

@@ -30,10 +30,15 @@ open class CharacterTests : XCTestCase {
     
     func testToInt()
     {
-        XCTAssertEqual(Character("A").toInt, 65)
-        XCTAssertEqual(Character("Z").toInt, 90)
-        XCTAssertEqual(Character("a").toInt, 97)
-        XCTAssertEqual(Character("z").toInt, 122)
+        XCTAssertEqual(Character("A").toUInt32, 65)
+        XCTAssertEqual(Character("Z").toUInt32, 90)
+        XCTAssertEqual(Character("a").toUInt32, 97)
+        XCTAssertEqual(Character("z").toUInt32, 122)
+    }
+    
+    func testToString()
+    {
+        XCTAssertEqual(Character("A").toString, "A")
     }
     
 }

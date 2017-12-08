@@ -1,5 +1,5 @@
 //
-//  Describable+Init.swift
+//  Collectable+General.swift
 //
 //  Created by Giorgi Iashvili on 12.03.17.
 //  Copyright (c) 2017 Giorgi Iashvili
@@ -23,10 +23,23 @@
 //  THE SOFTWARE.
 //
 
-/// RDExtensionsSwift: Protocol for descriptions
-public protocol Describable {
+public extension Collectable {
     
-    /// RDExtensionsSwift: Return the description
-    var description : String { get }
+    /// RDExtensionsSwift: Return collection of items
+    static var items : Array<Self>
+    {
+        typealias S = Self
+        return Array(AnySequence { () -> AnyIterator<S> in
+            var raw = 0
+            return AnyIterator {
+                let current : Self = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: S.self, capacity: 1) { $0.pointee } }
+                guard current.hashValue == raw else {
+                    return nil
+                }
+                raw += 1
+                return current
+            }
+        })
+    }
     
 }

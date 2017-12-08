@@ -23,6 +23,19 @@
 //  THE SOFTWARE.
 //
 
+public extension Collection {
+    
+    /// RDExtensionsSwift: Projects each element of a sequence
+    func lambda(expressions: @escaping  ((Iterator.Element) -> Void))
+    {
+        for element in self
+        {
+            expressions(element)
+        }
+    }
+    
+}
+
 public extension Collection where Index == Int, Iterator.Element : Collection, Iterator.Element.Index == Int {
     
     /// RDExtensionsSwift: Return element at indexPath

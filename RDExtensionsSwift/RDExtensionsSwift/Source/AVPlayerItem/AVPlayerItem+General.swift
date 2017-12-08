@@ -25,9 +25,9 @@
 
 import AVFoundation
 
-extension AVPlayerItem {
+public extension AVPlayerItem {
     
     /// RDExtensionsSwift: Return current playback time in seconds
-    public var currentPlaybackTime : TimeInterval { get { return CMTimeGetSeconds(self.currentTime()) } }
+    var currentPlaybackTime : TimeInterval { get { return CMTimeGetSeconds(self.currentTime()) } }
     
 }

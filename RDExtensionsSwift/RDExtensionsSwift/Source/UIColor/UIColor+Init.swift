@@ -23,11 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension UIColor {
+public extension UIColor {
     
     /// RDExtensionsSwift: Return newly initialized color from red, green, blue and alpha components value from 0 to 255 range
-    @objc(initWithIntRed:intGreen:intBlue:intAlpha:)
-    public convenience init(red: Int, green: Int, blue: Int, alpha: Int)
+    convenience init(red: Int, green: Int, blue: Int, alpha: Int)
     {
         let red = red < 0 ? 0 : red > 255 ? 255 : red
         let green = green < 0 ? 0 : green > 255 ? 255 : green
@@ -37,7 +36,7 @@ extension UIColor {
     }
     
     /// RDExtensionsSwift: Return newly initialized color from hex value
-    public convenience init(hexValue: Int, alpha: Int = 255)
+    convenience init(hexValue: Int, alpha: Int = 255)
     {
         let red = hexValue >> 16
         let green = hexValue >> 8
@@ -46,13 +45,13 @@ extension UIColor {
     }
     
     /// RDExtensionsSwift: Return newly initialized color from hex value
-    public convenience init(hexString: String, alpha: Int = 255)
+    convenience init(hexString: String, alpha: Int = 255)
     {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
         Scanner(string: hex).scanHexInt32(&int)
         let r, g, b : UInt32
-        switch hex.characters.count
+        switch hex.length
         {
         case 3:
             (r, g, b) = ((int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)

@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension UIImageView {
+public extension UIImageView {
     
     /// RDExtensionsSwift: Return newly initialized image view from given image with given mask
-    public static func imageView(_ image: UIImage, mask: UIImage) -> UIImageView
+    static func imageView(_ image: UIImage, mask: UIImage) -> UIImageView
     {
         let layerMask = CALayer()
         layerMask.contents = mask.cgImage

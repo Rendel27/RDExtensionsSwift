@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-extension String {
+public extension String {
     
     /// RDExtensionsSwift: Convert String to Bool
-    public var toBool : Bool?
+    var toBool : Bool?
     {
         get
         {
@@ -43,33 +43,36 @@ extension String {
     }
     
     /// RDExtensionsSwift: Convert String to Int
-    public var toInt : Int { return (self as NSString).integerValue }
+    var toInt : Int { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : number.intValue } }
+    
+    /// RDExtensionsSwift: Convert String to Int8
+    var toInt8 : Int8 { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : number.int8Value } }
+    
+    /// RDExtensionsSwift: Convert String to Int16
+    var toInt16 : Int16 { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : number.int16Value } }
     
     /// RDExtensionsSwift: Convert String to Int32
-    public var toInt32 : Int32 { return Int32((self as NSString).intValue) }
-    
-    /// RDExtensionsSwift: Convert String to UInt32
-    public var toUInt32 : UInt32 { return UInt32((self as NSString).intValue) }
+    var toInt32 : Int32 { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : number.int32Value } }
     
     /// RDExtensionsSwift: Convert String to Int64
-    public var toInt64 : Int64 { return Int64((self as NSString).intValue) }
+    var toInt64 : Int64 { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : number.int64Value } }
     
     /// RDExtensionsSwift: Convert String to Float
-    public var toFloat : Float { get { return (self as NSString).floatValue } }
+    var toFloat : Float { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : number.floatValue } }
     
     /// RDExtensionsSwift: Convert String to CGFloat
-    public var toCGFloat : CGFloat { get { return CGFloat((self as NSString).floatValue) } }
+    var toCGFloat : CGFloat { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : CGFloat(number.floatValue) } }
     
     /// RDExtensionsSwift: Convert String to Double
-    public var toDouble : Double { get { return (self as NSString).doubleValue } }
+    var toDouble : Double { get { let number = NSDecimalNumber(string: self); return number == NSDecimalNumber.notANumber ? 0 : number.doubleValue } }
     
     /// RDExtensionsSwift: Convert String to NSTimeInterval
-    public var toTimeInterval : TimeInterval { get { return (self as NSString).doubleValue } }
+    var toTimeInterval : TimeInterval { get { return self.toDouble } }
     
     /// RDExtensionsSwift: Convert String to NSURL
-    public var toHttpURL : URL? { return URL(string: self) }
+    var toHttpURL : URL? { return URL(string: self) }
     
     /// RDExtensionsSwift: Convert String to NSURL
-    public var toFileURL : URL? { return URL(fileURLWithPath: self) }
+    var toFileURL : URL? { return URL(fileURLWithPath: self) }
     
 }

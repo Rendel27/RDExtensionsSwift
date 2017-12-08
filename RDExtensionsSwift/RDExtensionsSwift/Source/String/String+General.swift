@@ -76,6 +76,12 @@ public extension String {
         return self.length < index ? "" : self[NSMakeRange(0, index)]
     }
     
+    /// RDExtensionsSwift: Return substring from the index with the given length
+    func substring(from leftIndex: Int, length rightIndex: Int) -> String
+    {
+        return self[NSMakeRange(leftIndex, rightIndex)]
+    }
+    
     /// RDExtensionsSwift: Return substring from the index to the end
     func substring(from index: Int) -> String
     {
