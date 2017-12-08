@@ -620,8 +620,9 @@ player.thumbnail(CMTime) // returns UIImage. Time is optional. If it is not pres
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 target 'ProjectName' do
-    pod 'RDExtensionsSwift', '~> 3.1.1' # for latest version (Swift 3.1)
-    pod 'RDExtensionsSwift', '~> 2.1.0' # for latest version (Swift 3.0)
+    pod 'RDExtensionsSwift', '~> 4.0' # for Swift 4
+    pod 'RDExtensionsSwift', '~> 3.1.1' # for Swift 3.2
+    pod 'RDExtensionsSwift', '~> 2.1.0' # for Swift 3.0
     pod 'RDExtensionsSwift', '~> 1.0.7' # for Swift 2
 end
 ```
