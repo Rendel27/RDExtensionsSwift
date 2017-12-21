@@ -38,10 +38,15 @@ open class DoubleTests : XCTestCase {
     func testToInt()
     {
         XCTAssertEqual(123.4567.toInt, 123)
+        XCTAssertEqual(123.567.toInt, 123)
         XCTAssertEqual(123.4567.toInt8, 123)
+        XCTAssertEqual(123.567.toInt8, 123)
         XCTAssertEqual(123.4567.toInt16, 123)
+        XCTAssertEqual(123.567.toInt16, 123)
         XCTAssertEqual(123.4567.toInt32, 123)
+        XCTAssertEqual(123.567.toInt32, 123)
         XCTAssertEqual(123.4567.toInt64, 123)
+        XCTAssertEqual(123.567.toInt64, 123)
     }
     
 //    func testToCGFloat()
