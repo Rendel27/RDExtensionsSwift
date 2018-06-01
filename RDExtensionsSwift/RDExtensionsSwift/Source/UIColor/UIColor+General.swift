@@ -26,16 +26,16 @@
 public extension UIColor {
     
     /// RDExtensionsSwift: Return color's red component value
-    var redComponent : CGFloat { get { return self.cgColor.components?[0] ?? 0 } }
+    var redComponent : CGFloat { get { var component : CGFloat = 0; return self.getRed(&component, green: nil, blue: nil, alpha: nil) ? component : self.cgColor.components?[0] ?? 0 } }
     
     /// RDExtensionsSwift: Return color's green component value
-    var greenComponent : CGFloat { get { return self.cgColor.components?[1] ?? 0 } }
+    var greenComponent : CGFloat { get { var component : CGFloat = 0; return self.getRed(nil, green: &component, blue: nil, alpha: nil) ? component : self.cgColor.components?[1] ?? 0 } }
     
     /// RDExtensionsSwift: Return color's blue component value
-    var blueComponent : CGFloat { get { return self.cgColor.components?[2] ?? 0 } }
+    var blueComponent : CGFloat { get { var component : CGFloat = 0; return self.getRed(nil, green: nil, blue: &component, alpha: nil) ? component : self.cgColor.components?[2] ?? 0 } }
     
     /// RDExtensionsSwift: Return color's alpha component value
-    var alphaComponent : CGFloat { get { return self.cgColor.components?[3] ?? 0 } }
+    var alphaComponent : CGFloat { get { var component : CGFloat = 0; return self.getRed(nil, green: nil, blue: nil, alpha: &component) ? component : self.cgColor.components?[3] ?? 0 } }
     
     /// RDExtensionsSwift: Generate and return random color
     static var randomColor : UIColor { get { return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0) } }

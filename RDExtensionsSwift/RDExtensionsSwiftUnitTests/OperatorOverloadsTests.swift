@@ -198,15 +198,14 @@ open class OperatorOverloadsTests : XCTestCase {
     
     func testNullableTypeOperators()
     {
-        let intA : Int? = 1
-        let intB : Int? = 2
+        var intA : Int? = 1
+        var intB : Int? = 2
         XCTAssertFalse(intA > intB)
         XCTAssertTrue(intA < intB)
         XCTAssertTrue(intA !> intB)
         XCTAssertFalse(intA !< intB)
         XCTAssertFalse(intA >= intB)
         XCTAssertTrue(intA <= intB)
-        
         
         let floatA : Float? = 1.1
         let floatB : Float? = 2.2
@@ -216,6 +215,11 @@ open class OperatorOverloadsTests : XCTestCase {
         XCTAssertFalse(floatA !< floatB)
         XCTAssertFalse(floatA >= floatB)
         XCTAssertTrue(floatA <= floatB)
+        
+        intB = 3
+        intA ?= intB
+        XCTAssertTrue(intA == intB)
+        XCTAssertFalse(intA == nil)
     }
     
 }

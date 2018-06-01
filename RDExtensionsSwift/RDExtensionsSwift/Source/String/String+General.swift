@@ -73,6 +73,7 @@ public extension String {
     /// RDExtensionsSwift: Return substring from the begining to the index
     func substring(to index: Int) -> String
     {
+        let index = max(0, index)
         return self.length < index ? "" : self[NSMakeRange(0, index)]
     }
     

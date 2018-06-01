@@ -1,8 +1,8 @@
 //
-//  UIViewController+General.swift
+//  CALayer+General.swift
 //
-//  Created by Giorgi Iashvili on 12.03.17.
-//  Copyright (c) 2017 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 19.09.16.
+//  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +23,15 @@
 //  THE SOFTWARE.
 //
 
-public extension UIViewController {
+public extension CALayer {
     
-    /// RDExtensionsSwift: Present view controller on recever
-    func present(_ viewControllerToPresent: UIViewController, animated: Bool = false)
+    /// RDExtensionsSwift: Removes all sublayers from receiver
+    func removeAllSublayers()
     {
-        self.present(viewControllerToPresent, animated: animated, completion: nil)
-    }
-    
-    /// RDExtensionsSwift: Present receiver on view controller
-    func present(on viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil)
-    {
-        viewController.present(self, animated: animated, completion: completion)
+        for sublayer in self.sublayers ?? []
+        {
+            sublayer.removeFromSuperlayer()
+        }
     }
     
 }

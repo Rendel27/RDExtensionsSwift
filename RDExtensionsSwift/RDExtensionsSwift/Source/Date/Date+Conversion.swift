@@ -25,14 +25,18 @@
 
 public extension Date {
     
-    /// RDExtensionsSwift: Convert NSDate to String with given format
-    func toString(_ format: String, locale: Locale? = nil) -> String
+    /// RDExtensionsSwift: Convert NSDate to String with given format and given time zone
+    func toString(_ format: String, locale: Locale? = nil, timeZone: TimeZone? = nil) -> String
     {
         let df = DateFormatter()
         df.dateFormat = format
         if let locale = locale
         {
             df.locale = locale
+        }
+        if let tz = timeZone
+        {
+            df.timeZone = tz
         }
         return df.string(from: self)
     }

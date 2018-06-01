@@ -1,8 +1,8 @@
 //
-//  UIViewController+General.swift
+//  UIImage+General.swift
 //
-//  Created by Giorgi Iashvili on 12.03.17.
-//  Copyright (c) 2017 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 19.09.16.
+//  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +23,9 @@
 //  THE SOFTWARE.
 //
 
-public extension UIViewController {
+public extension UIImage {
     
-    /// RDExtensionsSwift: Present view controller on recever
-    func present(_ viewControllerToPresent: UIViewController, animated: Bool = false)
-    {
-        self.present(viewControllerToPresent, animated: animated, completion: nil)
-    }
-    
-    /// RDExtensionsSwift: Present receiver on view controller
-    func present(on viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil)
-    {
-        viewController.present(self, animated: animated, completion: completion)
-    }
+    /// RDExtensionsSwift: Return base64 string value
+    var base64String: String? { get { return UIImagePNGRepresentation(self)?.base64EncodedString() } }
     
 }

@@ -46,6 +46,16 @@ open class DateTests : XCTestCase {
         XCTAssertEqual(self.date.toString("ss-mm-HH"), "18-16-20")
     }
     
+    func testFromString()
+    {
+        let d1 = Date(formattedString: "01-01-1970", format: "dd-MM-yyyy", timeZone: .utc)
+        let d2 = Date(timeIntervalSince1970: 0)
+        XCTAssertEqual(d1?.day, d2.day)
+        XCTAssertEqual(d1?.month, d2.month)
+        XCTAssertEqual(d1?.year, d2.year)
+        XCTAssertEqual(self.date.toString("ss-mm-HH"), "18-16-20")
+    }
+    
     func testTimeIntervalSince1970Milliseconds()
     {
         XCTAssertEqual(self.date.timeIntervalSince1970Milliseconds, 1474647378123)

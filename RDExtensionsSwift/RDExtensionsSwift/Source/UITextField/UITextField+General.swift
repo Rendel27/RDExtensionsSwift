@@ -74,6 +74,36 @@ public extension UITextField {
         }
     }
     
+    /// RDExtensionsSwift: Placeholder color
+    var placeHolderColor: UIColor?
+    {
+        get { return self.attributedPlaceholder?.attribute(.foregroundColor, at: 0, longestEffectiveRange: nil, in: NSRange(location: 0, length: self.attributedPlaceholder?.length ?? 0)) as? UIColor }
+        set
+        {
+            if(newValue != nil)
+            {
+                let attributedText = self.attributedPlaceholder == nil ? NSMutableAttributedString(string: self.placeholder ?? "") : NSMutableAttributedString(attributedString: self.attributedPlaceholder!)
+                attributedText.addAttribute(.foregroundColor, value: newValue!, range: NSRange(location: 0, length: attributedText.length))
+                self.attributedPlaceholder = attributedText
+            }
+        }
+    }
+    
+    /// RDExtensionsSwift: Placeholder font
+    var placeHolderFont: UIFont?
+    {
+        get { return self.attributedPlaceholder?.attribute(.font, at: 0, longestEffectiveRange: nil, in: NSRange(location: 0, length: self.attributedPlaceholder?.length ?? 0)) as? UIFont }
+        set
+        {
+            if(newValue != nil)
+            {
+                let attributedText = self.attributedPlaceholder == nil ? NSMutableAttributedString(string: self.placeholder ?? "") : NSMutableAttributedString(attributedString: self.attributedPlaceholder!)
+                attributedText.addAttribute(.font, value: newValue!, range: NSRange(location: 0, length: attributedText.length))
+                self.attributedPlaceholder = attributedText
+            }
+        }
+    }
+    
 }
 
 public extension UITextFieldDelegate {

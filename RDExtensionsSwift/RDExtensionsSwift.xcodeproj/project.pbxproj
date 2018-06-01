@@ -94,6 +94,12 @@
 		72E68ECF1FD9879000A6FF88 /* Character+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E68ECE1FD9879000A6FF88 /* Character+General.swift */; };
 		72E68ED21FD98D0200A6FF88 /* RawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E68ED11FD98D0200A6FF88 /* RawRepresentableTests.swift */; };
 		72E68ED41FD99C9600A6FF88 /* TimeZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E68ED31FD99C9600A6FF88 /* TimeZoneTests.swift */; };
+		72EE431120C16B9100EDD102 /* UIImage+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE431020C16B9100EDD102 /* UIImage+General.swift */; };
+		72EE431320C16D6D00EDD102 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE431220C16D6D00EDD102 /* UIView+Animations.swift */; };
+		72EE431C20C16F6800EDD102 /* UITableView+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE431B20C16F6800EDD102 /* UITableView+General.swift */; };
+		72EE431E20C1705300EDD102 /* UICollectionView+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE431D20C1705300EDD102 /* UICollectionView+General.swift */; };
+		72EE432120C1759700EDD102 /* CALayer+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE432020C1759700EDD102 /* CALayer+General.swift */; };
+		72EE432420C1760000EDD102 /* UIPageControl+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE432320C1760000EDD102 /* UIPageControl+General.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +203,12 @@
 		72E68ECE1FD9879000A6FF88 /* Character+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+General.swift"; sourceTree = "<group>"; };
 		72E68ED11FD98D0200A6FF88 /* RawRepresentableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentableTests.swift; sourceTree = "<group>"; };
 		72E68ED31FD99C9600A6FF88 /* TimeZoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneTests.swift; sourceTree = "<group>"; };
+		72EE431020C16B9100EDD102 /* UIImage+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+General.swift"; sourceTree = "<group>"; };
+		72EE431220C16D6D00EDD102 /* UIView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+		72EE431B20C16F6800EDD102 /* UITableView+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+General.swift"; sourceTree = "<group>"; };
+		72EE431D20C1705300EDD102 /* UICollectionView+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+General.swift"; sourceTree = "<group>"; };
+		72EE432020C1759700EDD102 /* CALayer+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+General.swift"; sourceTree = "<group>"; };
+		72EE432320C1760000EDD102 /* UIPageControl+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageControl+General.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +295,7 @@
 				7262FC441D941233004D68C3 /* PHAsset */,
 				72E68EC41FD9623000A6FF88 /* NSRange */,
 				72E68EC11FD95E0600A6FF88 /* NSTextRange */,
+				72EE431F20C1757B00EDD102 /* CALayer */,
 				7262FC521D941233004D68C3 /* UIColor */,
 				7262FC551D941233004D68C3 /* UIImage */,
 				7262FC5D1D941233004D68C3 /* UINib */,
@@ -291,11 +304,14 @@
 				7262FC4E1D941233004D68C3 /* UIAlertView */,
 				7262FC4C1D941233004D68C3 /* UIAlertController */,
 				72E68EC71FD96B7E00A6FF88 /* UIAlertAction */,
+				72EE432220C175DB00EDD102 /* UIPageControl */,
 				7262FC501D941233004D68C3 /* UIButton */,
 				7262FC591D941233004D68C3 /* UIImageView */,
 				7262FC5B1D941233004D68C3 /* UILabel */,
 				7262FC631D941233004D68C3 /* UITextField */,
 				7262FC651D941233004D68C3 /* UITextView */,
+				72EE431620C16ED200EDD102 /* UITableView */,
+				72EE431720C16EDE00EDD102 /* UICollectionView */,
 				7262FC6D1D941233004D68C3 /* UIViewController */,
 				729335251E755B250028FDDB /* UITabBarController */,
 				7262FC301D941233004D68C3 /* MPMoviePlayerController */,
@@ -509,6 +525,7 @@
 			isa = PBXGroup;
 			children = (
 				7262FC581D941233004D68C3 /* UIImage+Init.swift */,
+				72EE431020C16B9100EDD102 /* UIImage+General.swift */,
 				7262FC571D941233004D68C3 /* UIImage+Graphics.swift */,
 			);
 			path = UIImage;
@@ -578,6 +595,7 @@
 				7262FC691D941233004D68C3 /* UIView+Graphics.swift */,
 				7262FC6B1D941233004D68C3 /* UIView+Layout.swift */,
 				7262FC6C1D941233004D68C3 /* UIView+Mask.swift */,
+				72EE431220C16D6D00EDD102 /* UIView+Animations.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -706,6 +724,38 @@
 			path = Collectable;
 			sourceTree = "<group>";
 		};
+		72EE431620C16ED200EDD102 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				72EE431B20C16F6800EDD102 /* UITableView+General.swift */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		72EE431720C16EDE00EDD102 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				72EE431D20C1705300EDD102 /* UICollectionView+General.swift */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		72EE431F20C1757B00EDD102 /* CALayer */ = {
+			isa = PBXGroup;
+			children = (
+				72EE432020C1759700EDD102 /* CALayer+General.swift */,
+			);
+			path = CALayer;
+			sourceTree = "<group>";
+		};
+		72EE432220C175DB00EDD102 /* UIPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				72EE432320C1760000EDD102 /* UIPageControl+General.swift */,
+			);
+			path = UIPageControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -820,6 +870,7 @@
 			files = (
 				7262FC911D941233004D68C3 /* UIColor+General.swift in Sources */,
 				7262FC7F1D941233004D68C3 /* Date+Conversion.swift in Sources */,
+				72EE432420C1760000EDD102 /* UIPageControl+General.swift in Sources */,
 				7262FC781D941233004D68C3 /* Double+Conversion.swift in Sources */,
 				7262FC8D1D941233004D68C3 /* String+Subscript.swift in Sources */,
 				7262FC9D1D941233004D68C3 /* UIView+General.swift in Sources */,
@@ -847,11 +898,13 @@
 				7262FC9B1D941233004D68C3 /* UITextField+General.swift in Sources */,
 				7262FC811D941233004D68C3 /* Date+Init.swift in Sources */,
 				7262FC9F1D941233004D68C3 /* UIView+Init.swift in Sources */,
+				72EE431320C16D6D00EDD102 /* UIView+Animations.swift in Sources */,
 				7262FCA21D941233004D68C3 /* UIViewController+Init.swift in Sources */,
 				7262FC7E1D941233004D68C3 /* Data+Init.swift in Sources */,
 				7262FC841D941233004D68C3 /* NSObject+Init.swift in Sources */,
 				7262FC6F1D941233004D68C3 /* Array+General.swift in Sources */,
 				7262FC8E1D941233004D68C3 /* UIAlertController+Init.swift in Sources */,
+				72EE431E20C1705300EDD102 /* UICollectionView+General.swift in Sources */,
 				7262FC961D941233004D68C3 /* UIImageView+Init.swift in Sources */,
 				7262FC741D941233004D68C3 /* CGRect+Layout.swift in Sources */,
 				7262FC7A1D941233004D68C3 /* Int+Conversion.swift in Sources */,
@@ -864,11 +917,13 @@
 				7262FC8A1D941233004D68C3 /* String+General.swift in Sources */,
 				7262FC791D941233004D68C3 /* Float+Conversion.swift in Sources */,
 				7293352F1E7564BA0028FDDB /* Collectable+General.swift in Sources */,
+				72EE431120C16B9100EDD102 /* UIImage+General.swift in Sources */,
 				7262FC9A1D941233004D68C3 /* UIScrollView+General.swift in Sources */,
 				7262FC9C1D941233004D68C3 /* UITextView+General.swift in Sources */,
 				72E68ECF1FD9879000A6FF88 /* Character+General.swift in Sources */,
 				7262FC861D941233004D68C3 /* URL+General.swift in Sources */,
 				7262FC821D941233004D68C3 /* NSDictionary+General.swift in Sources */,
+				72EE432120C1759700EDD102 /* CALayer+General.swift in Sources */,
 				7293352D1E75645D0028FDDB /* Collectable+Init.swift in Sources */,
 				72E68ECD1FD980B200A6FF88 /* TimeZone+Init.swift in Sources */,
 				7262FCA11D941233004D68C3 /* UIView+Mask.swift in Sources */,
@@ -878,6 +933,7 @@
 				7262FC701D941233004D68C3 /* AVPlayerItem+General.swift in Sources */,
 				7262FC8C1D941233004D68C3 /* String+Layout.swift in Sources */,
 				7262FC901D941233004D68C3 /* UIButton+General.swift in Sources */,
+				72EE431C20C16F6800EDD102 /* UITableView+General.swift in Sources */,
 				7262FC7C1D941233004D68C3 /* MPMoviePlayerController+General.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

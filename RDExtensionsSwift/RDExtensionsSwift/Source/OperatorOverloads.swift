@@ -187,10 +187,16 @@ precedencegroup NotGreaterThan {
     associativity: left
 }
 infix operator !> : NotGreaterThan
+
 precedencegroup NotLessThan {
     associativity: left
 }
 infix operator !< : NotLessThan
+
+precedencegroup UnwrappedAssign {
+    associativity: right
+}
+infix operator ?= : UnwrappedAssign
 
 /// RDExtensionsSwift: Check if nullable lhs is greater than nullable rhs
 public func ><T : Comparable>(left: T?, right: T?) -> Bool
@@ -242,4 +248,13 @@ public func <=<T : Comparable>(left: T?, right: T?) -> Bool
         return l <= r
     }
     return false
+}
+
+/// RDExtensionsSwift: Set rhs value to lhs if rhs is not nil
+public func ?=<T>(base: inout T, newValue: T?)
+{
+    if let nv = newValue
+    {
+        base = nv
+    }
 }

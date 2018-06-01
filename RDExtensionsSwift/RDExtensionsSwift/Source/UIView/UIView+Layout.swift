@@ -1,5 +1,5 @@
 //
-//  UIView_Layout.swift
+//  UIView+Layout.swift
 //
 //  Created by Giorgi Iashvili on 19.09.16.
 //  Copyright (c) 2016 Giorgi Iashvili

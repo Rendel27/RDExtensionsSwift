@@ -28,6 +28,12 @@ public extension Date {
     /// RDExtensionsSwift: Initializes date with specified values
     init?(nanosecond: Int? = nil, second: Int? = nil, minute: Int? = nil, hour: Int? = nil, day: Int? = nil, month: Int? = nil, year: Int? = nil, era: Int? = nil, timeZone: TimeZone? = nil)
     {
+        if(nanosecond == nil && second == nil && minute == nil && hour == nil && day == nil && month == nil && year == nil && era == nil && timeZone == nil)
+        {
+            self = Foundation.Date()
+            return
+        }
+        
         var components = DateComponents()
         components.nanosecond = nanosecond
         components.second = second
@@ -42,6 +48,29 @@ public extension Date {
             components.timeZone = tz
         }
         if let date = Calendar.current.date(from: components)
+        {
+            self = date
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    /// RDExtensionsSwift: Initializes date from formatted string by given format, locale and time zone
+    init?(formattedString: String, format: String, locale: Locale? = nil, timeZone: TimeZone? = nil)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        if let locale = locale
+        {
+            dateFormatter.locale = locale
+        }
+        if let timeZone = timeZone
+        {
+            dateFormatter.timeZone = timeZone
+        }
+        if let date = dateFormatter.date(from: formattedString)
         {
             self = date
         }
