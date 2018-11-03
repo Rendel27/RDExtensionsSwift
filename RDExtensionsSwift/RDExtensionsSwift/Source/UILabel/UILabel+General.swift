@@ -202,4 +202,15 @@ public extension UILabel {
         return nil
     }
     
+    /// RDExtensionsSwift: Sets attributed text with given components
+    func setAttributedText(_ components: [(String, [NSAttributedString.Key: Any])])
+    {
+        let attributedText = NSMutableAttributedString(string: components.map { $0.0 }.joined())
+        for i in 0 ..< components.count
+        {
+            attributedText.addAttributes(components[i].1, range: NSRange(location: components[0 ..< i].map { $0.0 }.joined().length, length: components[i].0.length))
+        }
+        self.attributedText = attributedText
+    }
+    
 }

@@ -28,6 +28,12 @@ import RDExtensionsSwift
 
 open class StringTests : XCTestCase {
     
+    func testInits()
+    {
+        XCTAssertEqual(String.empty, "")
+        XCTAssertEqual(String.space, " ")
+    }
+    
     func testConversions()
     {
         XCTAssertTrue("TRUE".toBool == true)
@@ -54,6 +60,7 @@ open class StringTests : XCTestCase {
         XCTAssertEqual("123".toCGFloat, 123)
         XCTAssertEqual("123".toDouble, 123)
         XCTAssertEqual("123".toTimeInterval, 123)
+        XCTAssertEqual("123.123".toNSDecimalNumber, NSDecimalNumber(string: "123.123"))
         XCTAssertNotNil("www.example.com".toHttpURL)
         XCTAssertNotNil("example/file".toFileURL)
     }

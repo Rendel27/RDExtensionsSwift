@@ -69,6 +69,9 @@ public extension String {
     /// RDExtensionsSwift: Convert String to NSTimeInterval
     var toTimeInterval : TimeInterval { get { return self.toDouble } }
     
+    /// RDExtensionsSwift: Convert String to NSDecimalNumber
+    var toNSDecimalNumber : NSDecimalNumber { get { return NSDecimalNumber(string: self) } }
+    
     /// RDExtensionsSwift: Convert String to NSURL
     var toHttpURL : URL? { return URL(string: self) }
     

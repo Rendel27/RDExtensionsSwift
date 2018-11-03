@@ -51,6 +51,26 @@ public extension UIView {
         return arraySubviews
     }
     
+    /// RDExtensionsSwift: Return subviews of the receiver of given kind
+    func subviews(kindOf: UIView.Type) -> [UIView]
+    {
+        var arraySubviews : [UIView] = []
+        for view in self.subviews
+        {
+            if(view.isKind(of: kindOf))
+            {
+                arraySubviews.append(view)
+            }
+            else
+            {
+                arraySubviews.append(view)
+            }
+            
+            arraySubviews += view.subviews(kindOf: kindOf)
+        }
+        return arraySubviews
+    }
+    
     /// RDExtensionsSwift: Remove all subviews of the receiver
     func removeAllSubviews()
     {

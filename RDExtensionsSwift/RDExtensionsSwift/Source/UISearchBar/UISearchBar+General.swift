@@ -1,8 +1,8 @@
 //
-//  String+Init.swift
+//  UISearchBar+General.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
-//  Copyright (c) 2016 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 11.3.18.
+//  Copyright (c) 2018 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +23,10 @@
 //  THE SOFTWARE.
 //
 
-public extension String {
+public extension UISearchBar {
     
-    /// RDExtensionsSwift: Generate and return unique identifier
-    static var uuid : String { get { return CFUUIDCreateString(kCFAllocatorDefault, CFUUIDCreate(kCFAllocatorDefault)) as String } }
+    var string: String { get { return self.text ?? "" } }
     
-    /// RDExtensionsSwift: Return empty string
-    static var empty: String { get { return String() } }
-    
-    /// RDExtensionsSwift: Return space as a string
-    static var space: String { get { return String(" ") } }
-    
+    var searchField : UITextField? { get { return self.value(forKey: "_searchField") as? UITextField } }
     
 }

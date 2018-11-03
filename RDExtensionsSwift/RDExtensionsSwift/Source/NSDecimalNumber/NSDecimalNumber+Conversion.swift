@@ -1,8 +1,8 @@
 //
-//  Data+Init.swift
+//  NSDecimalNumber+Conversion.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
-//  Copyright (c) 2016 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 11.3.18.
+//  Copyright (c) 2018 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,26 +23,36 @@
 //  THE SOFTWARE.
 //
 
-public extension Data {
+public extension NSDecimalNumber {
     
-    /// RDExtensionsSwift: Return unique identifier and download data from the given url
-    static func download(_ url: URL, completeInMainThread: Bool = true, completion: ((_ data: Data?, _ id: String) -> Void)?) -> String
+    /// RDExtensionsSwift: Return Double as String with rounding
+    func toString(rounding: Int = 2, trimZeros: Bool = false) -> String
     {
-        let id = String.uuid
-        DispatchQueue(label: id, attributes: DispatchQueue.Attributes.concurrent).async(execute: {
-            let data = try? Data(contentsOf: url)
-            if(completeInMainThread)
+        var string = self.stringValue
+        let components = string.components(separatedBy: ".")
+        if components.count == 2,
+            let left = components.first,
+            let right = components.last
+        {
+            string = left + "." + right.substring(to: min(right.length, rounding))
+        }
+        if(trimZeros)
+        {
+            let components = string.components(separatedBy: ".")
+            if components.count == 2,
+                components.first != nil,
+                let right = components.last
             {
-                DispatchQueue.main.async(execute: {
-                    completion?(data, id)
-                })
+                if(right.count <= 2)
+                {
+                    if(components.last == "00" || components.last == "0")
+                    {
+                        string = components.first!
+                    }
+                }
             }
-            else
-            {
-                completion?(data, id)
-            }
-        })
-        return id
+        }
+        return string
     }
     
 }

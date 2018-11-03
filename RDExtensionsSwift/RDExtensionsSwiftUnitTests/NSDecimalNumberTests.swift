@@ -1,8 +1,8 @@
 //
-//  String+Init.swift
+//  NSDecimalNumberTests.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
-//  Copyright (c) 2016 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 11.3.18.
+//  Copyright (c) 2018 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +23,16 @@
 //  THE SOFTWARE.
 //
 
-public extension String {
+import XCTest
+import RDExtensionsSwift
+
+open class NSDecimalNumberTests : XCTestCase {
     
-    /// RDExtensionsSwift: Generate and return unique identifier
-    static var uuid : String { get { return CFUUIDCreateString(kCFAllocatorDefault, CFUUIDCreate(kCFAllocatorDefault)) as String } }
-    
-    /// RDExtensionsSwift: Return empty string
-    static var empty: String { get { return String() } }
-    
-    /// RDExtensionsSwift: Return space as a string
-    static var space: String { get { return String(" ") } }
-    
+    func testToString()
+    {
+        XCTAssertEqual(NSDecimalNumber(floatLiteral: 1.00).toString(trimZeros: true), "1")
+        XCTAssertEqual(NSDecimalNumber(floatLiteral: 0.123456789).toString(), "0.12")
+        XCTAssertEqual(NSDecimalNumber(floatLiteral: 0.123456789).toString(rounding: 1), "0.1")
+    }
     
 }

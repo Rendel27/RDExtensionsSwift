@@ -84,6 +84,9 @@
 		72C389A41D96D8290088AE96 /* UInt8Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C389A31D96D8290088AE96 /* UInt8Tests.swift */; };
 		72C53F901E757E27008D10C1 /* UITabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C53F8F1E757E27008D10C1 /* UITabBarControllerTests.swift */; };
 		72C53F921E757ECD008D10C1 /* ProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C53F911E757ECD008D10C1 /* ProtocolTests.swift */; };
+		72D69076218E21DD006059ED /* NSDecimalNumber+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D69075218E21DD006059ED /* NSDecimalNumber+Conversion.swift */; };
+		72D69078218E222A006059ED /* NSDecimalNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D69077218E222A006059ED /* NSDecimalNumberTests.swift */; };
+		72D6907B218E25EF006059ED /* UISearchBar+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D6907A218E25EF006059ED /* UISearchBar+General.swift */; };
 		72E68EBC1FD9531800A6FF88 /* CGFloat+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E68EBB1FD9531800A6FF88 /* CGFloat+General.swift */; };
 		72E68EBE1FD95D2D00A6FF88 /* UIViewController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E68EBD1FD95D2D00A6FF88 /* UIViewController+General.swift */; };
 		72E68EC31FD95E1B00A6FF88 /* NSTextRange+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E68EC21FD95E1B00A6FF88 /* NSTextRange+Conversions.swift */; };
@@ -192,6 +195,9 @@
 		72C389A31D96D8290088AE96 /* UInt8Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt8Tests.swift; sourceTree = "<group>"; };
 		72C53F8F1E757E27008D10C1 /* UITabBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarControllerTests.swift; sourceTree = "<group>"; };
 		72C53F911E757ECD008D10C1 /* ProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
+		72D69075218E21DD006059ED /* NSDecimalNumber+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDecimalNumber+Conversion.swift"; sourceTree = "<group>"; };
+		72D69077218E222A006059ED /* NSDecimalNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumberTests.swift; sourceTree = "<group>"; };
+		72D6907A218E25EF006059ED /* UISearchBar+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+General.swift"; sourceTree = "<group>"; };
 		72E68EBB1FD9531800A6FF88 /* CGFloat+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+General.swift"; sourceTree = "<group>"; };
 		72E68EBD1FD95D2D00A6FF88 /* UIViewController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+General.swift"; sourceTree = "<group>"; };
 		72E68EC21FD95E1B00A6FF88 /* NSTextRange+Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextRange+Conversions.swift"; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 				7262FC1A1D941233004D68C3 /* Bool */,
 				7262FC221D941233004D68C3 /* Character */,
 				7262FC461D941233004D68C3 /* String */,
+				72D69074218E21B4006059ED /* NSDecimalNumber */,
 				7262FC321D941233004D68C3 /* NSAttributedString */,
 				7262FC201D941233004D68C3 /* CGRect */,
 				7262FC241D941233004D68C3 /* CMTime */,
@@ -307,6 +314,7 @@
 				7262FC5B1D941233004D68C3 /* UILabel */,
 				7262FC631D941233004D68C3 /* UITextField */,
 				7262FC651D941233004D68C3 /* UITextView */,
+				72D69079218E25D9006059ED /* UISearchBar */,
 				72EE431620C16ED200EDD102 /* UITableView */,
 				72EE431720C16EDE00EDD102 /* UICollectionView */,
 				7262FC6D1D941233004D68C3 /* UIViewController */,
@@ -622,6 +630,7 @@
 				721976381D957399002B5018 /* BoolTests.swift */,
 				7296C95F1D9579490060F483 /* CharacterTests.swift */,
 				72316FCD1D96A0D90078DC66 /* StringTests.swift */,
+				72D69077218E222A006059ED /* NSDecimalNumberTests.swift */,
 				7296C96B1D9582810060F483 /* NSAttributedStringTests.swift */,
 				7296C95D1D9577FB0060F483 /* CGRectTests.swift */,
 				7296C9751D9595680060F483 /* ArrayTests.swift */,
@@ -662,6 +671,22 @@
 				72950D921E8BE5C2005E69C2 /* Collection+Conversion.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		72D69074218E21B4006059ED /* NSDecimalNumber */ = {
+			isa = PBXGroup;
+			children = (
+				72D69075218E21DD006059ED /* NSDecimalNumber+Conversion.swift */,
+			);
+			path = NSDecimalNumber;
+			sourceTree = "<group>";
+		};
+		72D69079218E25D9006059ED /* UISearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				72D6907A218E25EF006059ED /* UISearchBar+General.swift */,
+			);
+			path = UISearchBar;
 			sourceTree = "<group>";
 		};
 		72E68EC11FD95E0600A6FF88 /* NSTextRange */ = {
@@ -890,6 +915,7 @@
 				7262FCA21D941233004D68C3 /* UIViewController+Init.swift in Sources */,
 				7262FC7E1D941233004D68C3 /* Data+Init.swift in Sources */,
 				7262FC841D941233004D68C3 /* NSObject+Init.swift in Sources */,
+				72D69076218E21DD006059ED /* NSDecimalNumber+Conversion.swift in Sources */,
 				7262FC6F1D941233004D68C3 /* Array+General.swift in Sources */,
 				7262FC8E1D941233004D68C3 /* UIAlertController+Init.swift in Sources */,
 				72EE431E20C1705300EDD102 /* UICollectionView+General.swift in Sources */,
@@ -897,6 +923,7 @@
 				7262FC741D941233004D68C3 /* CGRect+Layout.swift in Sources */,
 				7262FC7A1D941233004D68C3 /* Int+Conversion.swift in Sources */,
 				72E68EBC1FD9531800A6FF88 /* CGFloat+General.swift in Sources */,
+				72D6907B218E25EF006059ED /* UISearchBar+General.swift in Sources */,
 				7262FC921D941233004D68C3 /* UIColor+Init.swift in Sources */,
 				7262FC7B1D941233004D68C3 /* Int64+Conversion.swift in Sources */,
 				7262FC941D941233004D68C3 /* UIImage+Graphics.swift in Sources */,
@@ -936,6 +963,7 @@
 				7296C9601D9579490060F483 /* CharacterTests.swift in Sources */,
 				72E68ED41FD99C9600A6FF88 /* TimeZoneTests.swift in Sources */,
 				7296C9641D957D510060F483 /* DoubleTests.swift in Sources */,
+				72D69078218E222A006059ED /* NSDecimalNumberTests.swift in Sources */,
 				7296C95E1D9577FB0060F483 /* CGRectTests.swift in Sources */,
 				729238F21D95549900414E60 /* OperatorOverloadsTests.swift in Sources */,
 				72C389A41D96D8290088AE96 /* UInt8Tests.swift in Sources */,

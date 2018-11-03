@@ -104,6 +104,14 @@ public extension UITextField {
         }
     }
     
+    /// RDExtensionsSwift: Sets attributed text with given components
+    func setAttributedText(_ components: [(String, [NSAttributedString.Key: Any])])
+    {
+        let label = UILabel()
+        label.setAttributedText(components)
+        self.attributedText = label.attributedText
+    }
+    
 }
 
 public extension UITextFieldDelegate {

@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-// MARK: Overload opertors for Int and CGFloat
+// MARK: Opertors for Int and CGFloat
 
 /// RDExtensionsSwift: Int + CGFloat without conversions
 public func +(left: Int, right: CGFloat) -> CGFloat
@@ -73,7 +73,7 @@ public func /(left: CGFloat, right: Int) -> CGFloat
     return left / CGFloat(right)
 }
 
-// MARK: Overload opertors for Int and Float
+// MARK: Opertors for Int and Float
 
 /// RDExtensionsSwift: Int + Float without conversions
 public func +(left: Int, right: Float) -> Float
@@ -123,7 +123,7 @@ public func /(left: Float, right: Int) -> Float
     return left / Float(right)
 }
 
-// MARK: Overload opertors for Int and Double
+// MARK: Opertors for Int and Double
 
 /// RDExtensionsSwift: Int + Double without conversions
 public func +(left: Int, right: Double) -> Double
@@ -171,6 +171,38 @@ public func /(left: Int, right: Double) -> Double
 public func /(left: Double, right: Int) -> Double
 {
     return left / Double(right)
+}
+
+// MARK: Opertors for NSDecimalNumber
+
+/// RDExtensionsSwift: lhs + rhs
+public func +(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber
+{
+    return lhs.adding(rhs)
+}
+
+/// RDExtensionsSwift: lhs - rhs
+public func -(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber
+{
+    return lhs.subtracting(rhs)
+}
+
+/// RDExtensionsSwift: lhs * rhs
+public func *(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber
+{
+    return lhs.multiplying(by: rhs)
+}
+
+/// RDExtensionsSwift: lhs / rhs
+public func /(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> NSDecimalNumber
+{
+    return lhs.dividing(by: rhs)
+}
+
+/// RDExtensionsSwift: lhs ^ rhs
+public func ^(lhs: NSDecimalNumber, rhs: Int) -> NSDecimalNumber
+{
+    return lhs.raising(toPower: rhs)
 }
 
 // MARK: Overload opertors for Arrays

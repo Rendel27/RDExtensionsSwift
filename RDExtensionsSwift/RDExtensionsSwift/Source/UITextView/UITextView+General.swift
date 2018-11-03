@@ -34,4 +34,12 @@ public extension UITextView {
     /// RDExtensionsSwift: Calculate and return height of the text view for given width with given font
     var heightForText : CGFloat { return self.string.heightForWidth(self.frame.size.width, font: self.font!) }
     
+    /// RDExtensionsSwift: Sets attributed text with given components
+    func setAttributedText(_ components: [(String, [NSAttributedString.Key: Any])])
+    {
+        let label = UILabel()
+        label.setAttributedText(components)
+        self.attributedText = label.attributedText
+    }
+    
 }
