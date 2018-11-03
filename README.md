@@ -5,6 +5,8 @@
 [![Language](https://img.shields.io/badge/swift-2.2-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-2.3-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-3-orange.svg)](http://swift.org)
+[![Language](https://img.shields.io/badge/swift-4-orange.svg)](http://swift.org)
+[![Language](https://img.shields.io/badge/swift-4.2-orange.svg)](http://swift.org)
 
 
 
