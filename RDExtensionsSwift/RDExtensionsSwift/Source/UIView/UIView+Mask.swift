@@ -80,7 +80,7 @@ public extension UIView {
         if(inverse)
         {
             path.append(UIBezierPath(rect: self.bounds))
-            maskLayer.fillRule = kCAFillRuleEvenOdd
+            maskLayer.fillRule = .evenOdd
         }
         maskLayer.path = path.cgPath
         self.layer.mask = maskLayer

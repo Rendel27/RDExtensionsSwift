@@ -26,7 +26,7 @@
 public extension UIAlertAction {
     
     /// RDExtensionsSwift: Return a newly initialized alert action
-    convenience init(title: String?, style: UIAlertActionStyle = .default, isEnabled: Bool, handler: ((UIAlertAction) -> Swift.Void)? = nil)
+    convenience init(title: String?, style: UIAlertAction.Style = .default, isEnabled: Bool, handler: ((UIAlertAction) -> Swift.Void)? = nil)
     {
         self.init(title: title, style: style, handler: handler)
         

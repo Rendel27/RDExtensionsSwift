@@ -26,7 +26,7 @@
 public extension UIAlertController {
     
     /// RDExtensionsSwift: Return a newly initialized view controller for displaying an alert to the user
-    convenience init(title: String? = nil, message: String? = nil, style : UIAlertControllerStyle = .alert, inputFieldPlaceholders: [String] = [], actions: [UIAlertAction], cancelButtonTitle: String?, completion: (() -> Void)? = nil)
+    convenience init(title: String? = nil, message: String? = nil, style : UIAlertController.Style = .alert, inputFieldPlaceholders: [String] = [], actions: [UIAlertAction], cancelButtonTitle: String?, completion: (() -> Void)? = nil)
     {
         self.init(title: title, message: message, preferredStyle: style)
         for tfph in inputFieldPlaceholders

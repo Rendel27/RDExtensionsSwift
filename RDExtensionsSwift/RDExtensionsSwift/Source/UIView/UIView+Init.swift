@@ -26,7 +26,7 @@
 public extension UIView {
     
     /// RDExtensionsSwift: Return newly initialized view by given name for given owner with given options
-    fileprivate static func _load<T>(with name: String, for owner: Any? = self, with options: [AnyHashable : Any]? = nil) -> T?
+    fileprivate static func _load<T>(with name: String, for owner: Any? = self, with options: [UINib.OptionsKey : Any]? = nil) -> T?
     {
         if let views = Bundle.main.loadNibNamed(name, owner: owner, options: options)
         {
@@ -42,13 +42,13 @@ public extension UIView {
     }
     
     /// RDExtensionsSwift: Return newly initialized view by given name for given owner with given options
-    static func load(with name: String, for owner: Any? = nil, with options: [AnyHashable : Any]? = nil) -> Self?
+    static func load(with name: String, for owner: Any? = nil, with options: [UINib.OptionsKey : Any]? = nil) -> Self?
     {
         return self._load(with: name, for: owner, with: options)
     }
     
     /// RDExtensionsSwift: Return newly initialized view with classname as id for given owner with given options
-    static func load(for owner: Any? = nil, with options: [AnyHashable : Any]? = nil) -> Self?
+    static func load(for owner: Any? = nil, with options: [UINib.OptionsKey : Any]? = nil) -> Self?
     {
         return self.load(with: self.className, for: owner, with: options)
     }

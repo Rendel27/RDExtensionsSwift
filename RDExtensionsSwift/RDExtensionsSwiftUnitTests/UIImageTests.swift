@@ -38,7 +38,7 @@ open class UIImageTests : XCTestCase {
         XCTAssertEqual(image.color(CGPoint.zero), color)
         XCTAssertEqual(image.rescale(0.5)?.size, size2)
         XCTAssertEqual(image.resize(size3)?.size, size3)
-        XCTAssertEqual(image.changeOrientation(UIImageOrientation.down)?.imageOrientation, UIImageOrientation.down)
+        XCTAssertEqual(image.changeOrientation(UIImage.Orientation.down)?.imageOrientation, UIImage.Orientation.down)
     }
     
     func testDownload()

@@ -26,20 +26,10 @@
 public extension Collectable {
     
     /// RDExtensionsSwift: Return collection of items
-    static var items : Array<Self>
+    @available(iOS, deprecated, message: "Collectable items is deprecated. Use CaseIterable allCases instead")
+    static var items : Self.AllCases
     {
-        typealias S = Self
-        return Array(AnySequence { () -> AnyIterator<S> in
-            var raw = 0
-            return AnyIterator {
-                let current : Self = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: S.self, capacity: 1) { $0.pointee } }
-                guard current.hashValue == raw else {
-                    return nil
-                }
-                raw += 1
-                return current
-            }
-        })
+        return self.allCases
     }
     
 }

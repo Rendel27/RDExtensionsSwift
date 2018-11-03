@@ -118,17 +118,4 @@ open class ArrayTests : XCTestCase {
         XCTAssertNil(array.next(of: 9))
     }
     
-    enum kType : Int, Collectable {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
-    
-    func testRawRepresentableItemsArrayRawValues()
-    {
-        XCTAssertEqual(kType.items.rawValues, [1, 2, 3])
-    }
-    
 }

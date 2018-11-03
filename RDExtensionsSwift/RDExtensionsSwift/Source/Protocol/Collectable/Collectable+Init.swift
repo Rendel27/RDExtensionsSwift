@@ -24,6 +24,7 @@
 //
 
 /// RDExtensionsSwift: Protocol for collections
-public protocol Collectable : Hashable {
+@available(iOS, deprecated, message: "Collectable is deprecated. Use CaseIterable instead")
+public protocol Collectable : CaseIterable {
     
 }

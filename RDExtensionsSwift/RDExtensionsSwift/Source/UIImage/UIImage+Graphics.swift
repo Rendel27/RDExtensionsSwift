@@ -110,7 +110,7 @@ public extension UIImage {
     }
     
     /// RDExtensionsSwift: Change orientation of the receiver and return
-    func changeOrientation(_ orientation: UIImageOrientation) -> UIImage?
+    func changeOrientation(_ orientation: UIImage.Orientation) -> UIImage?
     {
         var image : UIImage?
         if let img = self.cgImage

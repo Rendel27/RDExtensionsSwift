@@ -39,7 +39,7 @@ public extension UITextField {
     {
         if(self.delegate?.responds(to: Selector(("textFieldDidChangeText:"))) == true)
         {
-            self.addTarget(self.delegate, action: Selector(("textFieldDidChangeText:")), for: UIControlEvents.editingChanged)
+            self.addTarget(self.delegate, action: Selector(("textFieldDidChangeText:")), for: UIControl.Event.editingChanged)
         }
     }
     

@@ -26,6 +26,6 @@
 public extension UIImage {
     
     /// RDExtensionsSwift: Return base64 string value
-    var base64String: String? { get { return UIImagePNGRepresentation(self)?.base64EncodedString() } }
+    var base64String: String? { get { return self.pngData()?.base64EncodedString() } }
     
 }

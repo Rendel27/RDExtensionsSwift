@@ -42,7 +42,7 @@ public extension UILabel {
     {
         if let string = self.text
         {
-            let size: CGSize = (string as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: .greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: self.font], context: nil).size
+            let size: CGSize = (string as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: .greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font], context: nil).size
             if(size.height > self.bounds.size.height)
             {
                 return true
@@ -92,7 +92,7 @@ public extension UILabel {
                 for i in 1...self.string.length
                 {
                     let testString = self.string.substring(to: i)
-                    let stringSize = (testString as NSString).size(withAttributes: [NSAttributedStringKey.font : self.font])
+                    let stringSize = (testString as NSString).size(withAttributes: [NSAttributedString.Key.font : self.font])
                     if(stringSize.height*ceil(stringSize.width/self.frame.width) > self.frame.height)
                     {
                         break
@@ -130,26 +130,26 @@ public extension UILabel {
         if let oat = self.attributedText?.mutableCopy() as? NSMutableAttributedString
         {
             self.attributedText?.enumerateAttributes(in: NSMakeRange(0, oat.length), options: [], using: { (attributes, range, stop) in
-                if(attributes[NSAttributedStringKey.font] == nil)
+                if(attributes[NSAttributedString.Key.font] == nil)
                 {
-                    oat.addAttribute(NSAttributedStringKey(rawValue: kCTFontAttributeName as String as String), value: self.font, range: range)
+                    oat.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String as String), value: self.font, range: range)
                 }
-                if(attributes[NSAttributedStringKey.paragraphStyle] == nil)
+                if(attributes[NSAttributedString.Key.paragraphStyle] == nil)
                 {
                     let ps = NSMutableParagraphStyle()
                     ps.lineBreakMode = self.lineBreakMode
-                    oat.addAttribute(NSAttributedStringKey(rawValue: kCTParagraphStyleAttributeName as String as String), value: ps, range: range)
+                    oat.addAttribute(NSAttributedString.Key(rawValue: kCTParagraphStyleAttributeName as String as String), value: ps, range: range)
                 }
             })
-            oat.enumerateAttribute(NSAttributedStringKey(rawValue: kCTParagraphStyleAttributeName as String as String), in: NSMakeRange(0, oat.length), options: [], using: { (value, range, stop) in
+            oat.enumerateAttribute(NSAttributedString.Key(rawValue: kCTParagraphStyleAttributeName as String as String), in: NSMakeRange(0, oat.length), options: [], using: { (value, range, stop) in
                 if let ps = value as? NSMutableParagraphStyle
                 {
                     if(ps.lineBreakMode == .byTruncatingTail)
                     {
                         ps.lineBreakMode = .byWordWrapping
                     }
-                    oat.removeAttribute(NSAttributedStringKey(rawValue: kCTParagraphStyleAttributeName as String as String), range: range)
-                    oat.addAttribute(NSAttributedStringKey(rawValue: kCTParagraphStyleAttributeName as String as String), value: ps, range: range)
+                    oat.removeAttribute(NSAttributedString.Key(rawValue: kCTParagraphStyleAttributeName as String as String), range: range)
+                    oat.addAttribute(NSAttributedString.Key(rawValue: kCTParagraphStyleAttributeName as String as String), value: ps, range: range)
                 }
             })
             let tr = self.textRect

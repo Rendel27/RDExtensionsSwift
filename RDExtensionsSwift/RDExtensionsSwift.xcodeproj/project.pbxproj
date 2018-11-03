@@ -40,7 +40,6 @@
 		7262FC8C1D941233004D68C3 /* String+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC4A1D941233004D68C3 /* String+Layout.swift */; };
 		7262FC8D1D941233004D68C3 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC4B1D941233004D68C3 /* String+Subscript.swift */; };
 		7262FC8E1D941233004D68C3 /* UIAlertController+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC4D1D941233004D68C3 /* UIAlertController+Init.swift */; };
-		7262FC8F1D941233004D68C3 /* UIAlertView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC4F1D941233004D68C3 /* UIAlertView+Init.swift */; };
 		7262FC901D941233004D68C3 /* UIButton+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC511D941233004D68C3 /* UIButton+General.swift */; };
 		7262FC911D941233004D68C3 /* UIColor+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC531D941233004D68C3 /* UIColor+General.swift */; };
 		7262FC921D941233004D68C3 /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7262FC541D941233004D68C3 /* UIColor+Init.swift */; };
@@ -148,7 +147,6 @@
 		7262FC4A1D941233004D68C3 /* String+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Layout.swift"; sourceTree = "<group>"; };
 		7262FC4B1D941233004D68C3 /* String+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
 		7262FC4D1D941233004D68C3 /* UIAlertController+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Init.swift"; sourceTree = "<group>"; };
-		7262FC4F1D941233004D68C3 /* UIAlertView+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertView+Init.swift"; sourceTree = "<group>"; };
 		7262FC511D941233004D68C3 /* UIButton+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+General.swift"; sourceTree = "<group>"; };
 		7262FC531D941233004D68C3 /* UIColor+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+General.swift"; sourceTree = "<group>"; };
 		7262FC541D941233004D68C3 /* UIColor+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Init.swift"; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 				7262FC5D1D941233004D68C3 /* UINib */,
 				7262FC671D941233004D68C3 /* UIView */,
 				7262FC611D941233004D68C3 /* UIScrollView */,
-				7262FC4E1D941233004D68C3 /* UIAlertView */,
 				7262FC4C1D941233004D68C3 /* UIAlertController */,
 				72E68EC71FD96B7E00A6FF88 /* UIAlertAction */,
 				72EE432220C175DB00EDD102 /* UIPageControl */,
@@ -494,14 +491,6 @@
 				7262FC4D1D941233004D68C3 /* UIAlertController+Init.swift */,
 			);
 			path = UIAlertController;
-			sourceTree = "<group>";
-		};
-		7262FC4E1D941233004D68C3 /* UIAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				7262FC4F1D941233004D68C3 /* UIAlertView+Init.swift */,
-			);
-			path = UIAlertView;
 			sourceTree = "<group>";
 		};
 		7262FC501D941233004D68C3 /* UIButton */ = {
@@ -813,7 +802,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Giorgi Iashvili";
 				TargetAttributes = {
 					7262FC081D940F2A004D68C3 = {
@@ -883,7 +872,6 @@
 				7262FC981D941233004D68C3 /* UINib+Init.swift in Sources */,
 				7262FC731D941233004D68C3 /* CGFloat+Conversion.swift in Sources */,
 				7262FC801D941233004D68C3 /* Date+General.swift in Sources */,
-				7262FC8F1D941233004D68C3 /* UIAlertView+Init.swift in Sources */,
 				7262FC991D941233004D68C3 /* UInt8+Conversion.swift in Sources */,
 				72E68EC31FD95E1B00A6FF88 /* NSTextRange+Conversions.swift in Sources */,
 				7262FC711D941233004D68C3 /* Bool+Conversion.swift in Sources */,
@@ -993,12 +981,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1050,12 +1040,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1107,7 +1099,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1129,7 +1121,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1141,8 +1133,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RD.RDExtensionsSwiftUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1154,8 +1146,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RD.RDExtensionsSwiftUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
