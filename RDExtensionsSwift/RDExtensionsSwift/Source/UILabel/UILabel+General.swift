@@ -40,9 +40,10 @@ public extension UILabel {
     /// RDExtensionsSwift: Check if label tail is truncated. Returns true or false
     var tailTruncated : Bool
     {
-        if let string = self.text
+        if let string = self.text,
+            let font = self.font
         {
-            let size: CGSize = (string as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: .greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font], context: nil).size
+            let size: CGSize = (string as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: .greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
             if(size.height > self.bounds.size.height)
             {
                 return true
@@ -89,10 +90,12 @@ public extension UILabel {
             if(self.string.length > 4 + characters)
             {
                 var visibleString = "";
+                var attrs: [NSAttributedString.Key: Any] = [:]
+                attrs[NSAttributedString.Key.font] = self.font
                 for i in 1...self.string.length
                 {
                     let testString = self.string.substring(to: i)
-                    let stringSize = (testString as NSString).size(withAttributes: [NSAttributedString.Key.font : self.font])
+                    let stringSize = (testString as NSString).size(withAttributes: attrs)
                     if(stringSize.height*ceil(stringSize.width/self.frame.width) > self.frame.height)
                     {
                         break
@@ -130,9 +133,10 @@ public extension UILabel {
         if let oat = self.attributedText?.mutableCopy() as? NSMutableAttributedString
         {
             self.attributedText?.enumerateAttributes(in: NSMakeRange(0, oat.length), options: [], using: { (attributes, range, stop) in
-                if(attributes[NSAttributedString.Key.font] == nil)
+                if attributes[NSAttributedString.Key.font] == nil,
+                    let font = self.font
                 {
-                    oat.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String as String), value: self.font, range: range)
+                    oat.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String as String), value: font, range: range)
                 }
                 if(attributes[NSAttributedString.Key.paragraphStyle] == nil)
                 {

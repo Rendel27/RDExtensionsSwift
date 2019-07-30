@@ -168,7 +168,7 @@ public extension Array where Element : Equatable
         var indexes : [Int] = []
         for element in elements
         {
-            if let indx = self.index(of: element)
+            if let indx = self.firstIndex(of: element)
             {
                 indexes.append(indx)
             }
@@ -179,7 +179,7 @@ public extension Array where Element : Equatable
     /// RDExtensionsSwift: Return the previous element of the given element
     func previous(of object: Element) -> Element?
     {
-        if let index = self.index(of: object), index > 0
+        if let index = self.firstIndex(of: object), index > 0
         {
             return self[index - 1]
         }
@@ -189,7 +189,7 @@ public extension Array where Element : Equatable
     /// RDExtensionsSwift: Return the next element of the given element
     func next(of object: Element) -> Element?
     {
-        if let index = self.index(of: object), index < self.count - 1
+        if let index = self.firstIndex(of: object), index < self.count - 1
         {
             return self[index + 1]
         }

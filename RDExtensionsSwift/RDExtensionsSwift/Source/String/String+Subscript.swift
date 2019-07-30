@@ -26,7 +26,7 @@
 public extension String {
     
     /// RDExtensionsSwift: Return Character at index
-    public subscript(i: Int) -> Character
+    subscript(i: Int) -> Character
     {
         return Array(self)[i]
     }

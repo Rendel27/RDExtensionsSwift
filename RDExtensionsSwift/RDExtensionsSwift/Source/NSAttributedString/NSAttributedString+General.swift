@@ -26,7 +26,7 @@
 public extension NSAttributedString {
     
     /// RDExtensionsSwift: Calculate and return width of the NSAttributedString for given hight
-    public func widthForHeight(_ height: CGFloat) -> CGFloat
+    func widthForHeight(_ height: CGFloat) -> CGFloat
     {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
         let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
@@ -34,7 +34,7 @@ public extension NSAttributedString {
     }
     
     /// RDExtensionsSwift: Calculate and return height of the NSAttributedString for given width
-    public func heightForWidth(_ width: CGFloat) -> CGFloat
+    func heightForWidth(_ width: CGFloat) -> CGFloat
     {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)

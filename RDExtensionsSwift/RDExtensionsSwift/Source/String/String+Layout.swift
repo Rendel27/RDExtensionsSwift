@@ -50,7 +50,7 @@ public extension String {
     }
     
     /// RDExtensionsSwift: Calculate and return font size of the string for given width, height and font name
-    public func fontSizeFor(width: CGFloat, height: CGFloat, fontName: String) -> CGFloat
+    func fontSizeFor(width: CGFloat, height: CGFloat, fontName: String) -> CGFloat
     {
         var fontSize = 0 as CGFloat
         var w = 0 as CGFloat
@@ -63,7 +63,7 @@ public extension String {
     }
     
     /// RDExtensionsSwift: Calculate and return font size of the attributed string for given width, height and font name
-    public func attributedFontSizeFor(width: CGFloat, height: CGFloat, fontName: String) -> CGFloat
+    func attributedFontSizeFor(width: CGFloat, height: CGFloat, fontName: String) -> CGFloat
     {
         var fontSize = 0 as CGFloat
         var w = 0 as CGFloat
