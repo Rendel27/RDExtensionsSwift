@@ -25,10 +25,10 @@
 
 public extension UIView {
     
-    /// RDExtensionsSwift: Return newly initialized view by given name for given owner with given options
-    fileprivate static func _load<T>(with name: String, for owner: Any? = self, with options: [UINib.OptionsKey : Any]? = nil) -> T?
+    /// RDExtensionsSwift: Return newly initialized view from given bundle, by given name, with given owner and with given options
+    fileprivate static func _load<T>(bundle: Bundle = .main, name: String, owner: Any? = self, options: [UINib.OptionsKey: Any]? = nil) -> T?
     {
-        if let views = Bundle.main.loadNibNamed(name, owner: owner, options: options)
+        if let views = bundle.loadNibNamed(name, owner: owner, options: options)
         {
             for view in views
             {
@@ -41,16 +41,16 @@ public extension UIView {
         return nil
     }
     
-    /// RDExtensionsSwift: Return newly initialized view by given name for given owner with given options
-    static func load(with name: String, for owner: Any? = nil, with options: [UINib.OptionsKey : Any]? = nil) -> Self?
+    /// RDExtensionsSwift: Return newly initialized view from given bundle, by given name, with given owner and with given options
+    fileprivate static func load<T>(bundle: Bundle = .main, name: String, owner: Any? = self, options: [UINib.OptionsKey: Any]? = nil) -> T?
     {
-        return self._load(with: name, for: owner, with: options)
+        return self._load(bundle: bundle, name: name, owner: owner, options: options)
     }
     
     /// RDExtensionsSwift: Return newly initialized view with classname as id for given owner with given options
-    static func load(for owner: Any? = nil, with options: [UINib.OptionsKey : Any]? = nil) -> Self?
+    static func load(bundle: Bundle = .main, owner: Any? = self, options: [UINib.OptionsKey: Any]? = nil) -> Self?
     {
-        return self.load(with: self.className, for: owner, with: options)
+        return self.load(bundle: bundle, name: self.className, owner: owner, options: options)
     }
     
 }

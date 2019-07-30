@@ -29,9 +29,9 @@ public extension CGFloat {
     var toString : String { get { return "\(self)" } }
     
     /// RDExtensionsSwift: Return CGFloat as String with rounding
-    func toString(rounding: Int = 2) -> String
+    func toString(rounding: Int = 2, trimZeros: Bool = false) -> String
     {
-        return self.toDouble.toString(rounding: rounding)
+        return self.toDouble.toString(rounding: rounding, trimZeros: trimZeros)
     }
     
     /// RDExtensionsSwift: Convert CGFloat to Int

@@ -29,15 +29,25 @@ public extension Float {
     var toString : String { get { return "\(self)" } }
     
     /// RDExtensionsSwift: Return Float as String with rounding
-    func toString(rounding: Int = 2) -> String
+    func toString(rounding: Int = 2, trimZeros: Bool = false) -> String
     {
         let decimalNumber = NSDecimalNumber(value: self)
         let formatter = NumberFormatter()
         formatter.decimalSeparator = "."
         formatter.positiveFormat = "0." + String(repeating: "0", count: rounding)
         formatter.negativeFormat = "0." + String(repeating: "0", count: rounding)
-        let value = formatter.string(from: decimalNumber)
-        return value ?? String(format: "%.\(rounding)f", self)
+        var value = formatter.string(from: decimalNumber) ?? String(format: "%.\(rounding)f", self)
+        
+        if(trimZeros)
+        {
+            let components = value.components(separatedBy: ".")
+            if(components.last == "00" || components.last == "0")
+            {
+                value = components.first!
+            }
+        }
+        
+        return value
     }
     
     /// RDExtensionsSwift: Convert Float to Int

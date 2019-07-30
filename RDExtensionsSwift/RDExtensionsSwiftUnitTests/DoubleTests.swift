@@ -33,6 +33,8 @@ open class DoubleTests : XCTestCase {
         XCTAssertEqual(0.123456789.toString, "0.123456789")
         XCTAssertEqual(0.123456789.toString(), "0.12")
         XCTAssertEqual(0.123456789.toString(rounding: 1), "0.1")
+        XCTAssertEqual(1.00.toString(trimZeros: true), "1")
+        XCTAssertEqual(1.0.toString(trimZeros: true), "1")
     }
     
     func testToInt()

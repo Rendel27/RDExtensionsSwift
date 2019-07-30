@@ -26,13 +26,13 @@
 public extension UIViewController {
     
     /// RDExtensionsSwift: Present view controller on recever
-    func present(_ viewControllerToPresent: UIViewController, animated: Bool = false)
+    func present(_ viewControllerToPresent: UIViewController, animated: Bool)
     {
         self.present(viewControllerToPresent, animated: animated, completion: nil)
     }
     
     /// RDExtensionsSwift: Present receiver on view controller
-    func present(on viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil)
+    func present(on viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil)
     {
         viewController.present(self, animated: animated, completion: completion)
     }

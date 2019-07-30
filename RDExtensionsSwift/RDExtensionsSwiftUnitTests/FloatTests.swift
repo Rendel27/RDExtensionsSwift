@@ -33,6 +33,8 @@ open class FloatTests : XCTestCase {
         XCTAssertEqual((123.45 as Float).toString, "123.45")
         XCTAssertEqual((0.123456789 as Float).toString(), "0.12")
         XCTAssertEqual((0.123456789 as Float).toString(rounding: 1), "0.1")
+        XCTAssertEqual(1.00.toString(trimZeros: true), "1")
+        XCTAssertEqual(1.0.toString(trimZeros: true), "1")
     }
     
     func testToInt()
