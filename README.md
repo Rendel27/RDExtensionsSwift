@@ -7,6 +7,7 @@
 [![Language](https://img.shields.io/badge/swift-3-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-4-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-4.2-orange.svg)](http://swift.org)
+[![Language](https://img.shields.io/badge/swift-5.0-orange.svg)](http://swift.org)
 
 
 
@@ -607,10 +608,10 @@ player.thumbnail(CMTime) // returns UIImage. Time is optional. If it is not pres
 
 - **Manually**  
 - ***As Open Source:***
-1. Download RDExtensionsSwift project (for swift 2 download version 1.0.7, for swift 3 download the latest version)  
+1. Download RDExtensionsSwift project  
 2. Drag n drop the Source folder into your project (Make sure that you tick on Copy if needed checkbox)  
 - ***As Embedded Framework:***
-1. Download RDExtensionsSwift project(for swift 2 download version 1.0.7, for swift 3 download the latest version)  
+1. Download RDExtensionsSwift project  
 2. Build it for desired target  
 3. Copy it into your project directory  
 4. In Xcode navigator select project >> General >> Embedded Binaries: click + button and select RDExtensionsSwift framework.
@@ -622,6 +623,11 @@ player.thumbnail(CMTime) // returns UIImage. Time is optional. If it is not pres
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 target 'ProjectName' do
+# For latest version:
+    pod 'RDExtensionsSwift'
+    
+# For earlier verions:
+    pod 'RDExtensionsSwift', '~> 5.0.0' # for Swift 5.0
     pod 'RDExtensionsSwift', '~> 4.2.3' # for Swift 4.2
     pod 'RDExtensionsSwift', '~> 4.0.1' # for Swift 4
     pod 'RDExtensionsSwift', '~> 3.1.1' # for Swift 3.2
