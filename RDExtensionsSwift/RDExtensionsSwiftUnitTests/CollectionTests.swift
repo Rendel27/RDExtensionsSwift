@@ -83,4 +83,9 @@ open class CollectionTests : XCTestCase {
         XCTAssertEqual(collection.split(maxLength: 3), [[1, 2, 3], [4, 5, 6], [7]])
     }
     
+    func testUniques()
+    {
+        XCTAssertEqual([1, 2, 3, 1, 2, 3, 1, 2, 3, 4].uniques(), [1, 2, 3, 4])
+    }
+    
 }

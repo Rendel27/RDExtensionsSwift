@@ -167,3 +167,20 @@ public extension MutableCollection where Index == Int, Iterator.Element : RangeR
     }
     
 }
+
+public extension Collection where Element : Equatable {
+    
+    /// RDExtensionsSwift: Returns a collection with unique elements
+    func uniques() -> [Element]
+    {
+        var elements: [Element] = []
+        self.iterableForEach { element in
+            if(!elements.contains(element))
+            {
+                elements.append(element)
+            }
+        }
+        return elements
+    }
+    
+}
