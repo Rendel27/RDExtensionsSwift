@@ -70,12 +70,15 @@ public extension String {
     var toTimeInterval : TimeInterval { get { return self.toDouble } }
     
     /// RDExtensionsSwift: Convert String to NSDecimalNumber
-    var toNSDecimalNumber : NSDecimalNumber { get { return NSDecimalNumber(string: self) } }
+    var toNSDecimalNumber : NSDecimalNumber? { get { let number = NSDecimalNumber(string: self); return number == .notANumber ? nil : number } }
+    
+    /// RDExtensionsSwift: Convert String to NSDecimalNumber. Returns zero if covert was unsuccessful.
+    var toNSDecimalNumberValue: NSDecimalNumber { get { return self.toNSDecimalNumber ?? .zero } }
     
     /// RDExtensionsSwift: Convert String to NSURL
-    var toHttpURL : URL? { return URL(string: self) }
+    var toHttpURL : URL? { get { return URL(string: self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? self) } }
     
     /// RDExtensionsSwift: Convert String to NSURL
-    var toFileURL : URL? { return URL(fileURLWithPath: self) }
+    var toFileURL : URL? { get { return URL(fileURLWithPath: self) } }
     
 }

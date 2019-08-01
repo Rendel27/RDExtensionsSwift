@@ -1,7 +1,7 @@
 //
-//  UICollectionView+General.swift
+//  UINavigationController+General.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 08.01.19.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,26 +23,40 @@
 //  THE SOFTWARE.
 //
 
-public extension UICollectionView {
+public extension UINavigationController {
     
-    /// RDExtensionsSwift: Newer dequeue method guarantees a cell is returned and resized properly
-    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T where T: Reusable
+    /// RDExtensionsSwift: Pushes a view controller onto the receiver's stack and updates the display.
+    func pushViewController(_ viewController: UIViewController, animated: Bool, completion: @escaping () -> Void)
     {
-        if let cell = self.dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath as IndexPath) as? T
+        self.pushViewController(viewController, animated: animated)
+        if let coordinator = self.transitionCoordinator,
+            animated
         {
-            return cell
+            coordinator.animate(alongsideTransition: nil) { _ in
+                completion()
+            }
         }
         else
         {
-            print("Couldn't dequeue cell with identifier: \(T.reuseIdentifier). Returning empty, newly initialized \(T.reuseIdentifier) cell")
-            return T()
+            completion()
         }
     }
     
-    /// RDExtensionsSwift: Dequeues and returns a UICollectionReusableView
-    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(elementKind: String, indexPath: IndexPath) -> T where T: Reusable
+    /// RDExtensionsSwift: Pops the top view controller from the navigation stack and updates the display.
+    func popViewController(animated: Bool, completion: @escaping () -> Void)
     {
-        return self.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: T.reuseIdentifier, for: indexPath) as! T
+        self.popViewController(animated: animated)
+        if let coordinator = self.transitionCoordinator,
+            animated
+        {
+            coordinator.animate(alongsideTransition: nil) { _ in
+                completion()
+            }
+        }
+        else
+        {
+            completion()
+        }
     }
     
 }

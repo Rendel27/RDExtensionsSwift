@@ -222,4 +222,19 @@ open class OperatorOverloadsTests : XCTestCase {
         XCTAssertFalse(intA == nil)
     }
     
+    func testNSDecimalNumberOperators()
+    {
+        XCTAssertEqual(NSDecimalNumber(1.1) + NSDecimalNumber(2.2), NSDecimalNumber(3.3))
+        XCTAssertEqual(NSDecimalNumber(1.1) - NSDecimalNumber(2.2), NSDecimalNumber(-1.1))
+        XCTAssertEqual(NSDecimalNumber(1.1) * NSDecimalNumber(2.2), NSDecimalNumber(2.42))
+        XCTAssertEqual(NSDecimalNumber(1.1) / NSDecimalNumber(2.2), NSDecimalNumber(0.5))
+        XCTAssertEqual(NSDecimalNumber(1.1) ^ 2, NSDecimalNumber(1.21))
+        
+        XCTAssertTrue(NSDecimalNumber(1.1) < NSDecimalNumber(2.2))
+        XCTAssertTrue(NSDecimalNumber(1.1) <= NSDecimalNumber(2.2))
+        XCTAssertTrue(NSDecimalNumber(1.1) == NSDecimalNumber(1.1))
+        XCTAssertTrue(NSDecimalNumber(2.2) > NSDecimalNumber(1.1))
+        XCTAssertTrue(NSDecimalNumber(2.2) >= NSDecimalNumber(1.1))
+    }
+    
 }

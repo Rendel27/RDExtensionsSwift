@@ -205,6 +205,45 @@ public func ^(lhs: NSDecimalNumber, rhs: Int) -> NSDecimalNumber
     return lhs.raising(toPower: rhs)
 }
 
+extension NSDecimalNumber: Comparable {
+    
+    /// RDExtensionsSwift: Check if lhs equals rhs
+    public static func ==(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool
+    {
+        let result = lhs.compare(rhs)
+        return result == .orderedSame
+    }
+    
+    /// RDExtensionsSwift: Check if lhs is greater than rhs
+    public static func >(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool
+    {
+        let result = lhs.compare(rhs)
+        return result == .orderedDescending
+    }
+    
+    /// RDExtensionsSwift: Check if lhs equals or is greater than rhs
+    public static func >=(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool
+    {
+        let result = lhs.compare(rhs)
+        return result == .orderedDescending || result == .orderedSame
+    }
+    
+    /// RDExtensionsSwift: Check if lhs is less than rhs
+    public static func <(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool
+    {
+        let result = lhs.compare(rhs)
+        return result == .orderedAscending
+    }
+    
+    /// RDExtensionsSwift: Check if lhs equals or is less than rhs
+    public static func <=(lhs: NSDecimalNumber, rhs: NSDecimalNumber) -> Bool
+    {
+        let result = lhs.compare(rhs)
+        return result == .orderedAscending || result == .orderedSame
+    }
+    
+}
+
 // MARK: Overload opertors for Arrays
 
 /// RDExtensionsSwift: Append rhs to lhs
@@ -214,21 +253,6 @@ public func +=(left: inout [NSObject], right: [NSObject])
 }
 
 // MARK: Overload opertors for Nullable Types
-
-precedencegroup NotGreaterThan {
-    associativity: left
-}
-infix operator !> : NotGreaterThan
-
-precedencegroup NotLessThan {
-    associativity: left
-}
-infix operator !< : NotLessThan
-
-precedencegroup UnwrappedAssign {
-    associativity: right
-}
-infix operator ?= : UnwrappedAssign
 
 /// RDExtensionsSwift: Check if nullable lhs is greater than nullable rhs
 public func ><T : Comparable>(left: T?, right: T?) -> Bool
@@ -250,18 +274,6 @@ public func <<T : Comparable>(left: T?, right: T?) -> Bool
     return false
 }
 
-/// RDExtensionsSwift: Check if nullable lhs is not greater than nullable rhs
-public func !><T : Comparable>(left: T?, right: T?) -> Bool
-{
-    return !(left > right)
-}
-
-/// RDExtensionsSwift: Check if nullable lhs is not less than nullable rhs
-public func !<<T : Comparable>(left: T?, right: T?) -> Bool
-{
-    return !(left < right)
-}
-
 /// RDExtensionsSwift: Check if nullable lhs equals or is greater than nullable rhs
 public func >=<T : Comparable>(left: T?, right: T?) -> Bool
 {
@@ -280,13 +292,4 @@ public func <=<T : Comparable>(left: T?, right: T?) -> Bool
         return l <= r
     }
     return false
-}
-
-/// RDExtensionsSwift: Set rhs value to lhs if rhs is not nil
-public func ?=<T>(base: inout T, newValue: T?)
-{
-    if let nv = newValue
-    {
-        base = nv
-    }
 }

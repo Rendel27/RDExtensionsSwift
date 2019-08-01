@@ -81,6 +81,16 @@
 		7296C9721D95913D0060F483 /* NSDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9711D95913D0060F483 /* NSDictionaryTests.swift */; };
 		7296C9741D9592980060F483 /* NSObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9731D9592980060F483 /* NSObjectTests.swift */; };
 		7296C9761D9595680060F483 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296C9751D9595680060F483 /* ArrayTests.swift */; };
+		72B499BE22F1A65000EB80AF /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499BD22F1A65000EB80AF /* CustomOperators.swift */; };
+		72B499C022F2DFF400EB80AF /* Reusable+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499BF22F2DFF400EB80AF /* Reusable+Init.swift */; };
+		72B499C322F2E26900EB80AF /* CollectableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499C222F2E26900EB80AF /* CollectableTests.swift */; };
+		72B499C622F2E32C00EB80AF /* Reusable+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499C522F2E32C00EB80AF /* Reusable+General.swift */; };
+		72B499C822F2E4E100EB80AF /* ReusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499C722F2E4E100EB80AF /* ReusableTests.swift */; };
+		72B499CB22F2E65D00EB80AF /* UINavigationController+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499CA22F2E65D00EB80AF /* UINavigationController+General.swift */; };
+		72B499CE22F2E76D00EB80AF /* UITabBar+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499CD22F2E76D00EB80AF /* UITabBar+General.swift */; };
+		72B499D122F2E9D100EB80AF /* CGColor+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499D022F2E9D100EB80AF /* CGColor+Conversion.swift */; };
+		72B499D422F2EA3100EB80AF /* UIApplication+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499D322F2EA3100EB80AF /* UIApplication+General.swift */; };
+		72B499D822F2EFF700EB80AF /* Decodable+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B499D722F2EFF700EB80AF /* Decodable+General.swift */; };
 		72C389A41D96D8290088AE96 /* UInt8Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C389A31D96D8290088AE96 /* UInt8Tests.swift */; };
 		72C53F901E757E27008D10C1 /* UITabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C53F8F1E757E27008D10C1 /* UITabBarControllerTests.swift */; };
 		72C53F921E757ECD008D10C1 /* ProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C53F911E757ECD008D10C1 /* ProtocolTests.swift */; };
@@ -192,6 +202,16 @@
 		7296C9711D95913D0060F483 /* NSDictionaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryTests.swift; sourceTree = "<group>"; };
 		7296C9731D9592980060F483 /* NSObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectTests.swift; sourceTree = "<group>"; };
 		7296C9751D9595680060F483 /* ArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
+		72B499BD22F1A65000EB80AF /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
+		72B499BF22F2DFF400EB80AF /* Reusable+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reusable+Init.swift"; sourceTree = "<group>"; };
+		72B499C222F2E26900EB80AF /* CollectableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectableTests.swift; sourceTree = "<group>"; };
+		72B499C522F2E32C00EB80AF /* Reusable+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reusable+General.swift"; sourceTree = "<group>"; };
+		72B499C722F2E4E100EB80AF /* ReusableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTests.swift; sourceTree = "<group>"; };
+		72B499CA22F2E65D00EB80AF /* UINavigationController+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+General.swift"; sourceTree = "<group>"; };
+		72B499CD22F2E76D00EB80AF /* UITabBar+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+General.swift"; sourceTree = "<group>"; };
+		72B499D022F2E9D100EB80AF /* CGColor+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+Conversion.swift"; sourceTree = "<group>"; };
+		72B499D322F2EA3100EB80AF /* UIApplication+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+General.swift"; sourceTree = "<group>"; };
+		72B499D722F2EFF700EB80AF /* Decodable+General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+General.swift"; sourceTree = "<group>"; };
 		72C389A31D96D8290088AE96 /* UInt8Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt8Tests.swift; sourceTree = "<group>"; };
 		72C53F8F1E757E27008D10C1 /* UITabBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarControllerTests.swift; sourceTree = "<group>"; };
 		72C53F911E757ECD008D10C1 /* ProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
@@ -272,7 +292,7 @@
 		7262FC151D941233004D68C3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7262FC431D941233004D68C3 /* OperatorOverloads.swift */,
+				72B499BA22F19E1C00EB80AF /* Operators */,
 				7293351E1E7556340028FDDB /* Protocol */,
 				72E68ECA1FD9785700A6FF88 /* RawRepresentable */,
 				7262FC2C1D941233004D68C3 /* Int */,
@@ -291,6 +311,7 @@
 				7262FC181D941233004D68C3 /* AVPlayerItem */,
 				7262FC161D941233004D68C3 /* Array */,
 				72950D901E8BE5C2005E69C2 /* Collection */,
+				72B499D622F2EFD700EB80AF /* Decodable */,
 				7262FC3C1D941233004D68C3 /* NSObject */,
 				7262FC341D941233004D68C3 /* Data */,
 				7262FC361D941233004D68C3 /* Date */,
@@ -301,6 +322,7 @@
 				72E68EC41FD9623000A6FF88 /* NSRange */,
 				72E68EC11FD95E0600A6FF88 /* NSTextRange */,
 				72EE431F20C1757B00EDD102 /* CALayer */,
+				72B499CF22F2E9AC00EB80AF /* CGColor */,
 				7262FC521D941233004D68C3 /* UIColor */,
 				7262FC551D941233004D68C3 /* UIImage */,
 				7262FC5D1D941233004D68C3 /* UINib */,
@@ -315,11 +337,14 @@
 				7262FC631D941233004D68C3 /* UITextField */,
 				7262FC651D941233004D68C3 /* UITextView */,
 				72D69079218E25D9006059ED /* UISearchBar */,
+				72B499CC22F2E75D00EB80AF /* UITabBar */,
 				72EE431620C16ED200EDD102 /* UITableView */,
 				72EE431720C16EDE00EDD102 /* UICollectionView */,
 				7262FC6D1D941233004D68C3 /* UIViewController */,
+				72B499C922F2E64C00EB80AF /* UINavigationController */,
 				729335251E755B250028FDDB /* UITabBarController */,
 				7262FC301D941233004D68C3 /* MPMoviePlayerController */,
+				72B499D222F2EA1F00EB80AF /* UIApplication */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -618,6 +643,7 @@
 		729238E11D954E2F00414E60 /* RDExtensionsSwiftUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				72B499C122F2E25D00EB80AF /* Protocols */,
 				729238F11D95549900414E60 /* OperatorOverloadsTests.swift */,
 				72C53F911E757ECD008D10C1 /* ProtocolTests.swift */,
 				72E68ED11FD98D0200A6FF88 /* RawRepresentableTests.swift */,
@@ -652,6 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				72E68ED01FD98C4500A6FF88 /* Collectable */,
+				72B499C422F2E30C00EB80AF /* Reusable */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -671,6 +698,73 @@
 				72950D921E8BE5C2005E69C2 /* Collection+Conversion.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		72B499BA22F19E1C00EB80AF /* Operators */ = {
+			isa = PBXGroup;
+			children = (
+				7262FC431D941233004D68C3 /* OperatorOverloads.swift */,
+				72B499BD22F1A65000EB80AF /* CustomOperators.swift */,
+			);
+			path = Operators;
+			sourceTree = "<group>";
+		};
+		72B499C122F2E25D00EB80AF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				72B499C222F2E26900EB80AF /* CollectableTests.swift */,
+				72B499C722F2E4E100EB80AF /* ReusableTests.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		72B499C422F2E30C00EB80AF /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				72B499BF22F2DFF400EB80AF /* Reusable+Init.swift */,
+				72B499C522F2E32C00EB80AF /* Reusable+General.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		72B499C922F2E64C00EB80AF /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				72B499CA22F2E65D00EB80AF /* UINavigationController+General.swift */,
+			);
+			path = UINavigationController;
+			sourceTree = "<group>";
+		};
+		72B499CC22F2E75D00EB80AF /* UITabBar */ = {
+			isa = PBXGroup;
+			children = (
+				72B499CD22F2E76D00EB80AF /* UITabBar+General.swift */,
+			);
+			path = UITabBar;
+			sourceTree = "<group>";
+		};
+		72B499CF22F2E9AC00EB80AF /* CGColor */ = {
+			isa = PBXGroup;
+			children = (
+				72B499D022F2E9D100EB80AF /* CGColor+Conversion.swift */,
+			);
+			path = CGColor;
+			sourceTree = "<group>";
+		};
+		72B499D222F2EA1F00EB80AF /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				72B499D322F2EA3100EB80AF /* UIApplication+General.swift */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		72B499D622F2EFD700EB80AF /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				72B499D722F2EFF700EB80AF /* Decodable+General.swift */,
+			);
+			path = Decodable;
 			sourceTree = "<group>";
 		};
 		72D69074218E21B4006059ED /* NSDecimalNumber */ = {
@@ -885,6 +979,7 @@
 			files = (
 				7262FC911D941233004D68C3 /* UIColor+General.swift in Sources */,
 				7262FC7F1D941233004D68C3 /* Date+Conversion.swift in Sources */,
+				72B499C622F2E32C00EB80AF /* Reusable+General.swift in Sources */,
 				72EE432420C1760000EDD102 /* UIPageControl+General.swift in Sources */,
 				7262FC781D941233004D68C3 /* Double+Conversion.swift in Sources */,
 				7262FC8D1D941233004D68C3 /* String+Subscript.swift in Sources */,
@@ -896,6 +991,7 @@
 				729335271E755B3D0028FDDB /* UITabBarController+General.swift in Sources */,
 				72E68EC91FD96B8A00A6FF88 /* UIAlertAction+Init.swift in Sources */,
 				7262FC981D941233004D68C3 /* UINib+Init.swift in Sources */,
+				72B499D422F2EA3100EB80AF /* UIApplication+General.swift in Sources */,
 				7262FC731D941233004D68C3 /* CGFloat+Conversion.swift in Sources */,
 				7262FC801D941233004D68C3 /* Date+General.swift in Sources */,
 				7262FC991D941233004D68C3 /* UInt8+Conversion.swift in Sources */,
@@ -917,21 +1013,25 @@
 				7262FC7E1D941233004D68C3 /* Data+Init.swift in Sources */,
 				7262FC841D941233004D68C3 /* NSObject+Init.swift in Sources */,
 				72D69076218E21DD006059ED /* NSDecimalNumber+Conversion.swift in Sources */,
+				72B499C022F2DFF400EB80AF /* Reusable+Init.swift in Sources */,
 				7262FC6F1D941233004D68C3 /* Array+General.swift in Sources */,
 				7262FC8E1D941233004D68C3 /* UIAlertController+Init.swift in Sources */,
 				72EE431E20C1705300EDD102 /* UICollectionView+General.swift in Sources */,
 				7262FC961D941233004D68C3 /* UIImageView+Init.swift in Sources */,
 				7262FC741D941233004D68C3 /* CGRect+Layout.swift in Sources */,
+				72B499D122F2E9D100EB80AF /* CGColor+Conversion.swift in Sources */,
 				7262FC7A1D941233004D68C3 /* Int+Conversion.swift in Sources */,
 				72E68EBC1FD9531800A6FF88 /* CGFloat+General.swift in Sources */,
 				72D6907B218E25EF006059ED /* UISearchBar+General.swift in Sources */,
 				7262FC921D941233004D68C3 /* UIColor+Init.swift in Sources */,
 				7262FC7B1D941233004D68C3 /* Int64+Conversion.swift in Sources */,
 				7262FC941D941233004D68C3 /* UIImage+Graphics.swift in Sources */,
+				72B499CB22F2E65D00EB80AF /* UINavigationController+General.swift in Sources */,
 				7262FC871D941233004D68C3 /* OperatorOverloads.swift in Sources */,
 				7262FC951D941233004D68C3 /* UIImage+Init.swift in Sources */,
 				7262FC8A1D941233004D68C3 /* String+General.swift in Sources */,
 				7262FC791D941233004D68C3 /* Float+Conversion.swift in Sources */,
+				72B499D822F2EFF700EB80AF /* Decodable+General.swift in Sources */,
 				7293352F1E7564BA0028FDDB /* Collectable+General.swift in Sources */,
 				72EE431120C16B9100EDD102 /* UIImage+General.swift in Sources */,
 				7262FC9A1D941233004D68C3 /* UIScrollView+General.swift in Sources */,
@@ -939,6 +1039,7 @@
 				72E68ECF1FD9879000A6FF88 /* Character+General.swift in Sources */,
 				7262FC861D941233004D68C3 /* URL+General.swift in Sources */,
 				7262FC821D941233004D68C3 /* NSDictionary+General.swift in Sources */,
+				72B499BE22F1A65000EB80AF /* CustomOperators.swift in Sources */,
 				72EE432120C1759700EDD102 /* CALayer+General.swift in Sources */,
 				7293352D1E75645D0028FDDB /* Collectable+Init.swift in Sources */,
 				72E68ECD1FD980B200A6FF88 /* TimeZone+Init.swift in Sources */,
@@ -949,6 +1050,7 @@
 				7262FC701D941233004D68C3 /* AVPlayerItem+General.swift in Sources */,
 				7262FC8C1D941233004D68C3 /* String+Layout.swift in Sources */,
 				7262FC901D941233004D68C3 /* UIButton+General.swift in Sources */,
+				72B499CE22F2E76D00EB80AF /* UITabBar+General.swift in Sources */,
 				72EE431C20C16F6800EDD102 /* UITableView+General.swift in Sources */,
 				7262FC7C1D941233004D68C3 /* MPMoviePlayerController+General.swift in Sources */,
 			);
@@ -961,11 +1063,13 @@
 				72C53F901E757E27008D10C1 /* UITabBarControllerTests.swift in Sources */,
 				7296C95C1D95743D0060F483 /* CGFloatTests.swift in Sources */,
 				7296C96A1D9582370060F483 /* Int64Tests.swift in Sources */,
+				72B499C822F2E4E100EB80AF /* ReusableTests.swift in Sources */,
 				7296C9601D9579490060F483 /* CharacterTests.swift in Sources */,
 				72E68ED41FD99C9600A6FF88 /* TimeZoneTests.swift in Sources */,
 				7296C9641D957D510060F483 /* DoubleTests.swift in Sources */,
 				72D69078218E222A006059ED /* NSDecimalNumberTests.swift in Sources */,
 				7296C95E1D9577FB0060F483 /* CGRectTests.swift in Sources */,
+				72B499C322F2E26900EB80AF /* CollectableTests.swift in Sources */,
 				729238F21D95549900414E60 /* OperatorOverloadsTests.swift in Sources */,
 				72C389A41D96D8290088AE96 /* UInt8Tests.swift in Sources */,
 				7296C9681D95813A0060F483 /* IntTests.swift in Sources */,

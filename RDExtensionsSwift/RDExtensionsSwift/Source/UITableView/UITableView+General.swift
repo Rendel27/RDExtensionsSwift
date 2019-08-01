@@ -25,10 +25,24 @@
 
 public extension UITableView {
     
-    /// RDExtensionsSwift: newer dequeue method guarantees a cell is returned and resized properly, assuming identifier is class name
-    func dequeueReusableCell(for indexPath: IndexPath) -> UITableViewCell
+    /// RDExtensionsSwift: Newer dequeue method guarantees a cell is returned and resized properly
+    func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T where T: Reusable
     {
-        return self.dequeueReusableCell(withIdentifier: self.className, for: indexPath)
+        if let cell = self.dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath as IndexPath) as? T
+        {
+            return cell
+        }
+        else
+        {
+            print("Couldn't dequeue cell with identifier: \(T.reuseIdentifier). Returning empty, newly initialized \(T.reuseIdentifier) cell")
+            return T()
+        }
+    }
+    
+    /// RDExtensionsSwift: Dequeues and returns a UITableViewHeaderFooterView
+    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>() -> T? where T: Reusable
+    {
+        return self.dequeueReusableHeaderFooterView(withIdentifier: T.reuseIdentifier) as! T?
     }
     
 }

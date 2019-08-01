@@ -23,6 +23,13 @@
 //  THE SOFTWARE.
 //
 
+public extension Collection {
+    
+    /// RDExtensionsSwift: Convert self to an array
+    var toArray: Array<Element> { get { return Array(self) } }
+    
+}
+
 public extension Collection where Iterator.Element == String {
     
     /// RDExtensionsSwift: Convert String array to Int array

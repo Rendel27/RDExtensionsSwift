@@ -31,4 +31,12 @@ public extension UIButton {
         self.setImage(circled ? image?.cutCircle(self.frame.width/2) : image, for: state)
     }
     
+    /// RDExtensionsSwift: Sets attributed text with given components
+    func setAttributedText(_ components: [(String, [NSAttributedString.Key: Any])], for state: UIControl.State)
+    {
+        let label = UILabel()
+        label.setAttributedText(components)
+        self.setAttributedTitle(label.attributedText, for: state)
+    }
+    
 }

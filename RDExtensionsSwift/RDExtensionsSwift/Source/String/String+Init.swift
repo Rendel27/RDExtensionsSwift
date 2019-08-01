@@ -34,5 +34,17 @@ public extension String {
     /// RDExtensionsSwift: Return space as a string
     static var space: String { get { return String(" ") } }
     
+    /// RDExtensionsSwift: Return comma as a string
+    static var comma: String { get { return String(",") } }
+    
+    /// RDExtensionsSwift: Return new line as a string
+    static var newLine: String { get { return String("\n") } }
+    
+    /// RDExtensionsSwift: Return % as a string
+    static var percent: String { get { return String("%") } }
+    
+    /// RDExtensionsSwift: Return - as a string
+    static var dash: String { get { return String("-") } }
+    
     
 }

@@ -28,6 +28,12 @@ import RDExtensionsSwift
 
 open class CollectionTests : XCTestCase {
     
+    func testObject()
+    {
+        XCTAssertEqual([1, 2, 3].object(at: 1), 2)
+        XCTAssertNil([1, 2, 3].object(at: 5))
+    }
+    
     func testLambdaExpression()
     {
         let array = [1, 2, 3]
@@ -63,6 +69,12 @@ open class CollectionTests : XCTestCase {
         {
             XCTAssertEqual(array[i], finalArray[i])
         }
+    }
+    
+    func testToArray()
+    {
+        let array: Array = [1, 2, 3]
+        XCTAssertEqual([1, 2, 3].toArray, array)
     }
     
 }

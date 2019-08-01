@@ -25,8 +25,36 @@
 
 public extension UISearchBar {
     
+    /// RDExtensionsSwift: Return non nilable text
     var string: String { get { return self.text ?? "" } }
     
-    var searchField : UITextField? { get { return self.value(forKey: "_searchField") as? UITextField } }
+}
+
+public extension UISearchBar {
+    
+    private struct Keys {
+        
+        static let searchField = "searchField"
+        
+        static let clearButton = "clearButton"
+        
+        static let cancelButton = "cancelButton"
+        
+        static let placeholderLabel = "placeholderLabel"
+        
+        
+    }
+    
+    /// RDExtensionsSwift: Returns search field as UITextField
+    var searchField: UITextField? { get { return self.value(forKey: Keys.searchField) as? UITextField } set { self.setValue(newValue, forKey: Keys.searchField) } }
+    
+    /// RDExtensionsSwift: Returns clear button as UIButton
+    var clearButton: UIButton? { get { return self.value(forKey: Keys.clearButton) as? UIButton } set { self.setValue(newValue, forKey: Keys.clearButton) } }
+    
+    /// RDExtensionsSwift: Returns cancel button as UIButton
+    var cancelButton: UIButton? { get { return self.value(forKey: Keys.cancelButton) as? UIButton } set { self.setValue(newValue, forKey: Keys.cancelButton) } }
+    
+    /// RDExtensionsSwift: Returns placeholder label as UILabel
+    var placeholderLabel: UILabel? { get { return self.value(forKey: Keys.placeholderLabel) as? UILabel } set { self.setValue(newValue, forKey: Keys.placeholderLabel) } }
     
 }

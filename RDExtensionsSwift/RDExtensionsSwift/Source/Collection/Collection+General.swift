@@ -34,6 +34,98 @@ public extension Collection {
         }
     }
     
+    /// RDExtensionsSwift: Returns object at given index
+    func object(at index: Index) -> Element?
+    {
+        return self.indices.contains(index) ? self[index] : nil
+    }
+    
+    /// RDExtensionsSwift: Return indexes of elements that conforms to block
+    func indexes(for block: @escaping (Element) -> Bool) -> [Int]
+    {
+        var indexes: [Int] = []
+        var index = 0
+        for element in self
+        {
+            if(block(element))
+            {
+                indexes.append(index)
+            }
+            index += 1
+        }
+        return indexes
+    }
+    
+    /// RDExtensionsSwift: Enumerated Map with element and index
+    func enumeratedMap<T>(transform: @escaping (Element, Int) -> T) -> [T]
+    {
+        var items: [T] = []
+        var index = 0
+        for item in self
+        {
+            items.append(transform(item, index))
+            index += 1
+        }
+        return items
+    }
+    
+    /// RDExtensionsSwift: Iterable For Each with element and index
+    func iterableForEach(_ body: @escaping (Element) -> Void)
+    {
+        self.iterableForEach { item, _ in
+            body(item)
+        }
+    }
+    
+    /// RDExtensionsSwift: Iterable For Each with element and index
+    func iterableForEach(_ body: @escaping (Element, Int) -> Void)
+    {
+        var index = 0
+        for item in self
+        {
+            body(item, index)
+            index += 1
+        }
+    }
+    
+    /// RDExtensionsSwift: Returns a collection containing all but the elements that conform the closure
+    func removing(_ body: @escaping (Element) -> Bool) -> Self
+    {
+        return self.removing { item, _ in
+            return body(item)
+        }
+    }
+    
+    /// RDExtensionsSwift: Returns a collection containing all but the elements that conform the closure
+    func removing(_ body: @escaping (Element, Int) -> Bool) -> Self
+    {
+        var collection: [Element] = []
+        var index = 0
+        for item in self
+        {
+            if(!body(item, index))
+            {
+                collection.append(item)
+            }
+            index += 1
+        }
+        return collection as! Self
+    }
+    
+    /// RDExtensionsSwift: Removes all elements that conform the closure
+    mutating func remove(_ body: @escaping (Element) -> Bool)
+    {
+        self.remove { item, _ in
+            return body(item)
+        }
+    }
+    
+    /// RDExtensionsSwift: Removes all elements that conform the closure
+    mutating func remove(_ body: @escaping (Element, Int) -> Bool)
+    {
+        self = self.removing(body)
+    }
+    
 }
 
 public extension Collection where Index == Int, Iterator.Element : Collection, Iterator.Element.Index == Int {

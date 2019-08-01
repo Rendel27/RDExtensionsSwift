@@ -1,7 +1,7 @@
 //
-//  UICollectionView+General.swift
+//  Decodable+General.swift
 //
-//  Created by Giorgi Iashvili on 19.09.16.
+//  Created by Giorgi Iashvili on 08.01.19.
 //  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,26 +23,30 @@
 //  THE SOFTWARE.
 //
 
-public extension UICollectionView {
+public extension Decodable {
     
-    /// RDExtensionsSwift: Newer dequeue method guarantees a cell is returned and resized properly
-    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T where T: Reusable
+    private static func _decode<T: Decodable>(from data: Data?) throws -> T?
     {
-        if let cell = self.dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath as IndexPath) as? T
+        guard let data = data else
         {
-            return cell
+            return nil
         }
-        else
-        {
-            print("Couldn't dequeue cell with identifier: \(T.reuseIdentifier). Returning empty, newly initialized \(T.reuseIdentifier) cell")
-            return T()
-        }
+        
+        return try JSONDecoder().decode(T.self, from: data)
     }
     
-    /// RDExtensionsSwift: Dequeues and returns a UICollectionReusableView
-    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(elementKind: String, indexPath: IndexPath) -> T where T: Reusable
+    /// RDExtensionsSwift: Returns Self decoded from given data
+    static func decode(from data: Data?) -> Self?
     {
-        return self.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: T.reuseIdentifier, for: indexPath) as! T
+        do
+        {
+            return try self._decode(from: data)
+        }
+        catch
+        {
+            print(error.localizedDescription)
+            return nil
+        }
     }
     
 }
