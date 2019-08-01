@@ -1,8 +1,8 @@
 //
-//  RawRepresentableTests.swift
+//  CLLocationCoordinate2DTests.swift
 //
-//  Created by Giorgi Iashvili on 12.03.17.
-//  Copyright (c) 2017 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 08.01.19.
+//  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,29 +25,14 @@
 
 import XCTest
 import RDExtensionsSwift
+import CoreLocation
 
-public class RawRepresentableTests : XCTestCase {
+open class CLLocationCoordinate2DTests : XCTestCase {
     
-    enum kType : Int {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
-    
-    func testToString()
+    func testZero()
     {
-        XCTAssertEqual(kType.one.toString, "one")
-        XCTAssertEqual(kType.two.toString, "two")
-        XCTAssertEqual(kType.three.toString, "three")
-    }
-    
-    func testNiableInit()
-    {
-        XCTAssertNotNil(kType(rawValue: 1))
-        XCTAssertNil(kType(rawValue: 5))
-        XCTAssertEqual(kType(rawValue: 1), .one)
+        XCTAssertEqual(CLLocationCoordinate2D.zero.latitude, 0)
+        XCTAssertEqual(CLLocationCoordinate2D.zero.longitude, 0)
     }
     
 }

@@ -126,6 +126,12 @@ public extension Collection {
         self = self.removing(body)
     }
     
+    /// RDExtensionsSwift: Returns collection with subcollections including splitted elements
+    func split(maxLength: Int) -> [[Element]]
+    {
+        return self.count <= maxLength ? [Array(self)] : [Array(Array(self)[0 ..< maxLength])] + Array(Array(self)[maxLength ..< self.count]).split(maxLength: maxLength)
+    }
+    
 }
 
 public extension Collection where Index == Int, Iterator.Element : Collection, Iterator.Element.Index == Int {

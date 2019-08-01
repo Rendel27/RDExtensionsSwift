@@ -28,4 +28,18 @@ public extension RawRepresentable {
     /// RDExtensionsSwift: Return the name of the raw represantable element
     var toString : String { get { return "\(self)" } }
     
+    /// RDExtensionsSwift: Creates a new instance with the specified raw value.
+    init?(rawValue: RawValue?)
+    {
+        if let rawValue = rawValue,
+            let value = Self(rawValue: rawValue)
+        {
+            self = value
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
 }

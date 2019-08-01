@@ -77,4 +77,10 @@ open class CollectionTests : XCTestCase {
         XCTAssertEqual([1, 2, 3].toArray, array)
     }
     
+    func testSplit()
+    {
+        let collection = [1, 2, 3, 4, 5, 6, 7]
+        XCTAssertEqual(collection.split(maxLength: 3), [[1, 2, 3], [4, 5, 6], [7]])
+    }
+    
 }

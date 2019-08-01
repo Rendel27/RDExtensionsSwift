@@ -25,6 +25,7 @@
 
 public extension Decodable {
     
+    /// RDExtensionsSwift: Returns Self decoded from given data
     private static func _decode<T: Decodable>(from data: Data?) throws -> T?
     {
         guard let data = data else

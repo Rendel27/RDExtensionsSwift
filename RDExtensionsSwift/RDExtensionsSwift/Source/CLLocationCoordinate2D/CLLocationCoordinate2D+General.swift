@@ -1,8 +1,8 @@
 //
-//  RawRepresentableTests.swift
+//  CLLocationCoordinate2D+General.swift
 //
-//  Created by Giorgi Iashvili on 12.03.17.
-//  Copyright (c) 2017 Giorgi Iashvili
+//  Created by Giorgi Iashvili on 08.01.19.
+//  Copyright (c) 2016 Giorgi Iashvili
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,31 +23,28 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-import RDExtensionsSwift
+import CoreLocation
 
-public class RawRepresentableTests : XCTestCase {
+public extension CLLocationCoordinate2D {
     
-    enum kType : Int {
-        
-        case one = 1
-        case two = 2
-        case three = 3
-        
-    }
+    /// RDExtensionsSwift: The coordinates with 0 latitude and 0 longitude
+    static var zero: CLLocationCoordinate2D { get { return CLLocationCoordinate2D(latitude: 0, longitude: 0) } }
     
-    func testToString()
+    /// RDExtensionsSwift: Returns distance between the receiver and the given coordinates using Haversine Formula. Note: result is given in meters.
+    func distance(from coordinate: CLLocationCoordinate2D) -> Double
     {
-        XCTAssertEqual(kType.one.toString, "one")
-        XCTAssertEqual(kType.two.toString, "two")
-        XCTAssertEqual(kType.three.toString, "three")
-    }
-    
-    func testNiableInit()
-    {
-        XCTAssertNotNil(kType(rawValue: 1))
-        XCTAssertNil(kType(rawValue: 5))
-        XCTAssertEqual(kType(rawValue: 1), .one)
+        let lat1rad = self.latitude * Double.pi/180
+        let lon1rad = self.longitude * Double.pi/180
+        let lat2rad = coordinate.latitude * Double.pi/180
+        let lon2rad = coordinate.longitude * Double.pi/180
+        
+        let dLat = lat2rad - lat1rad
+        let dLon = lon2rad - lon1rad
+        let a = sin(dLat/2) * sin(dLat/2) + sin(dLon/2) * sin(dLon/2) * cos(lat1rad) * cos(lat2rad)
+        let c = 2 * asin(sqrt(a))
+        let R = 6372.8
+        
+        return R * c * 1000
     }
     
 }
