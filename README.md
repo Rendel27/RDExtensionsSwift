@@ -627,7 +627,7 @@ target 'ProjectName' do
     pod 'RDExtensionsSwift'
     
 # For earlier verions:
-    pod 'RDExtensionsSwift', '~> 5.0.0' # for Swift 5.0
+    pod 'RDExtensionsSwift', '~> 5.0.1' # for Swift 5.0
     pod 'RDExtensionsSwift', '~> 4.2.3' # for Swift 4.2
     pod 'RDExtensionsSwift', '~> 4.0.1' # for Swift 4
     pod 'RDExtensionsSwift', '~> 3.1.1' # for Swift 3.2
